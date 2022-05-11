@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "720607654377",
+    "firebase_url": "https://danger-b0add-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "danger-b0add",
+    "storage_bucket": "danger-b0add.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720607654377:android:9d2d806fd5e5a3e8a39b78",
+        "android_client_info": {
+          "package_name": "com.TFG.DANGER"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720607654377-609hh8vtt6ddl0h99u73pa9qtntcjjik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqZLyImyyzGPZXafi41xcZ86RABPzwuFM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720607654377-609hh8vtt6ddl0h99u73pa9qtntcjjik.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "720607654377-0767ptjds59t5p2qnq1c0a95gccknu71.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.TFG.DANGER"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

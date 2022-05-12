@@ -101,6 +101,9 @@ public class ObjectCreation : MonoBehaviour
             {new Vector3(0, -1.0f, 0), Quaternion.Euler(270,0,0)},
             {new Vector3(1.0f, 0, 0), Quaternion.Euler(0,270,0)}
         };
+        
+        Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity);
+        
     }
 
     void Update()

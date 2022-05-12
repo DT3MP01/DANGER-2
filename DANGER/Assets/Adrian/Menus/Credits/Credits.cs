@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Credits : MonoBehaviour
 {
     const float TimeOut = 20.0f;
+    private bool isPlaying = false;
     public enum SplashStates
     {
         Start,
@@ -33,6 +34,7 @@ public class Credits : MonoBehaviour
                 
                 break;
             case SplashStates.Finish:
+                Debug.Log("Finish");
                 SceneManager.LoadScene("splash");
                 break;
             default:

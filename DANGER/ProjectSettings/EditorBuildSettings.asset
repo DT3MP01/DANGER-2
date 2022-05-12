@@ -6,22 +6,22 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: "Assets/Adri\u720A/Menus/Main Menu/Splash/splash.unity"
+    path: Assets/Adrian/Menus/Main Menu/Splash/splash.unity
     guid: 3c21ff334e77f1e4aba7992c2a22a6f4
   - enabled: 1
-    path: "Assets/Adri\u720A/Menus/Main Menu/Menu Principal/Menu Principal.unity"
+    path: Assets/Adrian/Menus/Main Menu/Menu Principal/Menu Principal.unity
     guid: 52d11b5706497014b9d3ab5ce537aa4a
   - enabled: 1
-    path: Assets/Scenes/Main Scene.unity
+    path: Assets/Scenes/BuildScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/PabloScene.unity
+    path: Assets/Scenes/EscapeScene.unity
     guid: 51e94fb4cb2cede4abb34651c13e7d33
   - enabled: 1
-    path: "Assets/Adri\u720A/Menus/Main Menu/Options/Options.unity"
+    path: Assets/Adrian/Menus/Main Menu/Options/Options.unity
     guid: aaa1be3649d088b42bf841ee3c7d4a15
   - enabled: 1
-    path: "Assets/Adri\u720A/Menus/Credits/Credits.unity"
+    path: Assets/Adrian/Menus/Credits/Credits.unity
     guid: 4cd112b8109ead542a2cc43b36e5512a
   - enabled: 1
     path: Assets/Scenes/Level1Supered.unity

@@ -72,6 +72,8 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject prefabTable;
     [SerializeField] GameObject prefabWindow;
 
+
+    public Dictionary<string, GameObject> SaveParameters;
     void Start()
     {
         meters = 1;
@@ -101,10 +103,84 @@ public class ObjectCreation : MonoBehaviour
             {new Vector3(0, -1.0f, 0), Quaternion.Euler(270,0,0)},
             {new Vector3(1.0f, 0, 0), Quaternion.Euler(0,270,0)}
         };
+
+
         
-        Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity);
-        
+        initialCube = Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity,cubes.transform);
     }
+
+[System.Serializable]
+    public class SaveObject {
+        public List<Vector3> floorPositions;
+        public List<string> floortypes;
+        public List<ScriptValues> floorscriptValues;
+        public List<furnitureObject> furnitureObjects;
+
+        public SaveObject(GameObject cubes) {
+            floorPositions = new List<Vector3>();
+            floortypes = new List<string>();
+            floorscriptValues = new List<ScriptValues>();
+            furnitureObjects = new List<furnitureObject>();
+            foreach (Transform cube in cubes.transform) {
+                floorPositions.Add(cube.position);
+                floortypes.Add(cube.name.Replace("(Clone)", ""));
+                floorscriptValues.Add(new ScriptValues(cube.GetComponent<CubeObjects>()));
+                furnitureObjects.Add(new furnitureObject(cube));
+                }
+        }
+    }
+
+[System.Serializable]
+public class furnitureObject {
+    public List<Vector3> positionFurniture;
+    public List<Quaternion> rotationFurniture;
+    public List<string> tag;
+
+    public furnitureObject(Transform cube) {
+        positionFurniture = new List<Vector3>();
+        rotationFurniture = new List<Quaternion>();
+        tag = new List<string>();
+        foreach (Transform child in cube) {
+            positionFurniture.Add(child.position);
+            rotationFurniture.Add(child.rotation);
+            tag.Add(child.tag);
+        }
+    }
+}
+[System.Serializable]
+    public class ScriptValues  {
+        public bool tables, aux, door, extinguisher;
+        public int exteriorsCount, firesCount, extinguishersCount;
+        public ScriptValues(CubeObjects cube) {
+            tables = cube.tables;
+            aux = cube.aux;
+            door = cube.door;
+            extinguisher = cube.extinguisher;
+            exteriorsCount = cube.exteriorsCount;
+            firesCount = cube.firesCount;
+            extinguishersCount = cube.extinguishersCount;
+        }
+    }
+
+    public void  SaveToFileRoom()
+    {
+        SaveObject hola = new SaveObject(cubes);
+
+        string json = JsonUtility.ToJson(hola);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/Room.json", json);
+    }
+
+        public void  LoadFileRoom()
+    {
+
+        string saveFile=System.IO.File.ReadAllText(Application.persistentDataPath + "/Room.json");
+        Debug.Log(saveFile);
+        SaveObject save = JsonUtility.FromJson<SaveObject>(saveFile);
+        for (int i = 0; i < save.floorPositions.Count; i++) {
+            Instantiate(prefabCube, save.floorPositions[i], Quaternion.identity, cubes.transform);
+        }
+ }
+
 
     void Update()
     {
@@ -949,7 +1025,7 @@ public class ObjectCreation : MonoBehaviour
                         GameObject clone = Instantiate(prefab) as GameObject;
                         clone.transform.position = lastPos;
                         clone.transform.rotation = rotation;
-                        clone.transform.parent = rayCastHit.transform.parent;
+                        clone.transform.parent = rayCastHit.transform.parent.parent;
                         clone.SetActive(true);
 
                         if (!extinguishersRoom.ContainsKey(clone.transform.position))

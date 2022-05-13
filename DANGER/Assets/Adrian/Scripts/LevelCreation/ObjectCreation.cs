@@ -56,7 +56,7 @@ public class ObjectCreation : MonoBehaviour
 
     [SerializeField] GameObject initialCube;
 
-    [SerializeField] GameObject cubes;
+    [SerializeField] GameObject rooms;
     [SerializeField] GameObject prefabCube;
     [SerializeField] GameObject prefabCubeBlackPattern;
     [SerializeField] GameObject prefabCubeBlackWood;
@@ -103,27 +103,45 @@ public class ObjectCreation : MonoBehaviour
             {new Vector3(0, -1.0f, 0), Quaternion.Euler(270,0,0)},
             {new Vector3(1.0f, 0, 0), Quaternion.Euler(0,270,0)}
         };
+        
+        SaveParameters = new Dictionary<string, GameObject>()
+        {
+            {prefabWall.tag, prefabWall},
+            {prefabDoor.tag, prefabDoor},
+            {prefabExtinguisher.tag, prefabExtinguisher},
+            {prefabTable.tag, prefabTable},
+            {prefabWindow.tag, prefabWindow},
+            {prefabCube.name, prefabCube},
+            {prefabCubeBlackPattern.name, prefabCubeBlackPattern},
+            {prefabCubeBlackWood.name, prefabCubeBlackWood},
+            {prefabCubeGreyWood.name, prefabCubeGreyWood},
+            {prefabCubeOrangeWood.name, prefabCubeOrangeWood},
+            {prefabCubeRedPattern.name, prefabCubeRedPattern},
+            {prefabCubeWhitePattern.name, prefabCubeWhitePattern},
+            {prefabCubeWhiteWood.name, prefabCubeWhiteWood}
 
+        };
 
         
-        initialCube = Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity,cubes.transform);
+        initialCube = Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity,rooms.transform);
     }
 
 [System.Serializable]
-    public class SaveObject {
-        public List<Vector3> floorPositions;
-        public List<string> floortypes;
-        public List<ScriptValues> floorscriptValues;
+    public class SaveRoom {
+        public List<string> floorName;
         public List<furnitureObject> furnitureObjects;
-
-        public SaveObject(GameObject cubes) {
+        public List<Vector3> floorPositions;
+        public List<ScriptValues> floorscriptValues;
+        public StatsRoom statsRoom;
+        public SaveRoom(GameObject rooms,StatsRoom statsRoom) {
+            this.statsRoom = statsRoom;
             floorPositions = new List<Vector3>();
-            floortypes = new List<string>();
+            floorName = new List<string>();
             floorscriptValues = new List<ScriptValues>();
             furnitureObjects = new List<furnitureObject>();
-            foreach (Transform cube in cubes.transform) {
+            foreach (Transform cube in rooms.transform) {
                 floorPositions.Add(cube.position);
-                floortypes.Add(cube.name.Replace("(Clone)", ""));
+                floorName.Add(cube.name.Replace("(Clone)", ""));
                 floorscriptValues.Add(new ScriptValues(cube.GetComponent<CubeObjects>()));
                 furnitureObjects.Add(new furnitureObject(cube));
                 }
@@ -131,54 +149,55 @@ public class ObjectCreation : MonoBehaviour
     }
 
 [System.Serializable]
-public class furnitureObject {
-    public List<Vector3> positionFurniture;
-    public List<Quaternion> rotationFurniture;
-    public List<string> tag;
-
-    public furnitureObject(Transform cube) {
-        positionFurniture = new List<Vector3>();
-        rotationFurniture = new List<Quaternion>();
-        tag = new List<string>();
-        foreach (Transform child in cube) {
-            positionFurniture.Add(child.position);
-            rotationFurniture.Add(child.rotation);
-            tag.Add(child.tag);
+    public class StatsRoom {
+        public int meters, extinguishers, windows, doors, countScans;
+        public StatsRoom(int meters,int extinguisher, int windows, int doors, int countScans) {
+            this.meters = meters;
+            this.extinguishers = extinguisher;
+            this.windows = windows;
+            this.doors = doors;
+            this.countScans = countScans;
         }
-    }
-}
-[System.Serializable]
-    public class ScriptValues  {
-        public bool tables, aux, door, extinguisher;
-        public int exteriorsCount, firesCount, extinguishersCount;
-        public ScriptValues(CubeObjects cube) {
-            tables = cube.tables;
-            aux = cube.aux;
-            door = cube.door;
-            extinguisher = cube.extinguisher;
-            exteriorsCount = cube.exteriorsCount;
-            firesCount = cube.firesCount;
-            extinguishersCount = cube.extinguishersCount;
+            
         }
-    }
+    
 
     public void  SaveToFileRoom()
     {
-        SaveObject hola = new SaveObject(cubes);
-
+        StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
+        SaveRoom hola = new SaveRoom(rooms,stats);
         string json = JsonUtility.ToJson(hola);
+        Debug.Log(json);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/Room.json", json);
     }
 
         public void  LoadFileRoom()
     {
-
+        Destroy(rooms);
+        rooms = new GameObject("Rooms");
+        
         string saveFile=System.IO.File.ReadAllText(Application.persistentDataPath + "/Room.json");
         Debug.Log(saveFile);
-        SaveObject save = JsonUtility.FromJson<SaveObject>(saveFile);
+        SaveRoom save = JsonUtility.FromJson<SaveRoom>(saveFile);
+
         for (int i = 0; i < save.floorPositions.Count; i++) {
-            Instantiate(prefabCube, save.floorPositions[i], Quaternion.identity, cubes.transform);
+           GameObject floorLevel= Instantiate(SaveParameters[save.floorName[i]], save.floorPositions[i], Quaternion.identity, rooms.transform);
+            floorLevel.GetComponent<CubeObjects>().SetValues(save.floorscriptValues[i]);
+            furnitureObject furnitureObjects=save.furnitureObjects[i];
+            for(int j=0; j<furnitureObjects.positionFurniture.Count; j++){
+               GameObject furnitureLevel = Instantiate(SaveParameters[furnitureObjects.prefabTag[j]], furnitureObjects.positionFurniture[j], furnitureObjects.rotationFurniture[j], floorLevel.transform);
+                wallFurniture wallObjects=furnitureObjects.wallObjects[j];
+               for (int k = 0; k < wallObjects.positionFurniture.Count; k++) {
+                    Instantiate(SaveParameters[wallObjects.prefabTag[k]], wallObjects.positionFurniture[k], wallObjects.rotationFurniture[k], furnitureLevel.transform);
+                }
+            }
         }
+        initialCube = rooms.GetComponentInChildren<Transform>().GetChild(0).gameObject;
+        meters =save.statsRoom.meters;
+        extinguishers = save.statsRoom.extinguishers;
+        windows = save.statsRoom.windows;
+        doors = save.statsRoom.doors;
+        countScans = save.statsRoom.countScans;
  }
 
 
@@ -970,7 +989,7 @@ public class furnitureObject {
                             Destroy(child.gameObject);
                         }
 
-                        clone.transform.parent = cubes.transform;
+                        clone.transform.parent = rooms.transform;
                     }
 
                     StartCoroutine(waitASec());
@@ -1025,7 +1044,7 @@ public class furnitureObject {
                         GameObject clone = Instantiate(prefab) as GameObject;
                         clone.transform.position = lastPos;
                         clone.transform.rotation = rotation;
-                        clone.transform.parent = rayCastHit.transform.parent.parent;
+                        clone.transform.parent = rayCastHit.transform.parent;
                         clone.SetActive(true);
 
                         if (!extinguishersRoom.ContainsKey(clone.transform.position))

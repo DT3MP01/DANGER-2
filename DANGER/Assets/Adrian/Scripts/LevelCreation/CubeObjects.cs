@@ -7,12 +7,11 @@ public class CubeObjects : MonoBehaviour
     public Dictionary<Vector3, bool> exteriors;
     public Dictionary<Vector3, bool> fires;
     public Dictionary<Vector3, bool> extinguishers;
-    public Dictionary<Vector3, bool> cubes;
     public bool tables, aux, door, extinguisher;
 
     public int exteriorsCount, firesCount, extinguishersCount;
 
-    void Start()
+    void Awake()
     {
         aux = false;
         tables = true;
@@ -88,6 +87,7 @@ public class CubeObjects : MonoBehaviour
 
     public void deleteItem(string tag, Vector3 item)
     {
+        Debug.Log(exteriors.ToString());
         if ((tag == "Wall" || tag == "Window" || tag == "Door") && exteriors.ContainsKey(item))
         {
             exteriors.Remove(item);
@@ -115,5 +115,24 @@ public class CubeObjects : MonoBehaviour
         {
             tables = true;
         }
+    }
+
+    public void SetValues(ScriptValues script)
+    {
+        List<Vector3> keys = new List<Vector3>(exteriors.Keys);
+        for(int i = 0; i < extinguishers.Keys.Count; i++)
+        {
+            extinguishers[keys[i]] = script.extinguishers[i];
+            fires[keys[i]] = script.fires[i];
+            exteriors[keys[i]] = script.exteriors[i];
+        }
+        extinguisher = script.extinguisher;
+        tables = script.tables;
+        aux = script.aux;
+        door = script.door;
+
+        exteriorsCount = script.exteriorsCount;
+        firesCount = script.firesCount;
+        extinguishersCount = script.extinguishersCount;
     }
 }

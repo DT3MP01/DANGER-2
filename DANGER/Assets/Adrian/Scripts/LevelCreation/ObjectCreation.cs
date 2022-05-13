@@ -164,6 +164,9 @@ public class ObjectCreation : MonoBehaviour
 
     public void  SaveToFileRoom()
     {
+        if(reduced){
+            reduceWalls();
+        }
         StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
         SaveRoom hola = new SaveRoom(rooms,stats);
         string json = JsonUtility.ToJson(hola);
@@ -173,6 +176,9 @@ public class ObjectCreation : MonoBehaviour
 
         public void  LoadFileRoom()
     {
+        if(reduced){
+            reduced = false;
+        }
         Destroy(rooms);
         rooms = new GameObject("Rooms");
         
@@ -1160,88 +1166,61 @@ public class ObjectCreation : MonoBehaviour
 
     public void reduceWalls()
     {
-        if (wallsRoom.Values == null) return;
-        if (extinguishersRoom.Values == null) return;
+        // if (wallsRoom.Values == null) return;
+        // if (extinguishersRoom.Values == null) return;
 
-        Dictionary<Vector3, GameObject>.ValueCollection exteriorValues = wallsRoom.Values;
-        Dictionary<Vector3, GameObject>.ValueCollection extinguisherValues = extinguishersRoom.Values;
+        // Dictionary<Vector3, GameObject>.ValueCollection exteriorValues = wallsRoom.Values;
+        // Dictionary<Vector3, GameObject>.ValueCollection extinguisherValues = extinguishersRoom.Values;
 
         if (!reduced)
         {
-            foreach (GameObject exterior in exteriorValues)
+            foreach (Transform cube in rooms.transform)
             {
-                if (exterior != null)
-                {
-                    if(exterior.transform.tag == "Window")
+                foreach(Transform exterior in cube){
+
+                    if(exterior.tag == "Window")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 0.5f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 0.75f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 0.5f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 0.75f, exterior.position.z);
                     }
-                    else if (exterior.transform.tag == "Wall")
+                    else if (exterior.tag == "Wall")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 0.5f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 1f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 0.5f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 1f, exterior.position.z);
                     }
-                    else if (exterior.transform.tag == "Door")
+                    else if (exterior.tag == "Door")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 0.48f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 0.995f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 0.48f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 0.995f, exterior.position.z);
                     }
                 }
             }
-            
-            if(extinguishers > 0)
-            {
-                foreach (GameObject token in extinguisherValues)
-                {
-                    if (token != null)
-                    {
-                        token.SetActive(false);
-                    } 
-                }
-            }
-
-            StartCoroutine(disableSelectors());
-
+             StartCoroutine(disableSelectors());
             reduced = true;
         } 
         else
         {
-            foreach (GameObject exterior in exteriorValues)
+             foreach (Transform cube in rooms.transform)
             {
-                if (exterior != null) 
-                {
-                    if (exterior.transform.tag == "Window")
+                foreach(Transform exterior in cube){
+                    if (exterior.tag == "Window")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 1f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 1f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 1f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 1f, exterior.position.z);
                     }
-                    else if (exterior.transform.tag == "Wall")
+                    else if (exterior.tag == "Wall")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 1f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 1.5f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 1f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 1.5f, exterior.position.z);
                     }
-                    else if (exterior.transform.tag == "Door")
+                    else if (exterior.tag == "Door")
                     {
-                        exterior.transform.localScale = new Vector3(exterior.transform.localScale.x, 0.98f, exterior.transform.localScale.z);
-                        exterior.transform.position = new Vector3(exterior.transform.position.x, 1.493f, exterior.transform.position.z);
+                        exterior.localScale = new Vector3(exterior.localScale.x, 0.98f, exterior.localScale.z);
+                        exterior.position = new Vector3(exterior.position.x, 1.493f, exterior.position.z);
                     }
                 }
             }
-
-            if(extinguishers > 0)
-            {
-                foreach (GameObject token in extinguisherValues)
-                {
-                    if (token != null)
-                    {
-                        token.SetActive(true);
-                    }
-                }
-            }
-
             StartCoroutine(disableSelectors());
-
             reduced = false;
         }
     }

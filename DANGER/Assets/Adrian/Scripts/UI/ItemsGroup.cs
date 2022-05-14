@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ItemsGroup : MonoBehaviour
 {
+
     public List<ItemsButton> itemButtons;
     public List<GameObject> objectsToSwap;
+
 
     public Sprite itemIdle;
     public Sprite itemHover;

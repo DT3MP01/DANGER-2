@@ -10778,7 +10778,7 @@ MonoBehaviour:
   prefabCubeRedPattern: {fileID: 7686001656532442770, guid: 341ec4bbf5743874292ed9777a99afa3, type: 3}
   prefabCubeWhitePattern: {fileID: 7686001656532442770, guid: 2d889a71b58fbd847a6c7c49e72dbb69, type: 3}
   prefabCubeWhiteWood: {fileID: 7686001656532442770, guid: 8328e4a76961048419a170466887671b, type: 3}
-  prefabWall: {fileID: 7703346104906210522, guid: a2bec7ed9c118974ebad788b8b95b962, type: 3}
+  prefabWall: {fileID: 690057332283422468, guid: 099e9cc0f039f1d4d8a245a17c3ca049, type: 3}
   prefabDoor: {fileID: 1546866186244504, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
   prefabExtinguisher: {fileID: 6927557591464319898, guid: 836d0e14226d1ae4cbe12227cef999b7, type: 3}
   prefabTable: {fileID: 2159733103394065021, guid: d0365e01194ae1806badd86ea4b0eabd, type: 3}

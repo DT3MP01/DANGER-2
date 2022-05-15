@@ -161,13 +161,13 @@ public class RoomPopulator : MonoBehaviour
                     esqAD = new Vector3(j + (objWidth / 2f), 0, i + (objLength / 2f));
                     esqBD = new Vector3(j + (objWidth / 2f), 0, i - (objLength / 2f));
 
-                    if ((esqAI.x >= room.minX & esqAI.x <= room.maxX & esqAI.z >= room.minZ & esqAI.z <= room.maxZ) &             // Si las esquinas del objeto están dentro de la sala
+                    if ((esqAI.x >= room.minX & esqAI.x <= room.maxX & esqAI.z >= room.minZ & esqAI.z <= room.maxZ) &             // Si las esquinas del objeto estï¿½n dentro de la sala
                         (esqBI.x >= room.minX & esqBI.x <= room.maxX & esqBI.z >= room.minZ & esqBI.z <= room.maxZ) &
                         (esqAD.x >= room.minX & esqAD.x <= room.maxX & esqAD.z >= room.minZ & esqAD.z <= room.maxZ) &
                         (esqBD.x >= room.minX & esqBD.x <= room.maxX & esqBD.z >= room.minZ & esqBD.z <= room.maxZ)
                         )
                     {
-                        for (int k = 0; k < restrictedAreas.Count; k++)                                                 // Comprobamos si el objeto incumple alguna restricción
+                        for (int k = 0; k < restrictedAreas.Count; k++)                                                 // Comprobamos si el objeto incumple alguna restricciï¿½n
                         {
                             if ((esqAI.x > restrictedAreas[k].minX && esqAI.x < restrictedAreas[k].maxX && esqAI.z > restrictedAreas[k].minZ && esqAI.z < restrictedAreas[k].maxZ) ||
                                 (esqBI.x > restrictedAreas[k].minX && esqBI.x < restrictedAreas[k].maxX && esqBI.z > restrictedAreas[k].minZ && esqBI.z < restrictedAreas[k].maxZ) ||
@@ -266,7 +266,7 @@ public class RoomPopulator : MonoBehaviour
             {
                 Debug.Log("------------grid[j,k]==1 && remWidth != 0---------------");
                 if (remLength == 0) 
-                {   hemos terminado de introducir el objeto,CREAMOS EL OBJETO en la posición de la casilla+coordenadas reales en juego, restablecemos remX y remY y probamos a partir de prevX, break
+                {   hemos terminado de introducir el objeto,CREAMOS EL OBJETO en la posiciï¿½n de la casilla+coordenadas reales en juego, restablecemos remX y remY y probamos a partir de prevX, break
 
                     Instantiate(objectsToSpawn[0], new Vector3(j+ roomsList[0].coords.x- width/2f, 0, k+ roomsList[0].coords.z-length/2f+0.5f), Quaternion.Euler(0f, 0f, 0f));
                     Debug.Log("orig" + origObjWidth);
@@ -312,13 +312,13 @@ public class RoomPopulator : MonoBehaviour
         // Recorremos la lista {1,2,3,4}
         for (int i = a.Length - 1; i > 0; i--)
         {
-            // Número aleatorio entre 0 y i (de forma que i decrementa cada iteración)
+            // Nï¿½mero aleatorio entre 0 y i (de forma que i decrementa cada iteraciï¿½n)
             int rnd = UnityEngine.Random.Range(0, i);
 
             // Guardamos el valor que hay en a[i] 
             GameObject temp = a[i];
 
-            // intercambiamos el valor de a[i] con el valor de que hay en la posición aleatoria
+            // intercambiamos el valor de a[i] con el valor de que hay en la posiciï¿½n aleatoria
             a[i] = a[rnd];
             a[rnd] = temp;
         }

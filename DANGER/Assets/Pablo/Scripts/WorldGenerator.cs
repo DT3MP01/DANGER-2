@@ -15,8 +15,6 @@ public class WorldGenerator : RoomPopulator
     public bool enablePopulate;
     
 
-
-
     public int minLength =7;
     public int maxLength = 40;
     public int minWidth = 7;
@@ -129,7 +127,7 @@ public class WorldGenerator : RoomPopulator
                 
                 //if (roomsToGenerate == 3) { aux1 = genP; }
                 //if (roomsToGenerate == 2) { aux2 = genP; }
-                roomsToGenerate = roomsToGenerate - 1; }  // añadimos a generatedRooms una sala si esta ha podido ser generada al no haber colisiones
+                roomsToGenerate = roomsToGenerate - 1; }  // aï¿½adimos a generatedRooms una sala si esta ha podido ser generada al no haber colisiones
             else { ocuppied = false; }
             genP = genQ.Dequeue();
             
@@ -301,11 +299,11 @@ public class WorldGenerator : RoomPopulator
             leftUpVer.transform.localScale += new Vector3(0, 1, length - 1);
             rightDownVer.transform.localScale += new Vector3(0, 1, length - 1);
             rightUpVer.transform.localScale += new Vector3(0, 1, length - 1);
-            Instantiate(npcPrefab, new Vector3(roomCentre.x, -2f, roomCentre.z), Quaternion.identity);  // Añadimos un primer agente en el centro de la sala
+            Instantiate(npcPrefab, new Vector3(roomCentre.x, -2f, roomCentre.z), Quaternion.identity);  // Aï¿½adimos un primer agente en el centro de la sala
             GlobalVar.totalNPCs += 1;
 
 
-            /*Una vez creadas las paredes, creamos un plano con el tamaño original de anchura y largo, que se corresponde con las dimensiones de la habitación. Como los planos en Unity se crean por defecto con dimensiones 10x10,
+            /*Una vez creadas las paredes, creamos un plano con el tamaï¿½o original de anchura y largo, que se corresponde con las dimensiones de la habitaciï¿½n. Como los planos en Unity se crean por defecto con dimensiones 10x10,
              * he creado un prefab que lo escala a 1x1 poniendole como escala 0.1 en los ejes X y Z. Para ampliarlo (al no ser sobre uno )    
              * 
              */
@@ -370,13 +368,13 @@ public class WorldGenerator : RoomPopulator
         // Recorremos la lista {1,2,3,4}
         for (int i = a.Length-1;  i > 0; i--)
         {
-            // Número aleatorio entre 0 y i (de forma que i decrementa cada iteración)
+            // Numero aleatorio entre 0 y i (de forma que i decrementa cada iteraciï¿½n)
             int rnd = Random.Range(0, i);
 
             // Guardamos el valor que hay en a[i] 
             int temp = a[i];
 
-            // intercambiamos el valor de a[i] con el valor de que hay en la posición aleatoria
+            // intercambiamos el valor de a[i] con el valor de que hay en la posiciï¿½n aleatoria
             a[i] = a[rnd];
             a[rnd] = temp;
         }
@@ -400,7 +398,7 @@ public class WorldGenerator : RoomPopulator
                 Debug.Log("1:     " + aux1.coords);
                 Debug.Log("2:     " + aux2.coords);
                 Debug.Log("middle: " + GlobalVar.middleX + " " + GlobalVar.middleZ);
-                //aux1.coords += new Vector3(0, 0.55f, 0); // para que no este en contacto con el suelo sino levitando sobre el y n haya colisión
+                //aux1.coords += new Vector3(0, 0.55f, 0); // para que no este en contacto con el suelo sino levitando sobre el y n haya colisiï¿½n
                 //aux2.coords += new Vector3(0, 0.55f, 0);
                 //Cogemos los 2 ultimos generadores, calculamos la distrancia con el centro del mapa y escogemos aquel que est?mas alejado
                 if (Mathf.Sqrt(

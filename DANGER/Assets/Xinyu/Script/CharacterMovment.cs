@@ -9,6 +9,8 @@ public class CharacterMovment : MonoBehaviour
 
     private NavMeshAgent agent; //Libreria AI, para encontrar camino
     private Animator animator;
+    public string parameterHorizontal = "AxisX";
+    public string parameterVertical = "AxisY";
 
     public bool underControl;
 
@@ -17,51 +19,25 @@ public class CharacterMovment : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (underControl)
-        {
-
-            if (!agent.hasPath)
-                animator.SetBool("Walk", false);
-            else
-                animator.SetBool("Walk", true);
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                Move();
+        if (Input.GetMouseButtonDown(0))
+        { //se traza un rayo desde el punto pulsado en la pantalla hasta el escenario
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {// si el rayo choca con algo actualiza el punto de intersección como destino
+                agent.destination = hit.point;
             }
         }
-        else
-        {
-            //Quieto xd
-            //agent.SetDestination(transform.position);
-
-        }
+        //actualizar la animación de locomoción con los parámetros de avance y giro del agente
+        animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);  
+        animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
 
     }
-
-    private void Move()
-    {
-        Vector3 mousePosition = Input.mousePosition;
-        Ray ray = Camera.main.ScreenPointToRay(mousePosition); //Un rayo de camara a cursos
-        RaycastHit hit; //Cosa que vamos a chocar
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            //if (hit.collider.gameObject.tag == "Terrain" || hit.collider.gameObject.tag == "DangerFire" || hit.collider.gameObject.tag == "Fire")
-            //{
-                agent.SetDestination(hit.point);
-                transform.LookAt(hit.point);
-            //}
-
-        }
-    }
-
-
 }

@@ -10767,7 +10767,7 @@ MonoBehaviour:
   selectBubbleRed: {fileID: 1217314320}
   selectExteriorRed: {fileID: 555010921}
   selectExtinguisherRed: {fileID: 1251185620}
-  prefab: {fileID: 0}
+  prefab: {fileID: 7686001656532442770, guid: c8e3f4275b818fb4a9549f6f7d7b6def, type: 3}
   initialCube: {fileID: 7686001656532442770, guid: c8e3f4275b818fb4a9549f6f7d7b6def, type: 3}
   rooms: {fileID: 370019716}
   prefabCube: {fileID: 7686001656532442770, guid: c8e3f4275b818fb4a9549f6f7d7b6def, type: 3}
@@ -10780,7 +10780,7 @@ MonoBehaviour:
   prefabCubeWhiteWood: {fileID: 7686001656532442770, guid: 8328e4a76961048419a170466887671b, type: 3}
   prefabWall: {fileID: 690057332283422468, guid: 099e9cc0f039f1d4d8a245a17c3ca049, type: 3}
   prefabDoor: {fileID: 1546866186244504, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
-  prefabExtinguisher: {fileID: 6927557591464319898, guid: 836d0e14226d1ae4cbe12227cef999b7, type: 3}
+  prefabExtinguisher: {fileID: 3375355652638791714, guid: 6b56c3e3c1a5ab64c8a9eb5a0cd75d32, type: 3}
   prefabTable: {fileID: 2159733103394065021, guid: d0365e01194ae1806badd86ea4b0eabd, type: 3}
   prefabWindow: {fileID: 814623339566748033, guid: 082144f5ff5624d41bce56289a96518c, type: 3}
 --- !u!1 &2094740027

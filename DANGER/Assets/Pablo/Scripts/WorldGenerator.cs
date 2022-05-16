@@ -115,16 +115,10 @@ public class WorldGenerator : RoomPopulator
         while(roomsToGenerate > 0)
         {
             roomGenerator(genP);
-
-
             //Debug.Log("Origin: "+genP.coords);
-
-            
             if (!ocuppied) {
                 //aux2 previo
                 //aux1 ultimo
-
-                
                 //if (roomsToGenerate == 3) { aux1 = genP; }
                 //if (roomsToGenerate == 2) { aux2 = genP; }
                 roomsToGenerate = roomsToGenerate - 1; }  // a�adimos a generatedRooms una sala si esta ha podido ser generada al no haber colisiones
@@ -245,7 +239,7 @@ public class WorldGenerator : RoomPopulator
             Debug.Log("Creating room..." + createdRooms);
             createdRooms += 1;
 
-            GameObject roomParent = Instantiate(roomParentPrefab, new Vector3(roomCentre.x, 0, roomCentre.z), Quaternion.identity);
+            GameObject roomParent = Instantiate(roomParentPrefab, new Vector3(roomCentre.x, 0, roomCentre.z), Quaternion.identity,this.transform);
             generatedRooms.Add(new generatorPoint( new Vector3(roomCentre.x,0,roomCentre.z), genP.direction));
             generatedWidths.Add(originWidth);
             generatedLengths.Add(originLength);

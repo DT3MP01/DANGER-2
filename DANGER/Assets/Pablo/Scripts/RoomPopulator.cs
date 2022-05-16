@@ -117,10 +117,6 @@ public class RoomPopulator : MonoBehaviour
         Debug.Log("ObjectZsize: " + objLength);
         objHeigth = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.y);
 
-        
-
-
-
         //1) Calcular esquinas como centro + width (o length) /2
         for (int r = 0; r < roomsList.Count; r++) 
         

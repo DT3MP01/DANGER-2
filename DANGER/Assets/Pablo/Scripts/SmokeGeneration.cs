@@ -68,17 +68,6 @@ public class SmokeGeneration : MonoBehaviour
                 StartCoroutine(generarHumo(x, z + 1, minAncho, maxAlto));
                 yield return new WaitForSeconds(smokeSpreadSpeed);
                 StartCoroutine(generarHumo(x, z - 1, minAncho, maxAlto));
-
-                /*
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x + 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x - 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z + 2, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z - 2, minAncho, maxAlto));
-                */
             }
 
         }
@@ -95,13 +84,13 @@ public class SmokeGeneration : MonoBehaviour
         // Recorremos la lista {1,2,3,4}
         for (int i = a.Count - 1; i > 0; i--)
         {
-            // Número aleatorio entre 0 y i (de forma que i decrementa cada iteración)
+            // Nï¿½mero aleatorio entre 0 y i (de forma que i decrementa cada iteraciï¿½n)
             int rnd = UnityEngine.Random.Range(0, i);
 
             // Guardamos el valor que hay en a[i] 
             WorldGenerator.generatorPoint temp = a[i];
 
-            // intercambiamos el valor de a[i] con el valor de que hay en la posición aleatoria
+            // intercambiamos el valor de a[i] con el valor de que hay en la posiciï¿½n aleatoria
             a[i] = a[rnd];
             a[rnd] = temp;
             //if ("1" in ["2","3"]){ }

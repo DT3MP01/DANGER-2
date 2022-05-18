@@ -1108,7 +1108,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 1
+  m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2909,7 +2909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda14f51525dea4195f8870a07ef5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 8678493525082539834, guid: 326ba53399cb6df468e6a2035a83350d, type: 3}
+  fire: {fileID: 7685568948667721206, guid: 9981e4cec22644c10bd12f28ca683bae, type: 3}
   fireSpreadSpeed: 2
   maxAncho: 0
   minAncho: 0

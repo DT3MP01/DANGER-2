@@ -72,6 +72,7 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject prefabDoor;
     [SerializeField] GameObject prefabExtinguisher;
     [SerializeField] GameObject prefabTable;
+    [SerializeField] GameObject prefabPlant;
     [SerializeField] GameObject prefabWindow;
 
 
@@ -113,6 +114,7 @@ public class ObjectCreation : MonoBehaviour
             {prefabDoor.tag, prefabDoor},
             {prefabExtinguisher.tag, prefabExtinguisher},
             {prefabTable.tag, prefabTable},
+            {prefabPlant.tag, prefabPlant},
             {prefabWindow.tag, prefabWindow},
             {prefabCube.name, prefabCube},
             {prefabCubeBlackPattern.name, prefabCubeBlackPattern},
@@ -669,10 +671,9 @@ public class ObjectCreation : MonoBehaviour
                         }
                         extinguishersRoom.Remove(rayCastHit.transform.position);
                     }
-                    else if (rayCastHit.transform.tag == "Table")
+                    else if (rayCastHit.transform.tag == "Table" || rayCastHit.transform.tag == "Plant")
                     {
                         cube = rayCastHit.transform.gameObject.GetComponentInParent(typeof(CubeObjects)) as CubeObjects;
-
                         cube.deleteItem("Table", new Vector3(0f, 0f, 0f));
                         Destroy(rayCastHit.transform.gameObject, 0.1f);
                     }
@@ -909,7 +910,7 @@ public class ObjectCreation : MonoBehaviour
 
                                 windows++;
                             }
-                            else if (prefab.transform.tag.Equals("Table"))
+                            else if (prefab.transform.tag.Equals("Table") ||prefab.transform.tag.Equals("Plant") )
                             {
                                 if (clonedCube.putItem("Table", new Vector3(0f, 0f, 0f)))
                                 {
@@ -1315,6 +1316,10 @@ public class ObjectCreation : MonoBehaviour
             {
                 prefab = prefabTable;
             }
+            else if (newPrefab == "Plant" && prefab.transform.tag != "Plant")
+            {
+                prefab = prefabPlant;
+            }
             else if (newPrefab == "Window" && prefab.transform.tag != "Window")
             {
                 prefab = prefabWindow;
@@ -1370,10 +1375,15 @@ public class ObjectCreation : MonoBehaviour
             {
                 prefab = prefabTable;
             }
+            else if (newPrefab == "Plant")
+            {
+                prefab = prefabPlant;
+            }
             else if (newPrefab == "Window")
             {
                 prefab = prefabWindow;
             }
+
         }
 
         selectedItemText.GetComponent<TMPro.TextMeshProUGUI>().text = newPrefab;

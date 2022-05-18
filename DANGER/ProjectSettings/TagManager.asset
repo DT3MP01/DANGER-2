@@ -21,6 +21,7 @@ TagManager:
   - OtherPanel
   - DialogUI
   - SceneOneControl
+  - Plant
   layers:
   - Default
   - TransparentFX

@@ -76,7 +76,7 @@ public class CubeObjects : MonoBehaviour
             extinguishers.Add(item, false);
             if (aux) extinguishersCount++;
         }
-        else if (tag == "Table")
+        else if (tag == "Furniture")
         {
             if (extinguisher || door) return false;
             aux = tables;
@@ -111,7 +111,7 @@ public class CubeObjects : MonoBehaviour
             extinguisher = false;
             if(aux) extinguishersCount--;
         }
-        else if (tag == "Table") 
+        else if (tag == "Furniture") 
         {
             tables = true;
         }

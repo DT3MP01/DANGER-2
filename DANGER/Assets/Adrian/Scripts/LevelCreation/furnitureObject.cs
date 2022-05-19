@@ -18,7 +18,7 @@ public class furnitureObject {
         foreach (Transform child in cube) {
             positionFurniture.Add(child.position);
             rotationFurniture.Add(child.rotation);
-            prefabTag.Add(child.tag);
+            prefabTag.Add(child.name.Replace("(Clone)", ""));
             wallObjects.Add(new wallFurniture(child));
         }
     }

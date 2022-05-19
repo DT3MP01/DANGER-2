@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3707272893587319172}
   m_Layer: 0
   m_Name: Mesh(Clone)
-  m_TagString: Plant
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 7418561405304109664}
   m_Layer: 0
   m_Name: Plant
-  m_TagString: Plant
+  m_TagString: Furniture
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

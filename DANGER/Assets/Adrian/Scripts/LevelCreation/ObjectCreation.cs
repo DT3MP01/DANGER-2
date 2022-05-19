@@ -59,6 +59,8 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject initialCube;
 
     [SerializeField] GameObject rooms;
+
+    [Header("Floors")]
     [SerializeField] GameObject prefabCube;
     [SerializeField] GameObject prefabCubeBlackPattern;
     [SerializeField] GameObject prefabCubeBlackWood;
@@ -68,10 +70,18 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject prefabCubeWhitePattern;
     [SerializeField] GameObject prefabCubeWhiteWood;
 
+    [Header("Walls")]
     [SerializeField] GameObject prefabWall;
+
+    [Header("Doors")]
     [SerializeField] GameObject prefabDoor;
+    [Header("Furniture")]
     [SerializeField] GameObject prefabExtinguisher;
     [SerializeField] GameObject prefabTable;
+    [SerializeField] GameObject prefabChair;
+    [SerializeField] GameObject prefabCabinet;
+    [SerializeField] GameObject prefabBin;
+    [SerializeField] GameObject prefabLamp;
     [SerializeField] GameObject prefabPlant;
     [SerializeField] GameObject prefabWindow;
 
@@ -113,8 +123,13 @@ public class ObjectCreation : MonoBehaviour
             {prefabWall.tag, prefabWall},
             {prefabDoor.tag, prefabDoor},
             {prefabExtinguisher.tag, prefabExtinguisher},
-            {prefabTable.tag, prefabTable},
-            {prefabPlant.tag, prefabPlant},
+            {prefabTable.name, prefabTable},
+            {prefabPlant.name, prefabPlant},
+            {prefabChair.name, prefabChair},
+            {prefabCabinet.name, prefabCabinet},
+            {prefabBin.name, prefabBin},
+            {prefabLamp.name, prefabLamp},
+            
             {prefabWindow.tag, prefabWindow},
             {prefabCube.name, prefabCube},
             {prefabCubeBlackPattern.name, prefabCubeBlackPattern},
@@ -124,7 +139,6 @@ public class ObjectCreation : MonoBehaviour
             {prefabCubeRedPattern.name, prefabCubeRedPattern},
             {prefabCubeWhitePattern.name, prefabCubeWhitePattern},
             {prefabCubeWhiteWood.name, prefabCubeWhiteWood}
-
         };
 
         
@@ -671,11 +685,11 @@ public class ObjectCreation : MonoBehaviour
                         }
                         extinguishersRoom.Remove(rayCastHit.transform.position);
                     }
-                    else if (rayCastHit.transform.tag == "Table" || rayCastHit.transform.tag == "Plant")
+                    else if (rayCastHit.transform.tag == "Furniture")
                     {
                         cube = rayCastHit.transform.gameObject.GetComponentInParent(typeof(CubeObjects)) as CubeObjects;
-                        cube.deleteItem("Table", new Vector3(0f, 0f, 0f));
-                        Destroy(rayCastHit.transform.gameObject, 0.1f);
+                        cube.deleteItem("Furniture", new Vector3(0f, 0f, 0f));
+                        Destroy(rayCastHit.transform.parent.gameObject, 0.1f);
                     }
                     else
                     {
@@ -910,12 +924,27 @@ public class ObjectCreation : MonoBehaviour
 
                                 windows++;
                             }
-                            else if (prefab.transform.tag.Equals("Table") ||prefab.transform.tag.Equals("Plant") )
+                            else if (prefab.transform.tag.Equals("Furniture"))
                             {
-                                if (clonedCube.putItem("Table", new Vector3(0f, 0f, 0f)))
+                                if (clonedCube.putItem("Furniture", new Vector3(0f, 0f, 0f)))
                                 {
                                     lastPos = rayCastHit.transform.position + new Vector3(0f, 1.149f, 0f);
-                                    rotation = Quaternion.identity;
+
+                                    if (Vector3.Dot(Camera.main.transform.forward, Vector3.back) > 0.4)
+                                    {
+                                        rotation = Quaternion.Euler(0, 180, 0);
+                                    }
+                                    else if (Vector3.Dot(Camera.main.transform.forward, Vector3.right) > 0.4)
+                                    {
+                                        rotation = Quaternion.Euler(0, 90, 0);
+                                    }
+                                    else if ((Vector3.Dot(Camera.main.transform.forward, Vector3.left) > 0.4))
+                                    {
+                                        rotation = Quaternion.Euler(0, -90, 0);
+                                    }
+                                    else{
+                                        rotation = Quaternion.identity;
+                                    }
                                 }
                                 else
                                 {
@@ -1316,10 +1345,27 @@ public class ObjectCreation : MonoBehaviour
             {
                 prefab = prefabTable;
             }
-            else if (newPrefab == "Plant" && prefab.transform.tag != "Plant")
+            else if (newPrefab == "Plant" && prefab.transform.name != "Plant")
             {
                 prefab = prefabPlant;
             }
+            else if (newPrefab == "Chair" && prefab.transform.name != "Chair")
+            {
+                prefab = prefabChair;
+            }
+            else if (newPrefab == "Bin" && prefab.transform.name != "Bin")
+            {
+                prefab = prefabBin;
+            }
+            else if (newPrefab == "Cabinet" && prefab.transform.name != "Cabinet")
+            {
+                prefab = prefabCabinet;
+            }
+            else if (newPrefab == "Lamp" && prefab.transform.name != "Lamp")
+            {
+                prefab = prefabLamp;
+            }
+
             else if (newPrefab == "Window" && prefab.transform.tag != "Window")
             {
                 prefab = prefabWindow;
@@ -1378,6 +1424,22 @@ public class ObjectCreation : MonoBehaviour
             else if (newPrefab == "Plant")
             {
                 prefab = prefabPlant;
+            }
+            else if (newPrefab == "Chair")
+            {
+                prefab = prefabChair;
+            }
+            else if (newPrefab == "Bin")
+            {
+                prefab = prefabBin;
+            }
+            else if (newPrefab == "Cabinet")
+            {
+                prefab = prefabCabinet;
+            }
+            else if (newPrefab == "Lamp")
+            {
+                prefab = prefabLamp;
             }
             else if (newPrefab == "Window")
             {

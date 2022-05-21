@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TheKiwiCoder;
 
-namespace TheKiwiCoder {
-    public class Wait : ActionNode {
+public class Scared : ActionNode
+{
         public float duration = 2;
         float startTime;
-
         protected override void OnStart() {
+            context.animator.SetBool("isScared", context.gameObject.GetComponent<AiSensor>().isTerrified);
             startTime = Time.time;
         }
 
@@ -15,10 +16,10 @@ namespace TheKiwiCoder {
         }
 
         protected override State OnUpdate() {
-            if (Time.time - startTime > duration) {
+            if (context.gameObject.GetComponent<AiSensor>().isTerrified==false) {
+                context.animator.SetBool("isScared", false);
                 return State.Success;
             }
             return State.Running;
         }
-    }
 }

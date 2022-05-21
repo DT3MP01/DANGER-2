@@ -27,17 +27,20 @@ public class CharacterMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        { //se traza un rayo desde el punto pulsado en la pantalla hasta el escenario
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {// si el rayo choca con algo actualiza el punto de intersección como destino
-                agent.destination = hit.point;
+        if(underControl){
+            if (Input.GetMouseButtonDown(0))
+            { //se traza un rayo desde el punto pulsado en la pantalla hasta el escenario
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out RaycastHit hit))
+                {// si el rayo choca con algo actualiza el punto de intersección como destino
+                    agent.destination = hit.point;
+                }
             }
+            //actualizar la animación de locomoción con los parámetros de avance y giro del agente
+            animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);  
+            animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
         }
-        //actualizar la animación de locomoción con los parámetros de avance y giro del agente
-        animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);  
-        animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
+
 
     }
 }

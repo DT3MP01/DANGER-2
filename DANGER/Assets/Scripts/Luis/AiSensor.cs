@@ -20,6 +20,10 @@ public class AiSensor : MonoBehaviour
     public List<GameObject> Objects = new List<GameObject>();
     float scanInterval;
     float scanTimer;
+    [Header("Detections")]
+    public bool isSmokeNearby=false;
+    public bool isTerrified;
+
 
     Mesh mesh;
     void Start()

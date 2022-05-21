@@ -120,17 +120,19 @@ public class ObjectCreation : MonoBehaviour
         
         SaveParameters = new Dictionary<string, GameObject>()
         {
-            {prefabWall.tag, prefabWall},
-            {prefabDoor.tag, prefabDoor},
-            {prefabExtinguisher.tag, prefabExtinguisher},
+            {prefabWall.name, prefabWall},
+            {prefabDoor.name, prefabDoor},
+            {prefabExtinguisher.name, prefabExtinguisher},
             {prefabTable.name, prefabTable},
+            
             {prefabPlant.name, prefabPlant},
             {prefabChair.name, prefabChair},
             {prefabCabinet.name, prefabCabinet},
             {prefabBin.name, prefabBin},
             {prefabLamp.name, prefabLamp},
-            
-            {prefabWindow.tag, prefabWindow},
+
+            {prefabWindow.name, prefabWindow},
+
             {prefabCube.name, prefabCube},
             {prefabCubeBlackPattern.name, prefabCubeBlackPattern},
             {prefabCubeBlackWood.name, prefabCubeBlackWood},
@@ -142,7 +144,7 @@ public class ObjectCreation : MonoBehaviour
         };
 
         
-        initialCube = Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.identity,rooms.transform);
+        initialCube = Instantiate(initialCube, new Vector3(0, 0, 0), Quaternion.Euler(0,0,0),rooms.transform);
     }
 
 [System.Serializable]
@@ -204,8 +206,9 @@ public class ObjectCreation : MonoBehaviour
         string saveFile=System.IO.File.ReadAllText(Application.persistentDataPath + "/Room.daroom");
         Debug.Log(saveFile);
         SaveRoom save = JsonUtility.FromJson<SaveRoom>(saveFile);
-
+        
         for (int i = 0; i < save.floorPositions.Count; i++) {
+            Debug.Log(SaveParameters[save.floorName[i]]);
            GameObject floorLevel= Instantiate(SaveParameters[save.floorName[i]], save.floorPositions[i], Quaternion.identity, rooms.transform);
             floorLevel.GetComponent<CubeObjects>().SetValues(save.floorscriptValues[i]);
             furnitureObject furnitureObjects=save.furnitureObjects[i];
@@ -1297,11 +1300,11 @@ public class ObjectCreation : MonoBehaviour
                 return;
             }
 
-            if (newPrefab == "CubeRedWood" && prefab.transform.tag != "Cube")
+            if (newPrefab == "CubeRedWood" && prefab.name != "Cube")
             {
                 prefab = prefabCube;
             }
-            else if (newPrefab == "CubeBlackPattern" && prefab.transform.tag != "Cube")
+            else if (newPrefab == "CubeBlackPattern" && prefab.name != "Black Pattern")
             {
                 prefab = prefabCubeBlackPattern;
             }

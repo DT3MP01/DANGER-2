@@ -180,7 +180,7 @@ MonoBehaviour:
   position: {x: -21.599989, y: 271.20007}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  description: 
+  description: Acciones a realizar por el NPC
   drawGizmos: 0
   children:
   - {fileID: 7398976952214973428}

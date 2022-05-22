@@ -18,14 +18,11 @@ public class Exit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        Debug.Log("Yo ,"+gameObject.name+" colision con:"+collision.gameObject.name);
-        if (collision.gameObject.name.Substring(0, 7) == "Capsule") { 
-            
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "NPC")
+        {
             collision.gameObject.SetActive(false);
             GlobalVar.remainingNPCs -= 1;
         }
-        
         
     }
     

@@ -102,7 +102,7 @@ public class RoomPopulator : MonoBehaviour
         //Instantiate(w, new Vector3(0, 0, 0), new Quaternion(0, , 0, 0));
     }
     //public void RoomPopulateST(List<WorldGenerator.generatorPoint> roomsList) { for (int i = 0; i < roomsList.Count; i++) { Debug.Log(roomsList[i].coords); } }
-    public void RoomPopulate(List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn, int margin) 
+    public void RoomPopulate(List<Transform>generatedRoomList,List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn, int margin) 
     {
         //fire = GetComponent<WorldGenerator>().fire;
         //for (int i = 0; i < roomsList.Count; i++) { Debug.Log(roomsList[i].coords); }
@@ -191,7 +191,7 @@ public class RoomPopulator : MonoBehaviour
                     { 
                         /*Debug.Log("CABEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");*/ 
                         restrictedAreas.Add(new ocuppiedArea(esqBI.x, esqAI.x, esqBI.z, esqAI.z));
-                        Instantiate(spawnObjects[0], new Vector3(j, objHeigth/2f, i), Quaternion.Euler(0f, 0f, 0f)); 
+                        Instantiate(spawnObjects[0], new Vector3(j, objHeigth/2f, i), Quaternion.Euler(0f, 0f, 0f),generatedRoomList[r]); 
                         Fisher_YatesShuffle(spawnObjects);
                         objWidth = (int)spawnObjects[0].GetComponent<Renderer>().bounds.size.x;
                         //Debug.Log("ObjectXsize: " + objWidth);

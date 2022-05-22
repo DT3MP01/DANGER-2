@@ -45,6 +45,8 @@ public class WorldGenerator : RoomPopulator
     private int[] queueOrder;
     public GameObject[] objectsToSpawn;
     public GameObject[] labItems;
+
+    public List<Transform> generatedRoomList;
     generatorPoint aux1;
     generatorPoint aux2;
     private bool started;
@@ -100,6 +102,7 @@ public class WorldGenerator : RoomPopulator
         generatedWidths = new List<int>();
         generatedLengths = new List<int>();
         GlobalVar.totalNPCs = 0;
+        generatedRoomList = new List<Transform>();
 
         worldGenerator();
 
@@ -145,10 +148,9 @@ public class WorldGenerator : RoomPopulator
         GlobalVar.widths = generatedWidths;
         GlobalVar.lengths = generatedLengths;
         if (enablePopulate) {
-            if (lab) { RoomPopulate(generatedRooms, generatedWidths, generatedLengths, labItems, margin); }
-            else { RoomPopulate(generatedRooms, generatedWidths, generatedLengths, objectsToSpawn, margin); }
-             
-        
+            if (lab) { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, labItems, margin); }
+            else { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, objectsToSpawn, margin); }
+            
         }
         GlobalVar.rooms = generatedRooms;
         
@@ -240,6 +242,8 @@ public class WorldGenerator : RoomPopulator
             createdRooms += 1;
 
             GameObject roomParent = Instantiate(roomParentPrefab, new Vector3(roomCentre.x, 0, roomCentre.z), Quaternion.identity,this.transform);
+            generatedRoomList.Add(roomParent.transform);
+
             generatedRooms.Add(new generatorPoint( new Vector3(roomCentre.x,0,roomCentre.z), genP.direction));
             generatedWidths.Add(originWidth);
             generatedLengths.Add(originLength);

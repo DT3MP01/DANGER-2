@@ -12,23 +12,29 @@ public class AiSensor : MonoBehaviour
     public float height = 1;
     public Color meshColor = Color.blue;
 
-    public int  scanFrequency = 30 ;
+    public int  scanFrequency = 2 ;
     public LayerMask layer;
     public LayerMask OcclusionLayer;
     Collider[] colliders = new Collider[100];
     int count;
     public List<GameObject> Objects = new List<GameObject>();
     float scanInterval;
-    float scanTimer;
+    public float scanTimer;
     [Header("Detections")]
     public bool isSmokeNearby=false;
     public bool isTerrified;
+    [Header("Stats")]
+    public float currentHp;
+    public float maxHp;
+    public float currentStress;
+    public float maxStress;
+
 
 
     Mesh mesh;
     void Start()
     {
-        scanInterval = 1 / scanFrequency;
+        scanInterval = 1f / scanFrequency;
     }
 
     // Update is called once per frame
@@ -44,12 +50,14 @@ public class AiSensor : MonoBehaviour
 
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
+        Debug.Log(count);
         Objects.Clear();
         for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
             if (IsInSight(obj))
             {
+                Debug.Log("In Sight!!!");
                 Objects.Add(obj);
             }
         }
@@ -152,7 +160,9 @@ public class AiSensor : MonoBehaviour
     private bool IsInSight(GameObject obj){
         Vector3 origin = transform.position;
         Vector3 dest = obj.transform.position;
+        
         Vector3 direction = dest - origin;
+        Debug.DrawRay(origin, direction, Color.red);
         if(direction.y < 0 || direction.y > height){
             return false;
         }
@@ -165,7 +175,7 @@ public class AiSensor : MonoBehaviour
         origin.y += height/2;
         dest.y = origin.y;
         if(Physics.Linecast(origin, dest, OcclusionLayer)){
-                return false;
+            return false;
         }
         return true;
     }

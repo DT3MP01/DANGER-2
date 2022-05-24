@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class WorldGenerator : RoomPopulator
 {
     // Start is called before the first frame update
-    public GameObject wallPrefab;
     public GameObject floorPrefab;
     public GameObject npcPrefab;
+    public GameObject playerPrefab;
     public GameObject roomParentPrefab;
     public NavMeshSurface navMesh;
     public GameObject exit;
@@ -276,10 +276,10 @@ public class WorldGenerator : RoomPopulator
             rightUpHor.transform.SetParent(roomParent.transform);
 
             //Una vez generados los cubos generadores los escalamos para que ocupen todas las posiciones de las x
-            leftDownHor.transform.localScale += new Vector3(width - 1, 1, 0);
-            leftUpHor.transform.localScale += new Vector3(width - 1, 1, 0);
-            rightDownHor.transform.localScale += new Vector3(width - 1, 1, 0);
-            rightUpHor.transform.localScale += new Vector3(width - 1, 1, 0);
+            leftDownHor.transform.localScale += new Vector3(width - 1, 0, 0);
+            leftUpHor.transform.localScale += new Vector3(width - 1, 0, 0);
+            rightDownHor.transform.localScale += new Vector3(width - 1, 0, 0);
+            rightUpHor.transform.localScale += new Vector3(width - 1, 0, 0);
 
 
 
@@ -293,10 +293,10 @@ public class WorldGenerator : RoomPopulator
             rightDownVer.transform.SetParent(roomParent.transform);
             rightUpVer.transform.SetParent(roomParent.transform);
 
-            leftDownVer.transform.localScale += new Vector3(0, 1, length - 1);
-            leftUpVer.transform.localScale += new Vector3(0, 1, length - 1);
-            rightDownVer.transform.localScale += new Vector3(0, 1, length - 1);
-            rightUpVer.transform.localScale += new Vector3(0, 1, length - 1);
+            leftDownVer.transform.localScale += new Vector3(0, 0, length - 1);
+            leftUpVer.transform.localScale += new Vector3(0, 0, length - 1);
+            rightDownVer.transform.localScale += new Vector3(0, 0, length - 1);
+            rightUpVer.transform.localScale += new Vector3(0, 0, length - 1);
             Instantiate(npcPrefab, new Vector3(roomCentre.x, -2f, roomCentre.z), Quaternion.identity);  // A�adimos un primer agente en el centro de la sala
             GlobalVar.totalNPCs += 1;
 

@@ -7,6 +7,7 @@ public class ActiveSelector : CompositeNode
 {
         protected int current;
         public int selected = 0;
+        enum Direction {North, East, South, West};
 
         protected override void OnStart() {
             current = 0;
@@ -16,19 +17,8 @@ public class ActiveSelector : CompositeNode
         }
 
         protected override State OnUpdate() {
-            // for (int i = current; i < children.Count; ++i) {
-            //     current = i;
-                
-            //     switch (child.Update()) {
-            //         case State.Running:
-            //             return State.Running;
-            //         case State.Success:
-            //             return State.Success;
-            //         case State.Failure:
-            //             continue;
-            //     }
-            //     child.Abort();
-            // }
+            
+
             if(selected!=current){
                 Debug.Log("Abort");
                 children[current].Abort();

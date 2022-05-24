@@ -95,6 +95,7 @@ MonoBehaviour:
   drawGizmos: 0
   min: {x: -10, y: -10}
   max: {x: 10, y: 10}
+  radius: 5
 --- !u!114 &-4755641854017797634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ MonoBehaviour:
   - {fileID: -2985655485731714920}
   - {fileID: -6153495262842287306}
   - {fileID: -131001251150454698}
-  selected: 2
+  selected: 3
 --- !u!114 &-2985655485731714920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,6 +282,7 @@ MonoBehaviour:
   drawGizmos: 0
   min: {x: -10, y: -10}
   max: {x: 10, y: 10}
+  radius: 5
 --- !u!114 &-1428292190922241097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,7 +353,7 @@ MonoBehaviour:
   stoppingDistance: 0.1
   updateRotation: 1
   acceleration: 40
-  tolerance: 1
+  tolerance: 0.1
   parameterHorizontal: AxisX
   parameterVertical: AxisY
 --- !u!114 &-131001251150454698

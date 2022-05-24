@@ -29,7 +29,9 @@ public class MoveToPosition : ActionNode
             return State.Running;
         }
 
-        if (context.agent.remainingDistance < tolerance+stoppingDistance) {
+        if (context.agent.remainingDistance < tolerance) {
+            context.animator.SetFloat(parameterHorizontal,0);  
+            context.animator.SetFloat(parameterVertical, 0);
             return State.Success;
         }
 

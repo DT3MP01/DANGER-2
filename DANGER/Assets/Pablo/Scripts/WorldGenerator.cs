@@ -138,7 +138,6 @@ public class WorldGenerator : RoomPopulator
         }
         
         
-        
     
         // Generamos el Mesh para los agentes
         //Debug.Log(generatedRooms[0]);

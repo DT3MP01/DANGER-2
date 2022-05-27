@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TheKiwiCoder;
 
 [ExecuteInEditMode]
 public class AiSensor : MonoBehaviour
@@ -12,6 +13,8 @@ public class AiSensor : MonoBehaviour
     public float height = 1;
     public Color meshColor = Color.blue;
 
+
+
     public int  scanFrequency = 2 ;
     public LayerMask layer;
     public LayerMask OcclusionLayer;
@@ -21,8 +24,11 @@ public class AiSensor : MonoBehaviour
     float scanInterval;
     public float scanTimer;
     [Header("Detections")]
-    public bool isSmokeNearby=false;
-    public bool isTerrified;
+    public bool nearbySmoke=false;
+    public bool isTerrified=false;
+    public bool followPlayer = false;
+
+
     [Header("Stats")]
     public float currentHp;
     public float maxHp;
@@ -34,8 +40,18 @@ public class AiSensor : MonoBehaviour
     Mesh mesh;
     void Start()
     {
+        
+        mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
+        StartCoroutine(InitializeBehaviourTree());
     }
+
+    IEnumerator InitializeBehaviourTree()
+    {
+        yield return new WaitForSeconds(1);
+        gameObject.GetComponent<BehaviourTreeRunner>().enabled = true;
+    }
+
 
     // Update is called once per frame
     void Update()

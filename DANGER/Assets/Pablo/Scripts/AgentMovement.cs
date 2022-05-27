@@ -61,10 +61,10 @@ public class AgentMovement : MonoBehaviour
     void FixedUpdate()
     {
 
-        //Presionar bot¨®n izquierdo
+        //Presionar botï¿½ï¿½n izquierdo
         if (Input.GetMouseButtonDown(0)) 
         {
-            //Posici¨®n bot¨®n
+            //Posiciï¿½ï¿½n botï¿½ï¿½n
             Move();
 
         }
@@ -127,13 +127,13 @@ public class AgentMovement : MonoBehaviour
         // Recorremos la lista {1,2,3,4}
         for (int i = a.Count - 1; i > 0; i--)
         {
-            // Número aleatorio entre 0 y i (de forma que i decrementa cada iteración)
+            // Nï¿½mero aleatorio entre 0 y i (de forma que i decrementa cada iteraciï¿½n)
             int rnd = UnityEngine.Random.Range(0, i);
 
             // Guardamos el valor que hay en a[i] 
             WorldGenerator.generatorPoint temp = a[i];
 
-            // intercambiamos el valor de a[i] con el valor de que hay en la posición aleatoria
+            // intercambiamos el valor de a[i] con el valor de que hay en la posiciï¿½n aleatoria
             a[i] = a[rnd];
             a[rnd] = temp;
         }

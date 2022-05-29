@@ -1,12 +1,11 @@
-using SaveIsEasy;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SaveIsEasyMenu : MonoBehaviour {
+public class SaveMenu : MonoBehaviour {
 
     public Text PagesInfoText;
     public LoadPart PrefabToLoad;
@@ -15,12 +14,12 @@ public class SaveIsEasyMenu : MonoBehaviour {
     
     private int actualPage, totalPages;
     private List<LoadPart> allLoadParts = new List<LoadPart>();
-    private List<SceneFile> allSceneFiles;
+    private List<string> allSceneFiles;
 
     private void Start() {
-        allSceneFiles = new List<SceneFile>(SaveIsEasyAPI.ListOfValidSaves());
-        totalPages = (int)Mathf.Ceil((float)this.allSceneFiles.Count / PointsToLoadPrefabs.Count);
+        allSceneFiles = new List<string>(Directory.GetFiles(Application.persistentDataPath, "*.dataRoom"));
 
+        totalPages = (int)Mathf.Ceil((float)this.allSceneFiles.Count / PointsToLoadPrefabs.Count);
 
         foreach (GameObject point in PointsToLoadPrefabs) {
             GameObject go = Instantiate<GameObject>(PrefabToLoad.gameObject, point.transform.position, Quaternion.identity);
@@ -34,7 +33,7 @@ public class SaveIsEasyMenu : MonoBehaviour {
 
     private void UpdatePage() {
 
-        List<SceneFile> copyScenesFiles = new List<SceneFile>(this.allSceneFiles);
+        List<string> copyScenesFiles = new List<string>(this.allSceneFiles);
 
         copyScenesFiles.RemoveRange(0, actualPage * PointsToLoadPrefabs.Count);
 
@@ -46,7 +45,7 @@ public class SaveIsEasyMenu : MonoBehaviour {
 
             item.gameObject.SetActive(true);
 
-            SceneFile select = copyScenesFiles[0];
+            string select = copyScenesFiles[0];
             copyScenesFiles.Remove(select);
             item.SetInfo(select);
 

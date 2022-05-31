@@ -24,12 +24,14 @@ public class AiSensor : MonoBehaviour
     float scanInterval;
     public float scanTimer;
     [Header("Detections")]
+
     public bool nearbySmoke=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
 
 
     [Header("Stats")]
+    public bool isPlayer=false;
     public float currentHp;
     public float maxHp;
     public float currentStress;
@@ -43,7 +45,10 @@ public class AiSensor : MonoBehaviour
         
         mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
-        StartCoroutine(InitializeBehaviourTree());
+        if(!isPlayer){
+            StartCoroutine(InitializeBehaviourTree());
+        }
+        
     }
 
     IEnumerator InitializeBehaviourTree()

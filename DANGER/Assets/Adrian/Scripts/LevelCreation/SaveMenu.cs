@@ -16,7 +16,14 @@ public class SaveMenu : MonoBehaviour {
     private List<LoadPart> allLoadParts = new List<LoadPart>();
     private List<string> allSceneFiles;
 
-    private void Start() {
+
+    void OnEnable()
+    {
+        RefreshMemory();
+        UpdatePage();
+    }
+
+    public void RefreshMemory(){
         allSceneFiles = new List<string>(Directory.GetFiles(Application.persistentDataPath, "*.dataRoom"));
 
         totalPages = (int)Mathf.Ceil((float)this.allSceneFiles.Count / PointsToLoadPrefabs.Count);
@@ -24,11 +31,8 @@ public class SaveMenu : MonoBehaviour {
         foreach (GameObject point in PointsToLoadPrefabs) {
             GameObject go = Instantiate<GameObject>(PrefabToLoad.gameObject, point.transform.position, Quaternion.identity);
             go.transform.SetParent(point.transform);
-
             allLoadParts.Add(go.GetComponent<LoadPart>());
         }
-
-        UpdatePage();
     }
 
     private void UpdatePage() {

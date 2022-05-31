@@ -157,6 +157,7 @@ public class ObjectCreation : MonoBehaviour
         }
         StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
         SaveRoom hola = new SaveRoom(rooms,stats);
+        ScreenCapture.CaptureScreenshot(Application.persistentDataPath+"UWU.png");
         string json = JsonUtility.ToJson(hola);
         Debug.Log(json);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/Room.daroom", json);

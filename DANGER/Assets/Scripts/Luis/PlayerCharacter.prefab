@@ -6311,7 +6311,7 @@ GameObject:
   - component: {fileID: 6556307675013343907}
   - component: {fileID: 2850351309610877318}
   - component: {fileID: 4142375389650439377}
-  - component: {fileID: 8399345947114017503}
+  - component: {fileID: 1311684400813880826}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -6326,7 +6326,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4142375389650439334}
-  m_LocalRotation: {x: 3.569464e-23, y: 0.00000019370935, z: 1.8426905e-16, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.355392, y: 0, z: 2.8583689}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6334,7 +6334,7 @@ Transform:
   - {fileID: 4574779351596014368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.65925103, y: 37.409214, z: 8.364481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &6862461829347389722
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6434,7 +6434,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 10
+  m_Range: 4.8527083
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6483,7 +6483,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &8399345947114017503
+--- !u!114 &1311684400813880826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6492,29 +6492,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 4142375389650439334}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b169fcc0222b924a9d18be1fb651a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fc20496bdccc7d4aad9fb12ba4b6485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 10
+  distance: 5
   angle: 30
-  height: 2
+  height: 1
   meshColor: {r: 0, g: 0, b: 1, a: 1}
-  scanFrequency: 30
+  scanFrequency: 2
   layer:
     serializedVersion: 2
-    m_Bits: 72
+    m_Bits: 256
   OcclusionLayer:
     serializedVersion: 2
     m_Bits: 0
   Objects: []
-  scanTimer: 0.033333335
+  scanTimer: 0.5
   nearbySmoke: 0
+  nearbyFire: 0
   isTerrified: 0
   followPlayer: 0
-  currentHp: 0
-  maxHp: 0
-  currentStress: 0
-  maxStress: 0
+  fog: {fileID: 2832821520435629473}
+  animator: {fileID: 6556307675013343907}
+  playerHealth: 99.39996
+  MaxHealth: 100
+  playerStress: 99.39996
+  MaxStress: 100
+  extinguisherCapacity: 100
+  usingExtinguisher: 0
+  decrementStress: 0.05
+  decrementHealth: 0.05
+  currWeight: 0
 --- !u!1 &4253385716699073364
 GameObject:
   m_ObjectHideFlags: 0

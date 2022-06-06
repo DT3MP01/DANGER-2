@@ -9,8 +9,10 @@ using UnityEngine;
         public List<Vector3> floorPositions;
         public List<ScriptValues> floorscriptValues;
         public StatsRoom statsRoom;
-        public SaveRoom(GameObject rooms,StatsRoom statsRoom) {
+        public byte[] image;
+        public SaveRoom(GameObject rooms,StatsRoom statsRoom,byte[] image) {
             this.statsRoom = statsRoom;
+            this.image = image;
             floorPositions = new List<Vector3>();
             floorName = new List<string>();
             floorscriptValues = new List<ScriptValues>();

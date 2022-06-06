@@ -8,6 +8,7 @@ public class ObjectCreation : MonoBehaviour
 {
     Ray rayCast;
     RaycastHit rayCastHit;
+    public Texture2D texture;
     float rayCastMax = 100.0f;
     float sens = 5f;
     float nearZoom = 1.5f;
@@ -150,17 +151,32 @@ public class ObjectCreation : MonoBehaviour
 
     
 
-    public void  SaveToFileRoom()
+    public void  SaveToFileRoom(string savename)
     {
         if(reduced){
             reduceWalls();
         }
+        Debug.Log("SaveFile2");
+        StartCoroutine(RecordFrame(savename));
+    }
+
+    IEnumerator RecordFrame(string savename){
+        yield return new WaitForEndOfFrame();
+        
+
+        Camera.main.Render();
+        texture = ScreenCapture.CaptureScreenshotAsTexture();
+       
+
+        
+        byte[] textureRaw = texture.EncodeToPNG();
+
         StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
-        SaveRoom hola = new SaveRoom(rooms,stats);
-        ScreenCapture.CaptureScreenshot(Application.persistentDataPath+"UWU.png");
+        SaveRoom hola = new SaveRoom(rooms,stats,textureRaw);
         string json = JsonUtility.ToJson(hola);
-        Debug.Log(json);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/Room.daroom", json);
+        Debug.Log("Saving "+savename);
+        System.IO.File.WriteAllText(Application.persistentDataPath +'/' + savename, json);
+        
     }
 
     public void LoadFileRoom(SaveRoom save)

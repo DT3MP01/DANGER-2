@@ -5,23 +5,17 @@ using UnityEngine;
 public class FireExtinguiserh : MonoBehaviour
 {
     // Start is called before the first frame update
-    //public Animator animator;
+
+
+
     void Start()
     {
         
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            GetComponent<ParticleSystem>().Play();
-            //animator.SetLayerWeight(1,0);
-        }
-        if(Input.GetKeyUp(KeyCode.Space))
-        {
-            GetComponent<ParticleSystem>().Stop();
-            //animator.SetLayerWeight(1, 1);
-        }
+
+        
         
     }
 

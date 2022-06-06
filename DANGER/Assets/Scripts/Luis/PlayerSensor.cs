@@ -4,7 +4,7 @@ using UnityEngine;
 using TheKiwiCoder;
 
 [ExecuteInEditMode]
-public class AiSensor : MonoBehaviour
+public class PlayerSensor : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -26,30 +26,41 @@ public class AiSensor : MonoBehaviour
     [Header("Detections")]
 
     public bool nearbySmoke=false;
+    public bool nearbyFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
 
-
     [Header("Player")]
-    public bool isPlayer=false;
+    public ParticleSystem fog;
 
+    public Animator animator;
+
+    public float playerHealth=100f;
+
+    public float MaxHealth=100f;
+    public float playerStress=100f;
+    public float MaxStress=100f;
+
+
+
+    public float extinguisherCapacity=100f;
+
+    public bool usingExtinguisher;
+
+    public float decrementStress=0.05f;
+    public float decrementHealth = 0.05f;
+
+
+    public float currWeight;
+    private float yVelocity = 0.1F;
 
     Mesh mesh;
     void Start()
     {
-        
         mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
-        if(!isPlayer){
-            StartCoroutine(InitializeBehaviourTree());
-        }
-        
-    }
-
-    IEnumerator InitializeBehaviourTree()
-    {
-        yield return new WaitForSeconds(1);
-        gameObject.GetComponent<BehaviourTreeRunner>().enabled = true;
+        usingExtinguisher = false;
+        currWeight = animator.GetLayerWeight(1);
     }
 
 
@@ -61,9 +72,81 @@ public class AiSensor : MonoBehaviour
         {
             scanTimer = scanInterval;
             Scan();
+            CalculateHealth();
+            if(usingExtinguisher){
+                extinguisherCapacity= Mathf.Max(0,extinguisherCapacity-4f);
+            }
         }
+
+
+
+        if(Input.GetKeyDown(KeyCode.Space) )
+        {
+            Debug.Log("Pressed Space");
+            fog.Play();
+            usingExtinguisher=true;
+            StartCoroutine(LerpFunction(0,1,0.3f,currWeight));
+            
+        }
+        if(Input.GetKeyUp(KeyCode.Space)||extinguisherCapacity <=0)
+        {
+            fog.Stop();
+            usingExtinguisher=false;
+            StartCoroutine(LerpFunction(1,0,0.3f,currWeight));
+        }
+
+        if(Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            animator.SetBool("isCrouching",!animator.GetBool("isCrouching"));
+            
+        }
+        
     }
 
+
+
+    IEnumerator LerpFunction(float startValue,float endValue, float lerpDuration,float valueToLerp)
+    {
+        float timeElapsed = 0;
+        while (timeElapsed < lerpDuration)
+        {
+            valueToLerp = Mathf.Lerp(startValue, endValue, timeElapsed / lerpDuration);
+            animator.SetLayerWeight(1, valueToLerp);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        valueToLerp = endValue;
+    }
+
+
+    private void  CalculateHealth(){
+        if(nearbySmoke && !animator.GetBool("isCrouching")){
+            playerHealth -= 2*decrementHealth;
+            playerStress -= decrementStress;
+        }
+        if(nearbyFire){
+            playerHealth -= 3*decrementHealth;
+            playerStress -= decrementStress;
+        }
+        if(isTerrified){
+            playerStress += 30*decrementStress;
+        }
+        playerHealth -= decrementHealth;
+        playerStress -= decrementStress;
+
+        if(playerHealth<=0){
+            playerHealth = 0;
+        }
+        if(playerStress<=0){
+            playerStress = 0;
+        }
+        if(playerHealth>=MaxHealth){
+            playerHealth = MaxHealth;
+        }
+        if(playerStress>=MaxHealth){
+            playerStress = MaxHealth;
+        }
+    }
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
         Debug.Log(count);

@@ -4,6 +4,9 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+
+
 
 public class SaveMenu : MonoBehaviour {
 
@@ -11,6 +14,15 @@ public class SaveMenu : MonoBehaviour {
     public LoadPart PrefabToLoad;
 
     public List<GameObject> PointsToLoadPrefabs;
+
+    public TMP_InputField inputField;
+
+    public GameObject OverrideMenu;
+    
+    public GameObject EmptyMenu;
+
+    public GameObject ControllerInput;
+    private ObjectCreation objectCreation;
     
     private int actualPage, totalPages;
     private List<LoadPart> allLoadParts = new List<LoadPart>();
@@ -19,6 +31,52 @@ public class SaveMenu : MonoBehaviour {
 
     void OnEnable()
     {
+        objectCreation=ControllerInput.GetComponent<ObjectCreation>();
+        RefreshMemory();
+        UpdatePage();
+    }
+
+
+    public void SaveFile(){
+        
+        string text = inputField.text+ ".dataRoom";
+        if(text==".dataRoom"){
+                Debug.Log("Empty file name");
+                this.GetComponentInParent<CanvasGroup>().blocksRaycasts = false;
+                EmptyMenu.SetActive(true);
+                return;
+        }
+        // Create unity dialog menu
+        // https://docs.unity3d.com/ScriptReference/UnityEngine.UI.FileUtil.SaveFilePanel.html
+        foreach(string file in allSceneFiles){
+            
+            if(file.Contains(text)){
+                Debug.Log("File already exists");
+                this.GetComponentInParent<CanvasGroup>().blocksRaycasts = false;
+                OverrideMenu.SetActive(true);
+                return;
+            }
+            
+        }
+        
+        Debug.Log("Saving file");
+         objectCreation.SaveToFileRoom(text);
+        StartCoroutine(Refresh());
+    }
+
+    public void OverrideFile(){
+        string text = inputField.text+ ".dataRoom";
+        objectCreation.SaveToFileRoom(text);
+        StartCoroutine(Refresh());
+    }
+
+    public void EnableInput(){
+        this.GetComponentInParent<CanvasGroup>().blocksRaycasts = true;
+    }
+
+    IEnumerator Refresh(){
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
         RefreshMemory();
         UpdatePage();
     }
@@ -29,8 +87,7 @@ public class SaveMenu : MonoBehaviour {
         totalPages = (int)Mathf.Ceil((float)this.allSceneFiles.Count / PointsToLoadPrefabs.Count);
 
         foreach (GameObject point in PointsToLoadPrefabs) {
-            GameObject go = Instantiate<GameObject>(PrefabToLoad.gameObject, point.transform.position, Quaternion.identity);
-            go.transform.SetParent(point.transform);
+            GameObject go = Instantiate<GameObject>(PrefabToLoad.gameObject, point.transform.position, Quaternion.identity,point.transform);
             allLoadParts.Add(go.GetComponent<LoadPart>());
         }
     }

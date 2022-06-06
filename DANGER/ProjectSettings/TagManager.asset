@@ -22,6 +22,7 @@ TagManager:
   - SceneOneControl
   - Furniture
   - Plant
+  - Smoke
   layers:
   - Default
   - TransparentFX

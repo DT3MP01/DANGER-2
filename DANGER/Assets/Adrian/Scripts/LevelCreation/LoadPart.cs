@@ -7,7 +7,7 @@ using System.IO;
 
 public class LoadPart : MonoBehaviour {
 
-    public Text Title, Line1, Line2, Line3, Line4;
+    public Text Title, Line1, Line2;
     public Image Screenshot;
 
     SaveRoom roomFile;
@@ -18,62 +18,44 @@ public class LoadPart : MonoBehaviour {
 
         // ResetTexts();
 
-        Title.text= Path.GetFileName(roomFilePath);
+        Title.text= Path.GetFileName(roomFilePath).Split('.')[0];
 
         System.DateTime date=File.GetLastWriteTime(roomFilePath);
         Line1.text = "Last Play: " +date.Day+"/"+date.Month+"/"+date.Year;
-        Line2.text = "Hours: " + date.Hour + ":" + date.Minute+":"+date.Second;
+        
 
+        string saveFile=System.IO.File.ReadAllText(roomFilePath);
+        roomFile = JsonUtility.FromJson<SaveRoom>(saveFile);
 
+        Line2.text = "Meters: " + roomFile.statsRoom.meters + " m²";
+        
+        Texture2D tex = new Texture2D(2, 2);
+        tex.LoadImage(roomFile.image);
+        Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
 
+        if (sprite != null) {
+            Screenshot.rectTransform.gameObject.SetActive(true);
+            Screenshot.sprite = sprite;
+            
+        }
 
-        // if (roomFile.HasKeyQuickAccess("SceneName")) {
-        //     Line2.text = "Scene: " + roomFile.SceneName;
-        // } else {
-        //     Line2.text = "Version: " + roomFile.FormatVersion;
-        // }
-
-        // if (roomFile.HasSaveIsEasyStatistics) {
-        //     Line3.text = "Created: " + roomFile.StatisticsCreationDateAsDateTime.ToString("M/d/yyyy");
-
-        //     if ((int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalDays == 0) {
-        //         if ((int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalHours == 0) {
-        //             if ((int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalMinutes == 0) {
-        //                 Line4.text = "Total time: " + (int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalSeconds + " Seconds";
-        //             } else {
-        //                 Line4.text = "Total time: " + (int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalMinutes + " Minutes";
-        //             }
-        //         } else {
-        //             Line4.text = "Total time: " + (int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalHours + " Hours";
-        //         }
-        //     } else {
-        //         Line4.text = "Total time: " + (int)roomFile.StatisticsTotalTimeInSecondsAsTimeSpan.TotalDays + " Days";
-        //     }
-        // }
-
-
-        // Sprite sprite = roomFile.StatisticsScreenshotAsSprite;
-
-        // if (sprite != null) {
-        //     Screenshot.rectTransform.gameObject.SetActive(true);
-        //     Screenshot.sprite = sprite;
-        // } else {
-        //     Screenshot.rectTransform.gameObject.SetActive(false);
-        // }
+    
     }
 
+    public void disableDot(){
+
+
+
+    }
     private void ResetTexts() {
         Title.text = "";
         Line1.text = "";
         Line2.text = "";
-        Line3.text = "";
-        Line4.text = "";
     }
 
     public void OnClick() {
-        string saveFile=System.IO.File.ReadAllText(roomFilePath);
-        Debug.Log(saveFile);
-        roomFile = JsonUtility.FromJson<SaveRoom>(saveFile);
+
+
         ObjectCreation objectCreation= GameObject.FindObjectsOfType<ObjectCreation>()[0];
         objectCreation.LoadFileRoom(roomFile);
         objectCreation.enableInput();

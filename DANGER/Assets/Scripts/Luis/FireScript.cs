@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class FireScript : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class FireScript : MonoBehaviour
         if (fireExtinguisherTime <= 0)
         {
             GetComponent<ParticleSystem>().Play();
+            GetComponent<CapsuleCollider>().enabled = true;
+            GetComponent<NavMeshObstacle>().enabled = true;
             reignite=false;
         }
         }
@@ -29,6 +32,8 @@ public class FireScript : MonoBehaviour
     public void startCooldown()
     {
         GetComponent<ParticleSystem>().Stop();
+        GetComponent<CapsuleCollider>().enabled = false;
+        GetComponent<NavMeshObstacle>().enabled = false;
         fireExtinguisherTime = 8f;
         reignite = true;
     }

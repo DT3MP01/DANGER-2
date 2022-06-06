@@ -121,17 +121,17 @@ public class PlayerSensor : MonoBehaviour
 
     private void  CalculateHealth(){
         if(nearbySmoke && !animator.GetBool("isCrouching")){
-            playerHealth -= 2*decrementHealth;
+            playerHealth -= 3*decrementHealth;
             playerStress -= decrementStress;
         }
         if(nearbyFire){
-            playerHealth -= 3*decrementHealth;
+            playerHealth -= 5*decrementHealth;
             playerStress -= decrementStress;
         }
         if(isTerrified){
             playerStress += 30*decrementStress;
         }
-        playerHealth -= decrementHealth;
+        // playerHealth -= decrementHealth;
         playerStress -= decrementStress;
 
         if(playerHealth<=0){
@@ -152,12 +152,17 @@ public class PlayerSensor : MonoBehaviour
         Debug.Log(count);
         Objects.Clear();
         bool checkSmoke = false;
+        bool checkFire = false;
         for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
             if(checkSmoke == false && obj.tag == "Smoke"){
                     nearbySmoke = true;
                     checkSmoke=true;
+            }
+            else if (checkFire == false && obj.tag == "Fire"){
+                nearbyFire = true;
+                checkFire=true;
             }
             else if (IsInSight(obj))
             {

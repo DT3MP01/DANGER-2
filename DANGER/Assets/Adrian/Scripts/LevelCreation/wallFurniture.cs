@@ -15,7 +15,7 @@ public class wallFurniture {
             if(child.tag != cube.tag){
             positionFurniture.Add(child.position);
             rotationFurniture.Add(child.rotation);
-            prefabTag.Add(child.name);
+            prefabTag.Add(child.name.Replace("(Clone)", ""));
             }
         }
     }

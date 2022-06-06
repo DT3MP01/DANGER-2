@@ -9,9 +9,9 @@ public class DBManager : MonoBehaviour
 {
     DatabaseReference reference;
 
-    string idFile;
-    int id;
-    string text;
+    public string idFile;
+    public int id;
+    public string text;
 
     public ObjectCreation game;
     public timer timer;

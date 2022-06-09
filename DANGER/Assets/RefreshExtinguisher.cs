@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Activate : MonoBehaviour
+public class RefreshExtinguisher : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Activate : MonoBehaviour
         {
             Debug.Log("Player Detected");
             collision.gameObject.GetComponent<PlayerSensor>().extinguisherCapacity = 100f;
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
         }
     }
 }

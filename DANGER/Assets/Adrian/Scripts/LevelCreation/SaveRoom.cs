@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Text;
 using UnityEngine;
 
 [System.Serializable]
@@ -9,10 +11,10 @@ using UnityEngine;
         public List<Vector3> floorPositions;
         public List<ScriptValues> floorscriptValues;
         public StatsRoom statsRoom;
-        public byte[] image;
+        public string image;
         public SaveRoom(GameObject rooms,StatsRoom statsRoom,byte[] image) {
             this.statsRoom = statsRoom;
-            this.image = image;
+            this.image =  Convert.ToBase64String(image);
             floorPositions = new List<Vector3>();
             floorName = new List<string>();
             floorscriptValues = new List<ScriptValues>();

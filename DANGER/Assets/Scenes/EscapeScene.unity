@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 2c2a806801512c54d80a9c8f516e3a8b, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2769,7 +2769,7 @@ MonoBehaviour:
   doorPrefab: {fileID: 1746458143501067288, guid: fa6aa3f2ac80a6948b0d2bf11dfb1439, type: 3}
   wallPrefab: {fileID: 6322944706469152535, guid: d9695a0085760744e97efeb4376a31dc, type: 3}
   floorPrefab: {fileID: 5200791886696754399, guid: 0e796bd4c5f3f184ca84ad1da6baf03a, type: 3}
-  npcPrefab: {fileID: 6206575313960298911, guid: 77b3f7ee3f4f27744b2d9d04ff70264a, type: 3}
+  npcPrefab: {fileID: 8989009908110535891, guid: bc2d93e3139565844b6080cb74967c57, type: 3}
   playerPrefab: {fileID: 8989009908110535891, guid: bc2d93e3139565844b6080cb74967c57, type: 3}
   roomParentPrefab: {fileID: 47157948117207922, guid: 956fdf5b79024d849847f6d491d14e5c, type: 3}
   navMesh: {fileID: 2028895727}

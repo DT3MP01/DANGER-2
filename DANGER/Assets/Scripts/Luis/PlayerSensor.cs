@@ -15,6 +15,7 @@ public class PlayerSensor : MonoBehaviour
 
 
 
+
     public int  scanFrequency = 2 ;
     public LayerMask layer;
     public LayerMask OcclusionLayer;
@@ -31,6 +32,7 @@ public class PlayerSensor : MonoBehaviour
     public bool followPlayer = false;
 
     [Header("Player")]
+    public GameObject extinguisher;
     public ParticleSystem fog;
 
     public Animator animator;
@@ -43,7 +45,7 @@ public class PlayerSensor : MonoBehaviour
 
 
 
-    public float extinguisherCapacity=100f;
+    public float extinguisherCapacity=0f;
 
     public bool usingExtinguisher;
 
@@ -76,9 +78,15 @@ public class PlayerSensor : MonoBehaviour
             if(usingExtinguisher){
                 extinguisherCapacity= Mathf.Max(0,extinguisherCapacity-4f);
             }
+            
         }
 
-
+        if(extinguisherCapacity==0){
+            extinguisher.SetActive(false);
+        }
+        else{
+            extinguisher.SetActive(true);
+        }
 
         if(Input.GetKeyDown(KeyCode.Space) )
         {

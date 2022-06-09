@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>720607654377-0767ptjds59t5p2qnq1c0a95gccknu71.apps.googleusercontent.com</string>
+	<string>188872330118-8u2u2da2dn0456fuqtin3mnun128kb94.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.720607654377-0767ptjds59t5p2qnq1c0a95gccknu71</string>
+	<string>com.googleusercontent.apps.188872330118-8u2u2da2dn0456fuqtin3mnun128kb94</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDHkbf6jJT8on_G0BSnL0fWcIIGjYvjels</string>
+	<string>AIzaSyAMreD-LGSRWl5ql81FURU8x1xzH6rW17g</string>
 	<key>GCM_SENDER_ID</key>
-	<string>720607654377</string>
+	<string>188872330118</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.TFG.DANGER</string>
 	<key>PROJECT_ID</key>
-	<string>danger-b0add</string>
+	<string>dangergame-d95dc</string>
 	<key>STORAGE_BUCKET</key>
-	<string>danger-b0add.appspot.com</string>
+	<string>dangergame-d95dc.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:720607654377:ios:02c86fee8661e493a39b78</string>
+	<string>1:188872330118:ios:b4a05c57d425b390d9fa07</string>
 	<key>DATABASE_URL</key>
-	<string>https://danger-b0add-default-rtdb.europe-west1.firebasedatabase.app</string>
+	<string>https://dangergame-d95dc-default-rtdb.europe-west1.firebasedatabase.app</string>
 </dict>
 </plist>

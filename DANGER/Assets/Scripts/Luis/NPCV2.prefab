@@ -6132,6 +6132,7 @@ GameObject:
   - component: {fileID: 1299161072091353190}
   - component: {fileID: 6077419868901140805}
   - component: {fileID: 4023779642572394295}
+  - component: {fileID: -6890089959404929605}
   m_Layer: 0
   m_Name: NPCV2
   m_TagString: Player
@@ -6287,6 +6288,35 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &-6890089959404929605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023779642572394304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b169fcc0222b924a9d18be1fb651a2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 5
+  angle: 30
+  height: 1
+  meshColor: {r: 0, g: 0, b: 1, a: 1}
+  scanFrequency: 2
+  layer:
+    serializedVersion: 2
+    m_Bits: 264
+  OcclusionLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  Objects: []
+  scanTimer: 0
+  nearbySmoke: 0
+  isTerrified: 0
+  followPlayer: 0
+  isPlayer: 0
 --- !u!1 &4065546118279432419
 GameObject:
   m_ObjectHideFlags: 0

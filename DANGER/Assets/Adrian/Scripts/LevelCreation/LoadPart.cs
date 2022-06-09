@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
+using System.Text;
 using System.IO;
 
 public class LoadPart : MonoBehaviour {
@@ -30,7 +32,7 @@ public class LoadPart : MonoBehaviour {
         Line2.text = "Meters: " + roomFile.statsRoom.meters + " m²";
         
         Texture2D tex = new Texture2D(2, 2);
-        tex.LoadImage(roomFile.image);
+        tex.LoadImage(Convert.FromBase64String(roomFile.image));
         Sprite sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f), 100.0f);
 
         if (sprite != null) {

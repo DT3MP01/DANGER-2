@@ -86,10 +86,13 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject prefabPlant;
     [SerializeField] GameObject prefabWindow;
 
+    public string json;
 
+    
     public Dictionary<string, GameObject> SaveParameters;
     void Start()
     {
+        
         meters = 1;
         extinguishers = 0;
         windows = 0;
@@ -105,6 +108,7 @@ public class ObjectCreation : MonoBehaviour
         rotation = Quaternion.identity;
 
         Rotation();
+        
 
         wallsRoom = new Dictionary<Vector3, GameObject>();
         extinguishersRoom = new Dictionary<Vector3, GameObject>();
@@ -170,10 +174,11 @@ public class ObjectCreation : MonoBehaviour
 
         
         byte[] textureRaw = texture.EncodeToPNG();
+        Debug.Log(textureRaw.Length);
 
         StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
         SaveRoom hola = new SaveRoom(rooms,stats,textureRaw);
-        string json = JsonUtility.ToJson(hola);
+        json = JsonUtility.ToJson(hola);
         Debug.Log("Saving "+savename);
         System.IO.File.WriteAllText(Application.persistentDataPath +'/' + savename, json);
         
@@ -1091,17 +1096,17 @@ public class ObjectCreation : MonoBehaviour
                 selectExtinguisher.SetActive(false);
             }
 
-            if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl))
+            if (true)
             {
-                    mouseD.Set(-Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y"), -Input.GetAxisRaw("Mouse ScrollWheel"));
-
-                    focusPosition += (Camera.main.transform.right * mouseD.x + Camera.main.transform.up * mouseD.y) * sens * 0.1f;
+                    mouseD.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0);
+                    
+                    focusPosition += (Camera.main.transform.right * mouseD.x + Camera.main.transform.up * mouseD.y) * sens * Time.deltaTime;
 
                     CameraRecolocation();
                 
             }
 
-            if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftControl))
+            if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftShift))
             {
                     Rotation();
 

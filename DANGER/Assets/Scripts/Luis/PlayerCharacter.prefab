@@ -707,7 +707,7 @@ Transform:
   m_GameObject: {fileID: 2228427763152988028}
   m_LocalRotation: {x: 0.0057354923, y: -0.0004193765, z: 0.07292364, w: 0.99732095}
   m_LocalPosition: {x: 0.11354074, y: -0.20369598, z: -0.09169746}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
   - {fileID: 3021284397341213811}
   - {fileID: 7807512164227291621}
@@ -952,7 +952,7 @@ ParticleSystem:
       m_PostInfinity: 2
       m_RotationOrder: 4
   moveWithTransform: 1
-  moveWithCustomTransform: {fileID: 0}
+  moveWithCustomTransform: {fileID: 4142375389650439390}
   scalingMode: 1
   randomSeed: 0
   InitialModule:
@@ -1014,8 +1014,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 2.1
-      minScalar: 2
+      scalar: 3
+      minScalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1506,13 +1506,13 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 41.5
+    angle: 41.46
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 0.24
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 31.08, y: 90, z: 0}
+    m_Rotation: {x: 17.6, y: 90, z: 0}
     m_Scale: {x: 0.49, y: 0.49, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -1711,7 +1711,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 20
+      scalar: 40
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2334,7 +2334,7 @@ ParticleSystem:
     x:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -3415,7 +3415,7 @@ ParticleSystem:
     magnitude:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3469,7 +3469,7 @@ ParticleSystem:
     inWorldSpace: 0
     multiplyDragByParticleSize: 1
     multiplyDragByParticleVelocity: 1
-    dampen: 0
+    dampen: 0.1
     drag:
       serializedVersion: 2
       minMaxState: 0
@@ -6178,7 +6178,6 @@ GameObject:
   - component: {fileID: 355633125641054483}
   - component: {fileID: 8652797959170449566}
   - component: {fileID: 9097079373158454905}
-  - component: {fileID: 8354611776532471084}
   m_Layer: 0
   m_Name: Cylinder001
   m_TagString: Untagged
@@ -6249,20 +6248,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8354611776532471084
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3924710818933582308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -951608786083511892, guid: 50785f68c8569bb4eb6cc0095395b5f2, type: 3}
 --- !u!1 &3945226509841926917
 GameObject:
   m_ObjectHideFlags: 0
@@ -6348,7 +6333,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 3.15231
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &4142375389650439384
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6434,7 +6419,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 4.8527083
+  m_Range: 6.897664
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -6495,30 +6480,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fc20496bdccc7d4aad9fb12ba4b6485, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 5
+  distance: 7
   angle: 30
   height: 1
   meshColor: {r: 0, g: 0, b: 1, a: 1}
   scanFrequency: 2
   layer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 264
   OcclusionLayer:
     serializedVersion: 2
     m_Bits: 0
   Objects: []
-  scanTimer: 0.5
+  scanTimer: 0.16666666
   nearbySmoke: 0
   nearbyFire: 0
   isTerrified: 0
   followPlayer: 0
+  extinguisher: {fileID: 5728099753395220038}
   fog: {fileID: 2832821520435629473}
   animator: {fileID: 6556307675013343907}
-  playerHealth: 99.39996
+  playerHealth: 63.297817
   MaxHealth: 100
-  playerStress: 99.39996
+  playerStress: 29.09834
   MaxStress: 100
-  extinguisherCapacity: 100
+  extinguisherCapacity: 0
   usingExtinguisher: 0
   decrementStress: 0.05
   decrementHealth: 0.05
@@ -6896,7 +6882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4915006972185523452
 Transform:
   m_ObjectHideFlags: 0
@@ -8212,7 +8198,6 @@ GameObject:
   - component: {fileID: 202901647813119900}
   - component: {fileID: 782580219839819402}
   - component: {fileID: 4478217660711988181}
-  - component: {fileID: 8858567476361418183}
   m_Layer: 0
   m_Name: Cylinder004
   m_TagString: Untagged
@@ -8283,20 +8268,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8858567476361418183
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8961445759669915332}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5208879343037863941, guid: 50785f68c8569bb4eb6cc0095395b5f2, type: 3}
 --- !u!1 &8999297535927548403
 GameObject:
   m_ObjectHideFlags: 0

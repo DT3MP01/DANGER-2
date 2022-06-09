@@ -27,17 +27,16 @@ public class DBManager : MonoBehaviour
         // Get the root reference location of the database.
         //reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        FirebaseDatabase database = FirebaseDatabase.GetInstance("https://danger-b0add-default-rtdb.europe-west1.firebasedatabase.app/");
+        FirebaseDatabase database = FirebaseDatabase.GetInstance("https://dangergame-d95dc-default-rtdb.europe-west1.firebasedatabase.app/");
         reference = database.RootReference;
     }
 
     public void inicializarBD()
     {
 
-        Game game = new Game(this.timer.timerString, this.game.countScans, "Test User", this.game.meters);
-        string json = JsonUtility.ToJson(game);
         Debug.Log(text);
-        reference.Child("Games").Child(text).SetRawJsonValueAsync(json);
+        Debug.Log(this.game.json);
+        reference.Child("Games").Child(text).SetRawJsonValueAsync(game.json);
 
         this.id = int.Parse(text);
         this.id++;

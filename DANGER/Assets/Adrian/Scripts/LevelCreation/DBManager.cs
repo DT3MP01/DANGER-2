@@ -13,6 +13,8 @@ public class DBManager : MonoBehaviour
     public int id;
     public string text;
 
+    public string partida;
+
     public ObjectCreation game;
     public timer timer;
 
@@ -36,8 +38,9 @@ public class DBManager : MonoBehaviour
 
         Debug.Log(text);
         Debug.Log(this.game.json);
-        reference.Child("Games").Child(text).SetRawJsonValueAsync(game.json);
-
+        reference.Child("User").Child(text).Child("Alias").SetValueAsync("DUDETE");
+        reference.Child("User").Child(text).Child("Games").Child(partida).SetRawJsonValueAsync(game.json);
+        
         this.id = int.Parse(text);
         this.id++;
 

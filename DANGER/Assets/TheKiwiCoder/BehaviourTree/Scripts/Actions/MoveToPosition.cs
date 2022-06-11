@@ -17,10 +17,6 @@ public class MoveToPosition : ActionNode
         context.agent.destination = blackboard.moveToPosition;
         context.agent.updateRotation = updateRotation;
         context.agent.acceleration = acceleration;
-        // NavMeshAgent agent = context.gameObject.GetComponent<NavMeshAgent>();
-        // Debug.Log(agent.speed);
-        // agent.SetDestination(blackboard.moveToPosition);
-
     }
 
     protected override void OnStop() {

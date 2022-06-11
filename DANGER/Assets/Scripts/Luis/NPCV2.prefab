@@ -6133,6 +6133,8 @@ GameObject:
   - component: {fileID: 6077419868901140805}
   - component: {fileID: 4023779642572394295}
   - component: {fileID: -6890089959404929605}
+  - component: {fileID: -6442238328201254632}
+  - component: {fileID: 8339362418195988710}
   m_Layer: 0
   m_Name: NPCV2
   m_TagString: Player
@@ -6312,11 +6314,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Objects: []
-  scanTimer: 0
+  scanTimer: 0.16666666
   nearbySmoke: 0
+  nearbyFire: 0
   isTerrified: 0
   followPlayer: 0
   isPlayer: 0
+--- !u!114 &-6442238328201254632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023779642572394304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tree: {fileID: 11400000, guid: 5613f57763d5942479943035b460390c, type: 2}
+--- !u!114 &8339362418195988710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023779642572394304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c18bc067eafdab469dd4c06766da46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 8219bfdc2f8e07c4087a040ba8777203, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &4065546118279432419
 GameObject:
   m_ObjectHideFlags: 0

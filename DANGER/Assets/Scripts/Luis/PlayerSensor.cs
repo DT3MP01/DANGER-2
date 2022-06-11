@@ -62,7 +62,7 @@ public class PlayerSensor : MonoBehaviour
         mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
         usingExtinguisher = false;
-        currWeight = animator.GetLayerWeight(1);
+        currWeight = 0;
     }
 
 

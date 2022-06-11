@@ -26,6 +26,7 @@ public class AiSensor : MonoBehaviour
     [Header("Detections")]
 
     public bool nearbySmoke=false;
+    public bool nearbyFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
 
@@ -40,9 +41,7 @@ public class AiSensor : MonoBehaviour
         
         mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
-        if(!isPlayer){
-            StartCoroutine(InitializeBehaviourTree());
-        }
+        StartCoroutine(InitializeBehaviourTree());
         
     }
 
@@ -69,12 +68,17 @@ public class AiSensor : MonoBehaviour
         Debug.Log(count);
         Objects.Clear();
         bool checkSmoke = false;
+        bool checkFire = false;
         for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
             if(checkSmoke == false && obj.tag == "Smoke"){
                     nearbySmoke = true;
                     checkSmoke=true;
+            }
+            else if (checkFire == false && obj.tag == "Fire"){
+                nearbyFire = true;
+                checkFire=true;
             }
             else if (IsInSight(obj))
             {

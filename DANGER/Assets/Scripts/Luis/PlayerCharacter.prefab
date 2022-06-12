@@ -6344,7 +6344,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -6492,17 +6492,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   Objects: []
-  scanTimer: 0.16666666
+  scanTimer: 0.5
   nearbySmoke: 0
-  nearbyFire: 0
+  nearbyFire: 1
   isTerrified: 0
   followPlayer: 0
   extinguisher: {fileID: 5728099753395220038}
   fog: {fileID: 2832821520435629473}
   animator: {fileID: 6556307675013343907}
-  playerHealth: 63.297817
+  playerHealth: 62.297817
   MaxHealth: 100
-  playerStress: 29.09834
+  playerStress: 28.698345
   MaxStress: 100
   extinguisherCapacity: 0
   usingExtinguisher: 0

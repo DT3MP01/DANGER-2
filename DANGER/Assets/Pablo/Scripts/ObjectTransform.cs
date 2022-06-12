@@ -8,11 +8,14 @@ public class ObjectTransform
    public string prefabName;
    public string position;
 
-    public ObjectTransform(Quaternion rotation, string prefabName,string position)
+   public Transform roomParent;
+
+    public ObjectTransform(Quaternion rotation, string prefabName,string position,Transform roomParent)
     {
         this.rotation = rotation;
         this.prefabName = prefabName;
         this.position = position;
+        this.roomParent = roomParent;
     }
 
 

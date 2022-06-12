@@ -73,7 +73,6 @@ public class RoomPopulator : MonoBehaviour
     }
 
 
-
     public void RoomPopulate(List<Transform>generatedRoomList,List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn, int margin) 
     {
         GameObject[] spawnObjects = objectsToSpawn;
@@ -106,41 +105,41 @@ public class RoomPopulator : MonoBehaviour
             position =new Vector3(minX, 1.35f, roomsList[r].coords.z);
             if(!doorsLocations.ContainsKey(position))
             {
-               doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "wall","left"));
+               doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "wall","left",generatedRoomList[r]));
             }
             else {
-                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "door", "left");
+                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "door", "left",generatedRoomList[r]);
             }
 
             position = new Vector3(maxX, 1.35f, roomsList[r].coords.z);
             if (!doorsLocations.ContainsKey(position))
             {
-                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "wall", "right"));
+                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "wall", "right", generatedRoomList[r]));
             }
             else
             {
-                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "door", "right");
+                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "door", "right",generatedRoomList[r]);
             }
 
             position = new Vector3(roomsList[r].coords.x, 1.35f, minZ);
             if (!doorsLocations.ContainsKey(position))
             {
-                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "wall","bottom"));
+                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "wall","bottom",generatedRoomList[r]));
             }
             else
             {
-                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "door", "bottom");
+                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "door", "bottom",generatedRoomList[r]);
             }
             
             position = new Vector3(roomsList[r].coords.x, 1.35f, maxZ);
 
             if (!doorsLocations.ContainsKey(position))
             {
-                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "wall", "top"));
+                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "wall", "top",generatedRoomList[r]));
             }
             else
             {
-                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "door", "top");
+                doorsLocations[position] = new ObjectTransform(Quaternion.Euler(0f, 0f, 0f), "door", "top",generatedRoomList[r]);
             }
 
 
@@ -208,8 +207,8 @@ public class RoomPopulator : MonoBehaviour
 
             }
         }
-
         foreach(Vector3 prefabs in doorsLocations.Keys){
+            
             if(doorsLocations[prefabs].prefabName == "door"){
                 Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation);
 
@@ -219,29 +218,28 @@ public class RoomPopulator : MonoBehaviour
                 GameObject wall;
                 switch(doorsLocations[prefabs].position){
                     case "left":
-                        pos = prefabs + new Vector3(-0.25f,-1.35f,0);
-                        wall= Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation);
+                        pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall= Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
                         break;
                     case "right":
-                        pos = prefabs + new Vector3(0.25f,-1.35f,0);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation);
+                        pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
                         break;
                     case "top":
-                        pos = prefabs + new Vector3(0,-1.35f,0.25f);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation);
+                        pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
                         break;
                     case "bottom":
-                        pos = prefabs + new Vector3(0,-1.35f,-0.25f);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation);
+                        pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
                         break;
                     default:
                         break;
                 }
-                
             }
             
 

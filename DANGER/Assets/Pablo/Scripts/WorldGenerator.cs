@@ -264,10 +264,10 @@ public class WorldGenerator : RoomPopulator
              * Siendo C el punto donde situamos cada uno de los cubos generadores del bloque de pared entre la esquina y la puerta. Las E son las esquinas, las P son las puertas, x los huecos que se ocuparan al escalar el cubo generador
              * y G los generadores de salas siguientes
              */
-            GameObject leftDownHor = Instantiate(wallPrefab,  new Vector3((-width / 2.0f) - doorMargin + roomCentre.x, 0, -length - 1f + roomCentre.z), Quaternion.identity);
-            GameObject leftUpHor = Instantiate(wallPrefab,    new Vector3((-width / 2.0f) - doorMargin + roomCentre.x, 0, length + 1f + roomCentre.z), Quaternion.identity);
-            GameObject rightDownHor = Instantiate(wallPrefab, new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, -length - 1f + roomCentre.z), Quaternion.identity);
-            GameObject rightUpHor = Instantiate(wallPrefab,   new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, length + 1f + roomCentre.z), Quaternion.identity);
+            GameObject leftDownHor = Instantiate(wallPrefab,  new Vector3((-width / 2.0f) - doorMargin + roomCentre.x, 0, -length - 0.75f + roomCentre.z), Quaternion.identity);
+            GameObject leftUpHor = Instantiate(wallPrefab,    new Vector3((-width / 2.0f) - doorMargin + roomCentre.x, 0, length + 0.75f + roomCentre.z), Quaternion.identity);
+            GameObject rightDownHor = Instantiate(wallPrefab, new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, -length - 0.75f + roomCentre.z), Quaternion.identity);
+            GameObject rightUpHor = Instantiate(wallPrefab,   new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, length + 0.75f + roomCentre.z), Quaternion.identity);
 
             leftDownHor.transform.SetParent(roomParent.transform);
             leftUpHor.transform.SetParent(roomParent.transform);
@@ -282,10 +282,10 @@ public class WorldGenerator : RoomPopulator
 
 
 
-            GameObject leftDownVer = Instantiate(wallPrefab, new Vector3(-width - 1f + roomCentre.x, 0, (-length / 2f) - doorMargin + roomCentre.z), Quaternion.identity);
-            GameObject leftUpVer = Instantiate(wallPrefab, new Vector3(-width - 1f + roomCentre.x, 0, (length / 2f) + doorMargin + roomCentre.z), Quaternion.identity);
-            GameObject rightDownVer = Instantiate(wallPrefab, new Vector3(width + 1f + roomCentre.x, 0, (-length / 2f) - doorMargin + roomCentre.z), Quaternion.identity);
-            GameObject rightUpVer = Instantiate(wallPrefab, new Vector3(width + 1f + roomCentre.x, 0, (length / 2f) + doorMargin + roomCentre.z), Quaternion.identity);
+            GameObject leftDownVer = Instantiate(wallPrefab, new Vector3(-width - 0.75f + roomCentre.x, 0, (-length / 2f) - doorMargin + roomCentre.z), Quaternion.identity);
+            GameObject leftUpVer = Instantiate(wallPrefab, new Vector3(-width - 0.75f + roomCentre.x, 0, (length / 2f) + doorMargin + roomCentre.z), Quaternion.identity);
+            GameObject rightDownVer = Instantiate(wallPrefab, new Vector3(width + 0.75f + roomCentre.x, 0, (-length / 2f) - doorMargin + roomCentre.z), Quaternion.identity);
+            GameObject rightUpVer = Instantiate(wallPrefab, new Vector3(width + 0.75f + roomCentre.x, 0, (length / 2f) + doorMargin + roomCentre.z), Quaternion.identity);
 
             leftDownVer.transform.SetParent(roomParent.transform);
             leftUpVer.transform.SetParent(roomParent.transform);

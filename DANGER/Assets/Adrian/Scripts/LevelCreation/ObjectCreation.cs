@@ -87,6 +87,7 @@ public class ObjectCreation : MonoBehaviour
     [SerializeField] GameObject prefabWindow;
 
     public string json;
+    public SaveRoom SaveRoomData;
 
     
     public Dictionary<string, GameObject> SaveParameters;
@@ -160,11 +161,32 @@ public class ObjectCreation : MonoBehaviour
         if(reduced){
             reduceWalls();
         }
-        Debug.Log("SaveFile2");
-        StartCoroutine(RecordFrame(savename));
+        StartCoroutine(RecordFrameAndSave(savename));
     }
 
-    IEnumerator RecordFrame(string savename){
+
+    public IEnumerator RecordFrame(){
+
+        if(reduced){
+            reduceWalls();
+        
+        }
+        yield return new WaitForEndOfFrame();
+        Camera.main.Render();
+        texture = ScreenCapture.CaptureScreenshotAsTexture();
+        
+        byte[] textureRaw = texture.EncodeToPNG();
+        Debug.Log(textureRaw.Length);
+
+        StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
+        SaveRoomData = new SaveRoom(rooms,stats,textureRaw);
+        json = JsonUtility.ToJson(SaveRoomData);
+        
+    }
+
+
+
+    IEnumerator RecordFrameAndSave(string savename){
         yield return new WaitForEndOfFrame();
         
 
@@ -177,8 +199,8 @@ public class ObjectCreation : MonoBehaviour
         Debug.Log(textureRaw.Length);
 
         StatsRoom stats = new StatsRoom(meters, extinguishers, windows, doors, countScans);
-        SaveRoom hola = new SaveRoom(rooms,stats,textureRaw);
-        json = JsonUtility.ToJson(hola);
+        SaveRoomData = new SaveRoom(rooms,stats,textureRaw);
+        json = JsonUtility.ToJson(SaveRoomData);
         Debug.Log("Saving "+savename);
         System.IO.File.WriteAllText(Application.persistentDataPath +'/' + savename, json);
         

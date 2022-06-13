@@ -1,13 +1,13 @@
 using Firebase;
-using Firebase.Database;
+using Firebase.Firestore;
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 
 public class DBManager : MonoBehaviour
 {
-    DatabaseReference reference;
 
     public string idFile;
     public int id;
@@ -17,6 +17,7 @@ public class DBManager : MonoBehaviour
 
     public ObjectCreation game;
     public timer timer;
+    private FirebaseFirestore database;
 
 
     // Start is called before the first frame update
@@ -29,21 +30,50 @@ public class DBManager : MonoBehaviour
         // Get the root reference location of the database.
         //reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        FirebaseDatabase database = FirebaseDatabase.GetInstance("https://dangergame-d95dc-default-rtdb.europe-west1.firebasedatabase.app/");
-        reference = database.RootReference;
+        database = FirebaseFirestore.DefaultInstance;
     }
+
+    IEnumerator SaveRoom()
+    {
+        yield return StartCoroutine(game.RecordFrame());
+
+        DocumentReference docData = database.Collection("GameData").Document();
+        docData.SetAsync(new Dictionary<string, object> {{"Raw",game.json}});
+
+        DocumentReference docRefInfo = database.Collection("GameInfo").Document();
+        //StatsRoom statsRoom = new StatsRoom(game.meters, game.extinguishers, game.windows, game.doors, game.countScans);
+        Dictionary<string, object>data =  new Dictionary<string, object> {
+            {"Image", game.SaveRoomData.image},
+            {"PlayerName", "PlayerExample"},
+            {"RoomName", "ROOM"},
+            {"Meters",game.SaveRoomData.statsRoom.meters},
+            {"Extinguishers",game.SaveRoomData.statsRoom.extinguishers},
+            {"Windows",game.SaveRoomData.statsRoom.windows},
+            {"Doors",game.SaveRoomData.statsRoom.doors},
+            {"CountScans",game.SaveRoomData.statsRoom.countScans},
+            {"Reference", docData}
+            };
+        docRefInfo.SetAsync(data);
+    }
+
 
     public void inicializarBD()
     {
 
-        Debug.Log(text);
-        Debug.Log(this.game.json);
-        reference.Child("User").Child(text).Child("Alias").SetValueAsync("DUDETE");
-        reference.Child("User").Child(text).Child("Games").Child(partida).SetRawJsonValueAsync(game.json);
-        
-        this.id = int.Parse(text);
-        this.id++;
+        // Debug.Log(text);
+        // Debug.Log(this.game.json);
+        StartCoroutine(SaveRoom());
 
-        File.WriteAllText(idFile, id.ToString());
+        
+
+        // reference.Child("User").Child(text).Child("Alias").SetValueAsync("DUDETE");
+        // reference.Child("User").Child(text).Child("Games").Child(partida).SetRawJsonValueAsync(game.json);
+        
+        // this.id = int.Parse(text);
+        // this.id++;
+
+        // File.WriteAllText(idFile, id.ToString());
     }
+
+    
 }

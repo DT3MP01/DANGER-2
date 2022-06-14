@@ -449,7 +449,7 @@ public class ObjectCreation : MonoBehaviour
                                 {
                                     wallsRoom.Remove(child.transform.position);
 
-                                    if(child.transform.childCount > 0)
+                                    if(child.transform.GetComponentInParent<CubeObjects>().extinguisher)
                                     {
                                         extinguishers--;
                                     }

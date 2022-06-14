@@ -99,6 +99,8 @@ public class RoomPopulator : MonoBehaviour
             restrictedAreas.Add(new ocuppiedArea(roomsList[r].coords.x - width[r]/2f, roomsList[r].coords.x +width[r]/2f, roomsList[r].coords.z - 1f, roomsList[r].coords.z + 1f));
             //restrictedAreas.Add(new ocuppiedArea(esqBI.x, esqAI.x, esqBI.z, esqAI.z));
 
+
+
             //Debug.Log("------------Rellenando sala: " + r+"-------------");
             room = new ocuppiedArea(minX, maxX, minZ, maxZ);
         

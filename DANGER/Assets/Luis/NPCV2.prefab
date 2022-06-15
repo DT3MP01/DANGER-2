@@ -6130,7 +6130,6 @@ GameObject:
   - component: {fileID: 4023779642572394296}
   - component: {fileID: 5879350979811029756}
   - component: {fileID: 4023779642572394302}
-  - component: {fileID: 1299161072091353190}
   - component: {fileID: 6077419868901140805}
   - component: {fileID: 4023779642572394295}
   - component: {fileID: -6890089959404929605}
@@ -6138,7 +6137,7 @@ GameObject:
   - component: {fileID: 8339362418195988710}
   m_Layer: 0
   m_Name: NPCV2
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6166,7 +6165,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4023779642572394304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 3.15231
@@ -6194,22 +6193,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &1299161072091353190
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4023779642572394304}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!95 &6077419868901140805
 Animator:
   serializedVersion: 3
@@ -6317,7 +6300,7 @@ MonoBehaviour:
   Objects: []
   extinguisher: {fileID: 4743898290310442400}
   fog: {fileID: 3025238167892741703}
-  scanTimer: 0.5
+  scanTimer: 0.48
   nearbySmoke: 0
   nearbyFire: 0
   isTerrified: 0
@@ -6326,7 +6309,7 @@ MonoBehaviour:
   extinguisherCapacity: 0
   health: 100
   maxHealth: 100
-  stress: 99.34996
+  stress: 97.84987
   maxStress: 100
   decrementStress: 0.05
   decrementHealth: 0.05

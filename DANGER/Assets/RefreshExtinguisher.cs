@@ -16,13 +16,18 @@ public class RefreshExtinguisher : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player")
         {
             Debug.Log("Player Detected");
-            collision.gameObject.GetComponent<PlayerSensor>().extinguisherCapacity = 100f;
-            Destroy(gameObject.transform.parent.gameObject);
+            collider.gameObject.GetComponent<PlayerSensor>().extinguisherCapacity = 100f;
+            Destroy(gameObject.transform.parent.parent.gameObject);
+        }
+        if(collider.gameObject.tag == "NPC"){
+
+            collider.gameObject.GetComponent<AiSensor>().extinguisherCapacity = 100f;
+            Destroy(gameObject.transform.parent.parent.gameObject);
         }
     }
 }

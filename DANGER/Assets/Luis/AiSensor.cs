@@ -121,7 +121,6 @@ public class AiSensor : MonoBehaviour
 
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
-        Debug.Log(count);
         Objects.Clear();
         bool checkSmoke = false;
         bool checkFire = false;

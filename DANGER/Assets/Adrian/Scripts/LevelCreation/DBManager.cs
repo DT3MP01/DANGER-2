@@ -49,10 +49,10 @@ public class DBManager : MonoBehaviour
 
         DocumentReference docRefInfo = database.Collection("GameInfo").Document();
 
-        StorageReference docData = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id);
+        StorageReference docData = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id+".dataRoom");
         docData.PutBytesAsync(Encoding.Unicode.GetBytes(game.json));
 
-        StorageReference docDataImage = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id+"-Image");
+        StorageReference docDataImage = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id+"-Image.png");
         docDataImage.PutBytesAsync(Convert.FromBase64String(game.SaveRoomData.image));
 
         StatsRoom statsRoom = new StatsRoom(game.meters, game.extinguishers, game.windows, game.doors, game.countScans);

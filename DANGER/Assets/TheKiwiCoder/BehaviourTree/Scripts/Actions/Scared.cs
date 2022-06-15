@@ -8,7 +8,8 @@ public class Scared : ActionNode
         public float duration = 2;
         float startTime;
         protected override void OnStart() {
-            context.animator.SetBool("isScared", context.gameObject.GetComponent<AiSensor>().isTerrified);
+            Debug.Log("Scared");
+            context.animator.SetBool("isScared", true);
             startTime = Time.time;
         }
 
@@ -16,10 +17,12 @@ public class Scared : ActionNode
         }
 
         protected override State OnUpdate() {
-            if (context.gameObject.GetComponent<AiSensor>().isTerrified==false) {
-                context.animator.SetBool("isScared", false);
-                return State.Success;
-            }
+            // if (context.gameObject.GetComponent<AiSensor>().isTerrified==false) {
+            //     Debug.Log("ScaredEND");
+            //     context.animator.SetBool("isScared", false);
+            //     return State.Success;
+            // }
+            Debug.Log("ScaredR");
             return State.Running;
         }
 }

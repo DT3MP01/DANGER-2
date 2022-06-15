@@ -34,7 +34,7 @@ public class CharacterMovment : MonoBehaviour
                 if (Physics.Raycast(ray, out RaycastHit hit))
                 {// si el rayo choca con algo actualiza el punto de intersección como destino
                     agent.destination = hit.point;
-                    agent.stoppingDistance = 0.1f;
+                    agent.stoppingDistance = 0.3f;
                     // agent.
                 }
             }

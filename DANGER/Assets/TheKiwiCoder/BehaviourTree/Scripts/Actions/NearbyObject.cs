@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.AI;
 using TheKiwiCoder;
 
-public class NearbyFireExtinguisher : ActionNode
+public class NearbyObject : ActionNode
 {
-    private GameObject[] extinguishers;
-    private GameObject nearestExtinguisher;
+    public GameObject[] objects;
+    public GameObject nearestObject;
     private NavMeshPath path;
+    public string objectTag;
     private float minDistance;
 
 
@@ -16,19 +17,18 @@ public class NearbyFireExtinguisher : ActionNode
         //inicializar las variables para el pathfinding
 
         minDistance = float.MaxValue;
-        extinguishers = GameObject.FindGameObjectsWithTag("Extinguisher");
+        objects = GameObject.FindGameObjectsWithTag(objectTag);
 
-        foreach (GameObject fire in extinguishers) {
+        foreach (GameObject points in objects) {
             path = new NavMeshPath();
-            if (context.agent.CalculatePath(fire.transform.position, path) && path.status == NavMeshPathStatus.PathComplete) {
+            if (context.agent.CalculatePath(points.transform.position, path) && path.status == NavMeshPathStatus.PathComplete) {
                 float distance = Vector3.Distance(context.transform.position, path.corners[0]);
                 for (int i = 1; i < path.corners.Length; i++) {
                     distance += Vector3.Distance(path.corners[i-1], path.corners[i]);
                 }
-
                 if (distance < minDistance) {
                         minDistance = distance;
-                        nearestExtinguisher = fire;
+                        nearestObject = points;
                     }
             }
         }
@@ -38,11 +38,10 @@ public class NearbyFireExtinguisher : ActionNode
     }
 
     protected override State OnUpdate() {
-        if(nearestExtinguisher ==null){
+        if(minDistance ==float.MaxValue){
                 return State.Failure;
         }
-
-        blackboard.moveToPosition = nearestExtinguisher.transform.position;
+        blackboard.moveToPosition = nearestObject.transform.position;
         return State.Success;
     }
 }

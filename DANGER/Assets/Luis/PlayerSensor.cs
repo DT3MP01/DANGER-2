@@ -93,14 +93,14 @@ public class PlayerSensor : MonoBehaviour
             Debug.Log("Pressed Space");
             fog.Play();
             usingExtinguisher=true;
-            StartCoroutine(LerpFunction(0,1,0.3f,currWeight));
+            StartCoroutine(LerpFunction(animator.GetLayerWeight(1),1,0.3f,currWeight));
             
         }
         if(Input.GetKeyUp(KeyCode.Space)||extinguisherCapacity <=0)
         {
             fog.Stop();
             usingExtinguisher=false;
-            StartCoroutine(LerpFunction(1,0,0.3f,currWeight));
+            StartCoroutine(LerpFunction(animator.GetLayerWeight(1),0,0.3f,currWeight));
         }
 
         if(Input.GetKeyDown(KeyCode.LeftControl))
@@ -151,8 +151,8 @@ public class PlayerSensor : MonoBehaviour
         if(playerHealth>=MaxHealth){
             playerHealth = MaxHealth;
         }
-        if(playerStress>=MaxHealth){
-            playerStress = MaxHealth;
+        if(playerStress>=MaxStress){
+            playerStress = MaxStress;
         }
     }
     private void Scan(){
@@ -178,6 +178,7 @@ public class PlayerSensor : MonoBehaviour
             }
         }
         nearbySmoke = checkSmoke;
+        nearbyFire = checkFire;
     }
 
 

@@ -70,7 +70,6 @@ MonoBehaviour:
   description: DetectFire
   drawGizmos: 0
   children:
-  - {fileID: -3388501584196904018}
   - {fileID: -2247863421084346560}
   - {fileID: -4755641854017797634}
 --- !u!114 &-5525246261079050698
@@ -161,8 +160,6 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  extinguishers: []
-  nearestExtinguisher: {fileID: 0}
 --- !u!114 &-3362067970815435330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,7 +185,7 @@ MonoBehaviour:
   - {fileID: -2985655485731714920}
   - {fileID: -6153495262842287306}
   - {fileID: -131001251150454698}
-  selected: 0
+  selected: 2
 --- !u!114 &-2985655485731714920
 MonoBehaviour:
   m_ObjectHideFlags: 0

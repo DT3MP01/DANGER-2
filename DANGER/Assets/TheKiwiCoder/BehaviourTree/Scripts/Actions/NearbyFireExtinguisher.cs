@@ -6,8 +6,8 @@ using TheKiwiCoder;
 
 public class NearbyFireExtinguisher : ActionNode
 {
-    public GameObject[] extinguishers;
-    public GameObject nearestExtinguisher;
+    private GameObject[] extinguishers;
+    private GameObject nearestExtinguisher;
     private NavMeshPath path;
     private float minDistance;
 
@@ -22,7 +22,6 @@ public class NearbyFireExtinguisher : ActionNode
             path = new NavMeshPath();
             if (context.agent.CalculatePath(fire.transform.position, path) && path.status == NavMeshPathStatus.PathComplete) {
                 float distance = Vector3.Distance(context.transform.position, path.corners[0]);
-
                 for (int i = 1; i < path.corners.Length; i++) {
                     distance += Vector3.Distance(path.corners[i-1], path.corners[i]);
                 }

@@ -22,6 +22,9 @@ public class AiSensor : MonoBehaviour
     int count;
     public List<GameObject> Objects = new List<GameObject>();
     float scanInterval;
+
+    public GameObject extinguisher;
+    public ParticleSystem fog;
     public float scanTimer;
     [Header("Detections")]
 
@@ -31,8 +34,18 @@ public class AiSensor : MonoBehaviour
     public bool followPlayer = false;
 
 
-    [Header("Player")]
-    public bool isPlayer=false;
+    public bool useExtinguisher;
+
+
+    [Header("Stats")]
+    public float extinguisherCapacity=0f;
+    public float health=100f;
+    public float maxHealth=100f;
+    public float stress=100f;
+    public float maxStress=100f;
+
+    public float decrementStress=0.05f;
+    public float decrementHealth = 0.05f;
 
 
     Mesh mesh;
@@ -60,6 +73,49 @@ public class AiSensor : MonoBehaviour
         {
             scanTimer = scanInterval;
             Scan();
+            CalculateHealth();
+            if(useExtinguisher){
+                fog.Play();
+                extinguisherCapacity= Mathf.Max(0,extinguisherCapacity-4f);
+            }
+            else{
+                fog.Stop();
+            }
+        }
+        if(extinguisherCapacity==0){
+            extinguisher.SetActive(false);
+        }
+        else{
+            extinguisher.SetActive(true);
+        }
+
+
+    }
+
+
+
+    private void  CalculateHealth(){
+        if(nearbyFire){
+            health -= 2*decrementHealth;
+           stress -= decrementStress;
+        }
+        if(isTerrified){
+            stress += 30*decrementStress;
+        }
+        // health -= decrementHealth;
+        stress -= decrementStress;
+
+        if(health<=0){
+            health = 0;
+        }
+        if(stress<=0){
+            stress = 0;
+        }
+        if(health>=maxHealth){
+            health = maxHealth;
+        }
+        if(stress>=maxStress){
+            stress = maxStress;
         }
     }
 
@@ -78,6 +134,7 @@ public class AiSensor : MonoBehaviour
             }
             else if (checkFire == false && obj.tag == "Fire"){
                 nearbyFire = true;
+                Debug.Log("Nearby Fire");
                 checkFire=true;
             }
             else if (IsInSight(obj))
@@ -86,6 +143,7 @@ public class AiSensor : MonoBehaviour
             }
         }
         nearbySmoke = checkSmoke;
+        nearbyFire = checkFire;
     }
 
 

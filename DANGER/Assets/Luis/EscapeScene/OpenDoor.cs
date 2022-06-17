@@ -19,12 +19,14 @@ public class OpenDoor : MonoBehaviour
         {
             Debug.Log("Player Detected");
             anim.SetBool("isOpen", true);
-            GetComponent<BoxCollider>().enabled = false;
+            gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+            GetComponent<CustomCursor>().enabled = false;
         }
     }
     void OnTriggerExit(Collider other){
         anim.SetBool("isOpen", false);
-        GetComponent<BoxCollider>().enabled = true;
+        gameObject.layer = LayerMask.NameToLayer("Default");
+        GetComponent<CustomCursor>().enabled = true;
 
     }
 }

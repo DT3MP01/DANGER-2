@@ -1118,9 +1118,9 @@ public class ObjectCreation : MonoBehaviour
                 selectExtinguisher.SetActive(false);
             }
 
-            if (true)
+            if (Input.GetMouseButton(2)&& Input.GetKey(KeyCode.LeftControl))
             {
-                    mouseD.Set(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0);
+                    mouseD.Set(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"),0);
                     
                     focusPosition += (Camera.main.transform.right * mouseD.x + Camera.main.transform.up * mouseD.y) * sens * Time.deltaTime;
 
@@ -1128,7 +1128,7 @@ public class ObjectCreation : MonoBehaviour
                 
             }
 
-            if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftShift))
+            if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftControl))
             {
                     Rotation();
 

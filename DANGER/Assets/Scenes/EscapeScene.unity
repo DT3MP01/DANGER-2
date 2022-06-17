@@ -2779,7 +2779,7 @@ MonoBehaviour:
   maxLength: 26
   minWidth: 15
   maxWidth: 26
-  roomsToGenerate: 5
+  roomsToGenerate: 10
   doorSize: 1.5
   margin: 3
   objectsToSpawn:

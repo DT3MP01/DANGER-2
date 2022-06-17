@@ -20,13 +20,11 @@ public class OpenDoor : MonoBehaviour
             Debug.Log("Player Detected");
             anim.SetBool("isOpen", true);
             GetComponent<BoxCollider>().enabled = false;
-            StartCoroutine(CloseDoor());
         }
     }
-    IEnumerator CloseDoor()
-    {
-        yield return new WaitForSeconds(2);
+    void OnTriggerExit(Collider other){
         anim.SetBool("isOpen", false);
         GetComponent<BoxCollider>().enabled = true;
+
     }
 }

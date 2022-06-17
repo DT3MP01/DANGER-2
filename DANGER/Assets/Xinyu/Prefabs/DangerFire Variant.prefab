@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7420406827793114673, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_Name
-      value: DangerFire Variant
+      value: DangerFire Variant (5)
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_RootOrder
@@ -17,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.36
+      value: -10.42
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -186.48
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalRotation.w
@@ -33,15 +33,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7420406827793114677, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7420406828091909904, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: fb607caf947152346871315d87f63196, type: 2}
     - target: {fileID: 7420406828096717702, guid: d0f3cbd64011cf54ba32345bcf917e75, type: 3}
       propertyPath: m_Range
       value: 9

@@ -138,7 +138,7 @@ public class WorldGenerator : RoomPopulator
         }
         
         
-    
+        navMesh.BuildNavMesh();
         // Generamos el Mesh para los agentes
         //Debug.Log(generatedRooms[0]);
 
@@ -408,7 +408,7 @@ public class WorldGenerator : RoomPopulator
 
                                     ) { Debug.Log("escogido1"); Instantiate(exit, aux1.coords, Quaternion.identity); }
                 else { Debug.Log("escogido2"); Instantiate(exit, aux2.coords, Quaternion.identity); }
-                navMesh.BuildNavMesh();
+                
                 GlobalVar.remainingNPCs = GlobalVar.totalNPCs;
             }
         }

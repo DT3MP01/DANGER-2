@@ -105,6 +105,7 @@ public class RoomPopulator : MonoBehaviour
             room = new ocuppiedArea(minX, maxX, minZ, maxZ);
         
             position =new Vector3(minX, 1.35f, roomsList[r].coords.z);
+            
             if(!doorsLocations.ContainsKey(position))
             {
                doorsLocations.Add(position, new ObjectTransform(Quaternion.Euler(0f, 90f, 0f), "wall","left",generatedRoomList[r]));
@@ -212,7 +213,7 @@ public class RoomPopulator : MonoBehaviour
         foreach(Vector3 prefabs in doorsLocations.Keys){
             
             if(doorsLocations[prefabs].prefabName == "door"){
-                Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation);
+                Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
 
             }
             else{

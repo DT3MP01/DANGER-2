@@ -17,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscapeScene.unity
     guid: 51e94fb4cb2cede4abb34651c13e7d33
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Adrian/Menus/Main Menu/Options/Options.unity
     guid: aaa1be3649d088b42bf841ee3c7d4a15

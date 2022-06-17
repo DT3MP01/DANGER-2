@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 2c2a806801512c54d80a9c8f516e3a8b, type: 2}
+  m_LightingDataAsset: {fileID: 112000000, guid: 7ce30af02ccb2d94cb5dbd84db7335d1, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 433c26034b9034d45bbed6ec86b8cc2f, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2776,9 +2776,9 @@ MonoBehaviour:
   exit: {fileID: 7224566585186012604, guid: 44431d1ded887dd4588c631a56078de1, type: 3}
   enablePopulate: 1
   minLength: 15
-  maxLength: 35
+  maxLength: 26
   minWidth: 15
-  maxWidth: 35
+  maxWidth: 26
   roomsToGenerate: 5
   doorSize: 1.5
   margin: 3

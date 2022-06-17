@@ -1454,6 +1454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 1541093606}
   background: {fileID: 0}
+  isMenuItem: 1
+  objectCreation: {fileID: 2035793589}
   onItemSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -3158,6 +3160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -3537,6 +3541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -4083,6 +4089,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 1541093606}
   background: {fileID: 0}
+  isMenuItem: 1
+  objectCreation: {fileID: 2035793589}
   onItemSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -4143,6 +4151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -4309,6 +4319,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -4644,6 +4656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -5076,6 +5090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -6300,6 +6316,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -7123,6 +7141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -7433,6 +7453,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -8374,6 +8396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 1541093606}
   background: {fileID: 0}
+  isMenuItem: 1
+  objectCreation: {fileID: 2035793589}
   onItemSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -8944,6 +8968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -9189,6 +9215,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -9463,6 +9491,7 @@ MonoBehaviour:
   idFile: 
   id: 0
   text: 
+  partida: 
   game: {fileID: 2035793589}
   timer: {fileID: 1892295375}
 --- !u!4 &1526660735
@@ -10084,6 +10113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -10863,6 +10894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -11307,6 +11340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -12412,6 +12447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -13313,6 +13350,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -14121,6 +14160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 1541093606}
   background: {fileID: 0}
+  isMenuItem: 1
+  objectCreation: {fileID: 2035793589}
   onItemSelected:
     m_PersistentCalls:
       m_Calls: []
@@ -14181,6 +14222,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:
@@ -14388,7 +14431,7 @@ MonoBehaviour:
   prefabCubeWhitePattern: {fileID: 7686001656532442770, guid: 2d889a71b58fbd847a6c7c49e72dbb69, type: 3}
   prefabCubeWhiteWood: {fileID: 7686001656532442770, guid: 8328e4a76961048419a170466887671b, type: 3}
   prefabWall: {fileID: 690057332283422468, guid: 099e9cc0f039f1d4d8a245a17c3ca049, type: 3}
-  prefabDoor: {fileID: 1546866186244504, guid: fc9fa88e094285f4e9420f756be3b68d, type: 3}
+  prefabDoor: {fileID: 1746458143501067288, guid: d2c797bf7b8ce3c4f8345eda06bac10d, type: 3}
   prefabExtinguisher: {fileID: 3375355652638791714, guid: 6b56c3e3c1a5ab64c8a9eb5a0cd75d32, type: 3}
   prefabTable: {fileID: 8155164869769550747, guid: 7474a41d08c9fe5428c07a60a9a4b1a5, type: 3}
   prefabChair: {fileID: 5279529193109040788, guid: eaf72944cbc9da44dab0744d1d1b6b13, type: 3}
@@ -14398,6 +14441,18 @@ MonoBehaviour:
   prefabPlant: {fileID: 3642388634570771913, guid: 920ef97ad7be85b4690d900122571634, type: 3}
   prefabWindow: {fileID: 814623339566748033, guid: 082144f5ff5624d41bce56289a96518c, type: 3}
   json: 
+  SaveRoomData:
+    floorName: []
+    furnitureObjects: []
+    floorPositions: []
+    floorscriptValues: []
+    statsRoom:
+      meters: 0
+      extinguishers: 0
+      windows: 0
+      doors: 0
+      countScans: 0
+    image: 
 --- !u!1 &2053699642
 GameObject:
   m_ObjectHideFlags: 0
@@ -14452,6 +14507,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemGroup: {fileID: 179640344}
   background: {fileID: 0}
+  isMenuItem: 0
+  objectCreation: {fileID: 0}
   onItemSelected:
     m_PersistentCalls:
       m_Calls:

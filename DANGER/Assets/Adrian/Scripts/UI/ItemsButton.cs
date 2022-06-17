@@ -12,6 +12,9 @@ public class ItemsButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
 
     public Image background;
 
+    public bool isMenuItem;
+    public ObjectCreation objectCreation;
+
     public UnityEvent onItemSelected;
     public UnityEvent onItemDeselected;
 
@@ -23,11 +26,18 @@ public class ItemsButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHan
     public void OnPointerEnter(PointerEventData eventData)
     {
         itemGroup.OnPageEnter(this);
+        if(isMenuItem){
+            objectCreation.editorEnabled = false;
+        }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         itemGroup.OnPageExit(this);
+        if(isMenuItem){
+            objectCreation.editorEnabled = true;
+        }
     }
 
     void Start()

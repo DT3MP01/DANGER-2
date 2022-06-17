@@ -1118,35 +1118,42 @@ public class ObjectCreation : MonoBehaviour
                 selectExtinguisher.SetActive(false);
             }
 
-            if (Input.GetMouseButton(2)&& Input.GetKey(KeyCode.LeftControl))
-            {
-                    mouseD.Set(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"),0);
-                    
-                    focusPosition += (Camera.main.transform.right * mouseD.x + Camera.main.transform.up * mouseD.y) * sens * Time.deltaTime;
-
-                    CameraRecolocation();
-                
-            }
-
-            if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftControl))
-            {
-                    Rotation();
-
-            }
-
-            if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
-            {
-                mouseD.Set(0, 0, -Input.GetAxisRaw("Mouse ScrollWheel"));
-
-                amount += mouseD * 50f;
-
-                CameraRecolocation();
-            }
+          
 
             MetersText.GetComponent<TMPro.TextMeshProUGUI>().text = meters.ToString();
             DoorsText.GetComponent<TMPro.TextMeshProUGUI>().text = doors.ToString();
             ExtinguishersText.GetComponent<TMPro.TextMeshProUGUI>().text = extinguishers.ToString();
             WindowsText.GetComponent<TMPro.TextMeshProUGUI>().text = windows.ToString();
+        }
+        
+        if(Input.GetKeyDown(KeyCode.LeftControl)){
+            editorEnabled = false;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftControl)){
+            editorEnabled = true;
+        }
+        if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl))
+        {
+                mouseD.Set(-Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y"), -Input.GetAxisRaw("Mouse ScrollWheel"));
+
+                focusPosition += (Camera.main.transform.right * mouseD.x + Camera.main.transform.up * mouseD.y) * sens * 0.1f;
+
+                CameraRecolocation();
+        }
+
+        if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftControl))
+        {
+                Rotation();
+
+        }
+
+        if (Input.GetAxisRaw("Mouse ScrollWheel") != 0)
+        {
+            mouseD.Set(0, 0, -Input.GetAxisRaw("Mouse ScrollWheel"));
+
+            amount += mouseD * 50f;
+
+            CameraRecolocation();
         }
     }
 

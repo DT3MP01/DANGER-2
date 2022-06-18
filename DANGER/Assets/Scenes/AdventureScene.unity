@@ -8635,7 +8635,7 @@ MonoBehaviour:
   quistion: "Encuentras con 2 escaleras uno hacia arriba y el otro hacia abajo, a
     su lado hay un ascensor, \xBFHacia d\xF3nde vas a dirigir? "
   optionA: A.Escalera hacia arriba
-  optionB: B.Escalera hacia abajo
+  optionB: B.Escalera hacia abajo espacio
   optionC: C.Ascensor
   quizExtraInfo: {fileID: 0}
   correcto: 2
@@ -11579,6 +11579,10 @@ PrefabInstance:
     - target: {fileID: 9112295840412345102, guid: b96d8af55e78c2e4cb50b2c8c3be7a53, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112295840488354763, guid: b96d8af55e78c2e4cb50b2c8c3be7a53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9112295840966934383, guid: b96d8af55e78c2e4cb50b2c8c3be7a53, type: 3}
       propertyPath: m_Text

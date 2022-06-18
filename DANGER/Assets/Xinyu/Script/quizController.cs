@@ -4,6 +4,8 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Firebase.Firestore;
+using Firebase.Extensions;
 
 
 public class quizController : MonoBehaviour
@@ -23,7 +25,7 @@ public class quizController : MonoBehaviour
     public Button OptionB;
     public Button OptionC;
 
-
+    
     //Info personaje
     public GameObject player;
     public CharacterStat playerStat;
@@ -48,8 +50,9 @@ public class quizController : MonoBehaviour
     private int remainPeoples = 0;
     private int attempts;
 
-
-
+    //Enlace a Firebase
+    private FirebaseFirestore database;
+    public bool errorDatabase;
 
     public enum QuizType
     {
@@ -57,7 +60,14 @@ public class quizController : MonoBehaviour
         ASK
     };
 
-
+    [System.Serializable]
+    public class Quizz{
+        public string question;
+        public string optionA;
+        public string optionB;
+        public string optionC;
+        public int correcto;
+    }
     //
     //Usar SetQuiz(int id,string quiz,string optionA,string optionB,string optionC,int correctOption,QuizExtraInfo extr) para ->
     //-----------------------------------------
@@ -84,6 +94,29 @@ public class quizController : MonoBehaviour
 
         extraResquestItem = new Items.ItemType[8];
 
+        database= FirebaseFirestore.DefaultInstance;
+
+        CollectionReference docRefInfo = database.Collection("Quizzes");
+        Debug.Log("Quiz to DATABAE: ");
+        docRefInfo.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        {
+            if (task.IsFaulted)
+            {
+                Debug.Log("Error getting documents: " + task.Exception);
+                errorDatabase = true;
+            }
+            else
+            {
+                errorDatabase = false;
+                foreach (DocumentSnapshot document in task.Result.Documents)
+                {
+                   //Quizz quiz = document.ToDictionary();
+
+                   
+
+                }
+            }
+        });
 
     }
     

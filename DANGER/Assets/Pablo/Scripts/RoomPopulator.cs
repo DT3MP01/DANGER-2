@@ -73,7 +73,7 @@ public class RoomPopulator : MonoBehaviour
     }
 
 
-    public void RoomPopulate(List<Transform>generatedRoomList,List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn, int margin) 
+    public void RoomPopulate(List<Transform>generatedRoomList,List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn,GameObject[]extinguishersToSpawn, int margin) 
     {
         GameObject[] spawnObjects = objectsToSpawn;
         Fisher_YatesShuffle(spawnObjects);

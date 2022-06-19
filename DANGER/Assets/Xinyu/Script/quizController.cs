@@ -54,6 +54,8 @@ public class quizController : MonoBehaviour
     private FirebaseFirestore database;
     public bool errorDatabase;
 
+    public List<Quiz> QuizzesList;
+
     public enum QuizType
     {
         QUIZ,
@@ -61,12 +63,20 @@ public class quizController : MonoBehaviour
     };
 
     [System.Serializable]
-    public class Quizz{
+    public class Quiz{
         public string question;
         public string optionA;
         public string optionB;
         public string optionC;
-        public int correcto;
+        public int correct;
+        public Quiz(string question, string optionA, string optionB, string optionC, int correcto)
+        {
+            this.question = question;
+            this.optionA = optionA;
+            this.optionB = optionB;
+            this.optionC = optionC;
+            this.correct = correcto;
+        }
     }
     //
     //Usar SetQuiz(int id,string quiz,string optionA,string optionB,string optionC,int correctOption,QuizExtraInfo extr) para ->
@@ -96,7 +106,7 @@ public class quizController : MonoBehaviour
 
         database= FirebaseFirestore.DefaultInstance;
 
-        CollectionReference docRefInfo = database.Collection("Quizzes");
+        Query docRefInfo = database.Collection("Quizzes").Limit(10).WhereEqualTo("topic",1);
         Debug.Log("Quiz to DATABAE: ");
         docRefInfo.GetSnapshotAsync().ContinueWithOnMainThread(task =>
         {
@@ -108,12 +118,13 @@ public class quizController : MonoBehaviour
             else
             {
                 errorDatabase = false;
+                
                 foreach (DocumentSnapshot document in task.Result.Documents)
                 {
-                   //Quizz quiz = document.ToDictionary();
-
-                   
-
+                   Dictionary<string, object> data = document.ToDictionary();
+                    Quiz newQuiz = new Quiz(data["question"].ToString(), data["optionA"].ToString(), data["optionB"].ToString(), data["optionC"].ToString(), int.Parse(data["correct"].ToString()));
+                    QuizzesList.Add(newQuiz);
+                
                 }
             }
         });

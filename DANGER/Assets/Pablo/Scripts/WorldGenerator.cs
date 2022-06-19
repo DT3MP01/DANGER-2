@@ -44,9 +44,12 @@ public class WorldGenerator : RoomPopulator
     Queue<generatorPoint> genQ;
     private int[] queueOrder;
     public GameObject[] objectsToSpawn;
+
+    public GameObject[] extinguishersToSpawn;
     public GameObject[] labItems;
 
     public List<Transform> generatedRoomList;
+
     generatorPoint aux1;
     generatorPoint aux2;
     private bool started;
@@ -147,8 +150,8 @@ public class WorldGenerator : RoomPopulator
         GlobalVar.widths = generatedWidths;
         GlobalVar.lengths = generatedLengths;
         if (enablePopulate) {
-            if (lab) { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, labItems, margin); }
-            else { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, objectsToSpawn, margin); }
+            if (lab) { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, labItems,extinguishersToSpawn, margin); }
+            else { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, objectsToSpawn,extinguishersToSpawn, margin); }
             
         }
         GlobalVar.rooms = generatedRooms;
@@ -268,7 +271,7 @@ public class WorldGenerator : RoomPopulator
             GameObject leftUpHor = Instantiate(wallPrefab,    new Vector3((-width / 2.0f) - doorMargin + roomCentre.x, 0, length + 0.75f + roomCentre.z), Quaternion.identity);
             GameObject rightDownHor = Instantiate(wallPrefab, new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, -length - 0.75f + roomCentre.z), Quaternion.identity);
             GameObject rightUpHor = Instantiate(wallPrefab,   new Vector3(( width / 2.0f) + doorMargin + roomCentre.x, 0, length + 0.75f + roomCentre.z), Quaternion.identity);
-
+            
             leftDownHor.transform.SetParent(roomParent.transform);
             leftUpHor.transform.SetParent(roomParent.transform);
             rightDownHor.transform.SetParent(roomParent.transform);

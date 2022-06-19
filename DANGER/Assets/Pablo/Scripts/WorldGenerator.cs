@@ -1,31 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+
 
 public class WorldGenerator : RoomPopulator
 {
     // Start is called before the first frame update
-    public GameObject floorPrefab;
-    public GameObject npcPrefab;
-    public GameObject playerPrefab;
-    public GameObject roomParentPrefab;
-    public NavMeshSurface navMesh;
-    public GameObject exit;
-    public bool enablePopulate;
-    
 
-    public int minLength =7;
-    public int maxLength = 40;
-    public int minWidth = 7;
-    public int maxWidth = 40;
-    public int roomsToGenerate; //= 6;
-    public float doorSize = 3;
-    public int margin;
 
     private float length;
     private float width;
-    private float doorMargin;
+    public float doorMargin;
     private generatorPoint genP;
     private int createdRooms;
 
@@ -40,21 +25,16 @@ public class WorldGenerator : RoomPopulator
     private int originWidth;                                      // Guardamos una copia del ancho original para crear el suelo
     private int originLength;
 
-    public enum dir { left, up, right, down, centre };
+
     Queue<generatorPoint> genQ;
     private int[] queueOrder;
-    public GameObject[] objectsToSpawn;
 
-    public GameObject[] extinguishersToSpawn;
-    public GameObject[] labItems;
-
-    public List<Transform> generatedRoomList;
 
     generatorPoint aux1;
     generatorPoint aux2;
     private bool started;
 
-    public bool lab;
+
 
 
     public struct generatorPoint

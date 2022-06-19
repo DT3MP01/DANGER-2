@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using UnityEngine.AI;
 public class RoomPopulator : MonoBehaviour
 {
     //public GameObject[] objectsToSpawn;
@@ -11,6 +11,22 @@ public class RoomPopulator : MonoBehaviour
 
     public GameObject doorPrefab;
     public GameObject wallPrefab;
+    public GameObject floorPrefab;
+    public GameObject npcPrefab;
+    public GameObject playerPrefab;
+    public GameObject roomParentPrefab;
+    public NavMeshSurface navMesh;
+    public GameObject exit;
+    public bool enablePopulate;
+    
+
+    public int minLength =7;
+    public int maxLength = 40;
+    public int minWidth = 7;
+    public int maxWidth = 40;
+    public int roomsToGenerate; //= 6;
+    public float doorSize = 3;
+    public int margin;
     private int objWidth;
     private int objLength;
     private int objHeigth;
@@ -33,6 +49,14 @@ public class RoomPopulator : MonoBehaviour
     private ocuppiedArea room;
     private Dictionary<Vector3,ObjectTransform> doorsLocations;
 
+    public GameObject[] objectsToSpawn;
+
+    public GameObject[] extinguishersToSpawn;
+    public GameObject[] labItems;
+
+    public List<Transform> generatedRoomList;
+    public enum dir { left, up, right, down, centre };
+    public bool lab;
     //public GameObject fire;
 
 
@@ -75,6 +99,7 @@ public class RoomPopulator : MonoBehaviour
 
     public void RoomPopulate(List<Transform>generatedRoomList,List<WorldGenerator.generatorPoint> roomsList, List<int> width, List<int> length, GameObject[] objectsToSpawn,GameObject[]extinguishersToSpawn, int margin) 
     {
+        float doorMargin = doorSize / 2f;
         GameObject[] spawnObjects = objectsToSpawn;
         Fisher_YatesShuffle(spawnObjects);
         doorsLocations = new Dictionary<Vector3, ObjectTransform>();
@@ -85,6 +110,11 @@ public class RoomPopulator : MonoBehaviour
         objLength = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.z);
         Debug.Log("ObjectZsize: " + objLength);
         objHeigth = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.y);
+
+
+        float fireObjWidth =0.8f;
+
+
         Vector3 position;
         //1) Calcular esquinas como centro + width (o length) /2
         for (int r = 0; r < roomsList.Count; r++) 
@@ -100,10 +130,32 @@ public class RoomPopulator : MonoBehaviour
             //restrictedAreas.Add(new ocuppiedArea(esqBI.x, esqAI.x, esqBI.z, esqAI.z));
 
 
-
             //Debug.Log("------------Rellenando sala: " + r+"-------------");
             room = new ocuppiedArea(minX, maxX, minZ, maxZ);
-        
+
+
+            // position =new Vector3(minX+fireObjWidth,0, roomsList[r].coords.z-doorSize);
+            // Instantiate(extinguishersToSpawn[0], position, Quaternion.identity,generatedRoomList[r]);
+            // position =new Vector3(minX+fireObjWidth,0, roomsList[r].coords.z+doorSize);
+            // Instantiate(extinguishersToSpawn[0], position, Quaternion.identity,generatedRoomList[r]);
+
+            // position =new Vector3(maxX-fireObjWidth, 0, roomsList[r].coords.z-doorSize);
+            // Instantiate(extinguishersToSpawn[0], position,new Quaternion(0,180,0,0),generatedRoomList[r]);
+            // position =new Vector3(maxX-fireObjWidth,0, roomsList[r].coords.z+doorSize);
+            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,180,0,0),generatedRoomList[r]);
+
+            // position =new Vector3(roomsList[r].coords.x-doorSize, 0, minZ+fireObjWidth);
+            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+            // position =new Vector3(roomsList[r].coords.x+doorSize,0, minZ+fireObjWidth);
+            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+
+            // position =new Vector3(roomsList[r].coords.x-doorSize, 0, maxZ-fireObjWidth);
+            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+            // position =new Vector3(roomsList[r].coords.x+doorSize, 0, maxZ-fireObjWidth);
+            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+
+
+
             position =new Vector3(minX, 1.35f, roomsList[r].coords.z);
             
             if(!doorsLocations.ContainsKey(position))
@@ -223,22 +275,22 @@ public class RoomPopulator : MonoBehaviour
                     case "left":
                         pos = prefabs + new Vector3(0,-1.35f,0);
                         wall= Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                        wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
+                        wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
                         break;
                     case "right":
                         pos = prefabs + new Vector3(0,-1.35f,0);
                         wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                        wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
+                        wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
                         break;
                     case "top":
                         pos = prefabs + new Vector3(0,-1.35f,0);
                         wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                        wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
+                        wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
                         break;
                     case "bottom":
                         pos = prefabs + new Vector3(0,-1.35f,0);
                         wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                        wall.transform.localScale = wall.transform.localScale + new Vector3(0.5f,0,0);
+                        wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
                         break;
                     default:
                         break;

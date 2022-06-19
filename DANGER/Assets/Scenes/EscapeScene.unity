@@ -2804,10 +2804,13 @@ MonoBehaviour:
   - {fileID: 3544388859392184486, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
   - {fileID: 9219457144112854639, guid: 06056e591616ff54188bea147cdc754a, type: 3}
   - {fileID: 5417185134365842478, guid: 5dbaf3b4194ac93459ebe1bd1034dfad, type: 3}
+  extinguishersToSpawn:
+  - {fileID: 2776265820348111218, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
   labItems:
   - {fileID: 7850027615279486336, guid: 8d3b0a69728594342a29793f28bad700, type: 3}
   generatedRoomList: []
   lab: 0
+  doorMargin: 0
 --- !u!114 &2028895731
 MonoBehaviour:
   m_ObjectHideFlags: 0

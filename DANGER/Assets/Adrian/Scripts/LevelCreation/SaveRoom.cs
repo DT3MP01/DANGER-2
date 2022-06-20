@@ -12,14 +12,14 @@ using UnityEngine;
         public List<ScriptValues> floorscriptValues;
         public StatsRoom statsRoom;
         public string image;
-        public SaveRoom(GameObject rooms,StatsRoom statsRoom,byte[] image) {
+        public SaveRoom(GameObject room,StatsRoom statsRoom,byte[] image) {
             this.statsRoom = statsRoom;
             this.image =  Convert.ToBase64String(image);
             floorPositions = new List<Vector3>();
             floorName = new List<string>();
             floorscriptValues = new List<ScriptValues>();
             furnitureObjects = new List<furnitureObject>();
-            foreach (Transform cube in rooms.transform) {
+            foreach (Transform cube in room.transform) {
                 floorPositions.Add(cube.position);
                 floorName.Add(cube.name.Replace("(Clone)", ""));
                 floorscriptValues.Add(new ScriptValues(cube.GetComponent<CubeObjects>()));

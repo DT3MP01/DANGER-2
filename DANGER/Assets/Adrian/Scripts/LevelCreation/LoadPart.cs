@@ -27,9 +27,10 @@ public class LoadPart : MonoBehaviour {
         
 
         string saveFile=System.IO.File.ReadAllText(roomFilePath);
+        try{
         roomFile = JsonUtility.FromJson<SaveRoom>(saveFile);
 
-        Line2.text = "Meters: " + roomFile.statsRoom.meters + " m²";
+        Line2.text = "Meters: " + roomFile.statsRoom.meters + " m";
         
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(Convert.FromBase64String(roomFile.image));
@@ -38,8 +39,12 @@ public class LoadPart : MonoBehaviour {
         if (sprite != null) {
             Screenshot.rectTransform.gameObject.SetActive(true);
             Screenshot.sprite = sprite;
-            
         }
+        }
+        catch(Exception e){
+            Debug.Log(e);
+        }
+        
 
     
     }

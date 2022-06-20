@@ -256,7 +256,77 @@ public class ObjectCreation : MonoBehaviour
 
                 if(rayCastHit.transform.tag == "Cube")
                 {
-                    if (meters == 1)
+  
+                    if (faces.ContainsKey(dif))
+                    {
+                        
+                        select.SetActive(true);
+                        selectBubble.SetActive(false);
+                        selectExtinguisher.SetActive(false);
+                        selectExterior.SetActive(false);
+                        select.transform.position = rayCastHit.transform.position;
+                        select.transform.rotation = faces[dif];
+                        if(faces[dif] == Quaternion.Euler(90, 0, 0))
+                        {
+                            Transform quadGameobject = select.transform.Find("Quad");
+                            if (meters == 1)
+                            {
+                                cube = initialCube.GetComponent(typeof(CubeObjects)) as CubeObjects;
+                            }
+                            else
+                            {
+                                cube = rayCastHit.transform.gameObject.GetComponentInParent(typeof(CubeObjects)) as CubeObjects;
+                            }
+                            if (Vector3.Dot(Camera.main.transform.forward, Vector3.forward) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, 0.35f)])
+                            {
+                                Debug.Log("Exterior1");
+                                quadGameobject.localRotation =Quaternion.Euler(0,0,0);
+                            }
+                            else if (Vector3.Dot(Camera.main.transform.forward, Vector3.back) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, -0.35f)])
+                            {
+                                Debug.Log("Exterior2");
+                                quadGameobject.localRotation  =Quaternion.Euler(0, 0, 180);
+                                
+                            }
+                            else if (Vector3.Dot(Camera.main.transform.forward, Vector3.right) > 0.4 && cube.exteriors[new Vector3(0.35f, 1.5f, 0f)])
+                            {
+                                Debug.Log("Exterior3");
+                                quadGameobject.localRotation =Quaternion.Euler(0, 0, -90);
+                            }
+                            else if (Vector3.Dot(Camera.main.transform.forward, Vector3.left) > 0.4 && cube.exteriors[new Vector3(-0.35f, 1.5f, 0f)])
+                            {
+                                Debug.Log("Exterior4");
+                                quadGameobject.localRotation =Quaternion.Euler(0, 0, 90);
+                            }
+
+                        foreach (Transform child in quadGameobject)
+                        {
+                            if (child.name == prefab.transform.name)
+                            {
+                                child.gameObject.SetActive(true);
+                            }
+                            else
+                            {
+                                child.gameObject.SetActive(false);
+                            }
+                        }
+
+                        }
+                        else{
+                            foreach (Transform child in select.transform.Find("Quad"))
+                            {
+                                child.gameObject.SetActive(false);
+                            }
+                        }
+                        
+                    }
+
+                    if ((prefab != null) && (prefab.transform.tag == "Wall" || prefab.transform.tag == "Window" || prefab.transform.tag == "Door") && dif == new Vector3(0, 1.0f, 0))
+                    {
+                        select.SetActive(false);
+                        selectBubble.SetActive(false);
+                        selectExterior.SetActive(true);
+                        if (meters == 1)
                         {
                             cube = initialCube.GetComponent(typeof(CubeObjects)) as CubeObjects;
                         }
@@ -268,63 +338,37 @@ public class ObjectCreation : MonoBehaviour
                         if (Vector3.Dot(Camera.main.transform.forward, Vector3.forward) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, 0.35f)])
                         {
                             selectExterior.transform.rotation = Quaternion.identity;
-                            select.transform.rotation = Quaternion.identity;
                         }
                         else if (Vector3.Dot(Camera.main.transform.forward, Vector3.back) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, -0.35f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 180, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 180);
                             
                         }
                         else if (Vector3.Dot(Camera.main.transform.forward, Vector3.right) > 0.4 && cube.exteriors[new Vector3(0.35f, 1.5f, 0f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 90, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 90);
                         }
                         else if (Vector3.Dot(Camera.main.transform.forward, Vector3.left) > 0.4 && cube.exteriors[new Vector3(-0.35f, 1.5f, 0f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 270, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 270);
                         }
                         else if (cube.exteriors[new Vector3(0f, 1.5f, 0.35f)])
                         {
                             selectExterior.transform.rotation = Quaternion.identity;
-                            select.transform.rotation = Quaternion.identity;
                         }
                         else if (cube.exteriors[new Vector3(0f, 1.5f, -0.35f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 180, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 180);
 
                         }
                         else if (cube.exteriors[new Vector3(0.35f, 1.5f, 0f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 90, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 90);
                         }
                         else if (cube.exteriors[new Vector3(-0.35f, 1.5f, 0f)])
                         {
                             selectExterior.transform.rotation = Quaternion.Euler(0, 270, 0);
-                            select.transform.rotation = Quaternion.Euler(0, 0, 270);
                         }
-                        
-                    if (faces.ContainsKey(dif))
-                    {
-                        
-                        select.SetActive(true);
-                        Debug.Log("hola");
-                        selectBubble.SetActive(false);
-                        selectExtinguisher.SetActive(false);
-                        selectExterior.SetActive(false);
-                        select.transform.position = rayCastHit.transform.position;
-                        select.transform.rotation = faces[dif];
-                    }
-
-                    if ((prefab != null) && (prefab.transform.tag == "Wall" || prefab.transform.tag == "Window" || prefab.transform.tag == "Door") && dif == new Vector3(0, 1.0f, 0))
-                    {
-                        select.SetActive(false);
-                        selectBubble.SetActive(false);
-                        selectExterior.SetActive(true);
                         //active child with tag "Wall"
                         foreach (Transform child in selectExterior.transform)
                         {

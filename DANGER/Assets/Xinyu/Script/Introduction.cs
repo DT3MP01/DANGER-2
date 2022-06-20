@@ -20,7 +20,7 @@ public class Introduction : MonoBehaviour
         
     }
 
-    public void DownPage() {
+    public void DownPage(string newScene) {
         if (currentPage != paneles.Length - 1)
         {
             paneles[currentPage].SetActive(false);
@@ -28,7 +28,7 @@ public class Introduction : MonoBehaviour
             currentPage += 1;
         }
         else {
-            SceneManager.LoadScene("AdventureScene");
+            SceneManager.LoadScene(newScene);
         }
     
     }

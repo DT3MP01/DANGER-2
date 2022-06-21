@@ -6133,9 +6133,10 @@ GameObject:
   - component: {fileID: 6077419868901140805}
   - component: {fileID: 4023779642572394295}
   - component: {fileID: -6442238328201254632}
-  - component: {fileID: 8339362418195988710}
   - component: {fileID: 1908166182}
   - component: {fileID: 1095477231}
+  - component: {fileID: 6945413259881594380}
+  - component: {fileID: 1984072646}
   m_Layer: 0
   m_Name: NPCAndPlayer
   m_TagString: NPC
@@ -6282,27 +6283,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4023779642572394304}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58c6f9b140a52a14881ec09eaebb66eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 11400000, guid: 5613f57763d5942479943035b460390c, type: 2}
---- !u!114 &8339362418195988710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4023779642572394304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c18bc067eafdab469dd4c06766da46b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 8219bfdc2f8e07c4087a040ba8777203, type: 3}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!54 &1908166182
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6350,10 +6336,10 @@ MonoBehaviour:
   followPlayer: 0
   extinguisher: {fileID: 4743898290310442400}
   fog: {fileID: 3025238167892741703}
-  animator: {fileID: 0}
+  animator: {fileID: 6077419868901140805}
   playerHealth: 100
   MaxHealth: 100
-  playerStress: 98.89993
+  playerStress: 97.64986
   MaxStress: 100
   isPlayer: 0
   extinguisherCapacity: 0
@@ -6361,6 +6347,36 @@ MonoBehaviour:
   decrementStress: 0.05
   decrementHealth: 0.05
   currWeight: 0
+--- !u!114 &6945413259881594380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023779642572394304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d652d433e143929499ddb3c59550c0e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterHorizontal: AxisX
+  parameterVertical: AxisY
+  underControl: 0
+--- !u!114 &1984072646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4023779642572394304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed3a6942ca95d94b9df19f01d48b4c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: 8219bfdc2f8e07c4087a040ba8777203, type: 3}
+  cursorMode: 0
+  hotSpot: {x: 0, y: 0}
 --- !u!1 &4065546118279432419
 GameObject:
   m_ObjectHideFlags: 0

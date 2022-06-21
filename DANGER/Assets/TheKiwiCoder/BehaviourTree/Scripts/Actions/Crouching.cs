@@ -13,12 +13,12 @@ public class Crouching : ActionNode
     }
 
     protected override State OnUpdate() {
-        if(context.gameObject.GetComponent<AiSensor>().nearbySmoke != context.animator.GetBool("isCrouching"))
+        if(context.gameObject.GetComponent<Sensor>().nearbySmoke != context.animator.GetBool("isCrouching"))
         {
-            if(context.gameObject.GetComponent<AiSensor>().nearbySmoke == false){
+            if(context.gameObject.GetComponent<Sensor>().nearbySmoke == false){
                 context.animator.SetBool("isCrouching", false);
             }
-            else if (context.gameObject.GetComponent<AiSensor>().nearbySmoke == true){
+            else if (context.gameObject.GetComponent<Sensor>().nearbySmoke == true){
                 context.animator.SetBool("isCrouching", true);
             }
         }

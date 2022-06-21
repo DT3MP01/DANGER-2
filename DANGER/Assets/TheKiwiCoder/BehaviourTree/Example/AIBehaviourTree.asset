@@ -20,7 +20,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  child: {fileID: -3362067970815435330}
+  child: {fileID: 0}
   restartOnSuccess: 1
   restartOnFailure: 0
 --- !u!114 &-8272225770697548823
@@ -164,32 +164,6 @@ MonoBehaviour:
   objects: []
   nearestObject: {fileID: 0}
   objectTag: Extinguisher
---- !u!114 &-3362067970815435330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e356d9de46de504580f99d938b1f96a, type: 3}
-  m_Name: ActiveSelector
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: f9c95a879b7f68e42bda41651fba8a91
-  position: {x: -21.599989, y: 271.20007}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-  description: Acciones a realizar por el NPC
-  drawGizmos: 0
-  children:
-  - {fileID: 7398976952214973428}
-  - {fileID: -7003792549128381131}
-  - {fileID: -1428292190922241097}
-  - {fileID: 3613512246903661311}
-  selected: 1
 --- !u!114 &-2259795383357067809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,13 +383,13 @@ MonoBehaviour:
   - {fileID: -151574970459012447}
   - {fileID: 427412917064391008}
   - {fileID: 7398976952214973428}
-  - {fileID: -3362067970815435330}
   - {fileID: 2947813185910065197}
   - {fileID: -3388501584196904018}
   - {fileID: -7003792549128381131}
   - {fileID: -1560649566594727612}
   - {fileID: 3613512246903661311}
   - {fileID: 2323058256126736020}
+  - {fileID: 6873975883671634008}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &427412917064391008
@@ -571,6 +545,28 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
+--- !u!114 &6873975883671634008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460be9e34c566ea45b9e282b1adcb028, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: ba46943e0f615af46b83ea47fa940561
+  position: {x: -48.799847, y: 300.466}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  children:
+  - {fileID: 7398976952214973428}
 --- !u!114 &7398976952214973428
 MonoBehaviour:
   m_ObjectHideFlags: 0

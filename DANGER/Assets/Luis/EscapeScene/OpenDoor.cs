@@ -15,9 +15,8 @@ public class OpenDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "NPC")
         {
-            Debug.Log("Player Detected");
             anim.SetBool("isOpen", true);
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
             GetComponent<CustomCursor>().enabled = false;

@@ -352,6 +352,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45868845}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &78433069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78433071}
+  - component: {fileID: 78433070}
+  m_Layer: 0
+  m_Name: Control
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &78433070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78433069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18155d7c96e98a47ba63103c4c8f691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!4 &78433071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78433069}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.429051, y: 11.944121, z: -5.319068}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &90214248
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2813,7 @@ MonoBehaviour:
   doorPrefab: {fileID: 1746458143501067288, guid: fa6aa3f2ac80a6948b0d2bf11dfb1439, type: 3}
   wallPrefab: {fileID: 6322944706469152535, guid: d9695a0085760744e97efeb4376a31dc, type: 3}
   floorPrefab: {fileID: 5200791886696754399, guid: 0e796bd4c5f3f184ca84ad1da6baf03a, type: 3}
-  npcPrefab: {fileID: 8989009908110535891, guid: bc2d93e3139565844b6080cb74967c57, type: 3}
+  npcPrefab: {fileID: 4023779642572394304, guid: 18f6c90f4a950b04d9e6a56f53794173, type: 3}
   playerPrefab: {fileID: 8989009908110535891, guid: bc2d93e3139565844b6080cb74967c57, type: 3}
   roomParentPrefab: {fileID: 47157948117207922, guid: 956fdf5b79024d849847f6d491d14e5c, type: 3}
   navMesh: {fileID: 2028895727}

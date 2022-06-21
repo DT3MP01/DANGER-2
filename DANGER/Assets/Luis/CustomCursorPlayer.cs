@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class CustomCursor : MonoBehaviour
+
+public class CustomCursorPlayer : MonoBehaviour
 {
     public Texture2D cursorTexture;
     public CursorMode cursorMode = CursorMode.ForceSoftware;
@@ -22,8 +24,11 @@ public class CustomCursor : MonoBehaviour
 
     void OnMouseEnter()
     {
-        if(GetComponent<CustomCursor>().isActiveAndEnabled)
+        if(GetComponent<CustomCursorPlayer>().isActiveAndEnabled && !GetComponent<Sensor>().isPlayer){
             Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        }
+         
+        
     }
 
     void OnMouseExit()
@@ -34,12 +39,9 @@ public class CustomCursor : MonoBehaviour
     void OnMouseOver()
     {
 
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            //Posici��n bot��n
-            
-
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<ControlSelectedPlayer>().ChangeSelectedPlayer(gameObject);
         }
     }
 }
-

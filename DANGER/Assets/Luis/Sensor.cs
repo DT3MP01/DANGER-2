@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
-
 [ExecuteInEditMode]
 
 public class Sensor : MonoBehaviour
@@ -24,7 +23,6 @@ public class Sensor : MonoBehaviour
     float scanInterval;
     public float scanTimer;
     [Header("Detections")]
-
     public bool nearbySmoke=false;
     public bool nearbyFire=false;
     public bool isTerrified=false;
@@ -77,13 +75,18 @@ public class Sensor : MonoBehaviour
             if(usingExtinguisher){
                 extinguisherCapacity= Mathf.Max(0,extinguisherCapacity-4f);
             }
-        }
-        if(isPlayer && gameObject.GetComponent<BehaviourTreeRunner>().enabled == true){
+            if(isPlayer && gameObject.GetComponent<BehaviourTreeRunner>().enabled == true){
+            gameObject.GetComponent<CharacterMovment>().underControl = true;
+            gameObject.GetComponent<CharacterMovment>().enabled = true;
             gameObject.GetComponent<BehaviourTreeRunner>().enabled = false;
+            }
+            else if (!isPlayer){
+                gameObject.GetComponent<CharacterMovment>().underControl = false;
+                gameObject.GetComponent<CharacterMovment>().enabled = false;
+                gameObject.GetComponent<BehaviourTreeRunner>().enabled = true;
+            }
         }
-        else if (!isPlayer){
-            gameObject.GetComponent<BehaviourTreeRunner>().enabled = true;
-        }
+        
 
         if(extinguisherCapacity==0){
             extinguisher.SetActive(false);
@@ -197,7 +200,20 @@ public class Sensor : MonoBehaviour
         nearbyFire = checkFire;
     }
 
-
+    public bool getDetections(string detection){
+        switch(detection){
+            case "nearbySmoke":
+                return nearbySmoke;
+            case "nearbyFire":
+                return nearbyFire;
+            case "isTerrified":
+                return isTerrified;
+            case "followPlayer":
+                return followPlayer;
+            default:
+                return false;
+        }
+    }
     Mesh CreateWedgeMesh(){
     Mesh mesh = new Mesh();
     int segments = 10;

@@ -18,15 +18,9 @@ public class RefreshExtinguisher : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.tag == "Player")
+        if(collider.gameObject.tag == "Player" || collider.gameObject.tag == "NPC")
         {
-            Debug.Log("Player Detected");
-            collider.gameObject.GetComponent<PlayerSensor>().extinguisherCapacity = 100f;
-            Destroy(gameObject.transform.parent.parent.gameObject);
-        }
-        if(collider.gameObject.tag == "NPC"){
-
-            collider.gameObject.GetComponent<AiSensor>().extinguisherCapacity = 100f;
+            collider.gameObject.GetComponent<Sensor>().extinguisherCapacity = 100f;
             Destroy(gameObject.transform.parent.parent.gameObject);
         }
     }

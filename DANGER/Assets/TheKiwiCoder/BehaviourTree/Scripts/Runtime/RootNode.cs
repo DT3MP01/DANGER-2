@@ -12,7 +12,6 @@ namespace TheKiwiCoder {
         }
 
         protected override void OnStop() {
-
         }
 
         protected override State OnUpdate() {

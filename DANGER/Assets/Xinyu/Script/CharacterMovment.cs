@@ -19,8 +19,6 @@ public class CharacterMovment : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        
-        
 
     }
 
@@ -41,6 +39,10 @@ public class CharacterMovment : MonoBehaviour
             //actualizar la animación de locomoción con los parámetros de avance y giro del agente
             animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);  
             animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
+        }
+        else{
+            agent.destination = transform.position;
+            agent.stoppingDistance = 0f;
         }
 
 

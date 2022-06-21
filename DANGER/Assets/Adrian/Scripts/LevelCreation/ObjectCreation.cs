@@ -211,14 +211,17 @@ public class ObjectCreation : MonoBehaviour
         
         for (int i = 0; i < save.floorPositions.Count; i++) {
             Debug.Log(SaveParameters[save.floorName[i]]);
-           GameObject floorLevel= Instantiate(SaveParameters[save.floorName[i]], save.floorPositions[i], Quaternion.identity, rooms.transform);
+           GameObject floorLevel= Instantiate(SaveParameters[save.floorName[i]], 
+                                            save.floorPositions[i], Quaternion.identity, rooms.transform);
             floorLevel.GetComponent<CubeObjects>().SetValues(save.floorscriptValues[i]);
             furnitureObject furnitureObjects=save.furnitureObjects[i];
             for(int j=0; j<furnitureObjects.positionFurniture.Count; j++){
-               GameObject furnitureLevel = Instantiate(SaveParameters[furnitureObjects.prefabName[j]], furnitureObjects.positionFurniture[j], furnitureObjects.rotationFurniture[j], floorLevel.transform);
+               GameObject furnitureLevel = Instantiate(SaveParameters[furnitureObjects.prefabName[j]],
+                furnitureObjects.positionFurniture[j], furnitureObjects.rotationFurniture[j], floorLevel.transform);
                 wallFurniture wallObjects=furnitureObjects.wallObjects[j];
                for (int k = 0; k < wallObjects.positionFurniture.Count; k++) {
-                    Instantiate(SaveParameters[wallObjects.prefabName[k]], wallObjects.positionFurniture[k], wallObjects.rotationFurniture[k], furnitureLevel.transform);
+                    Instantiate(SaveParameters[wallObjects.prefabName[k]], wallObjects.positionFurniture[k], 
+                    wallObjects.rotationFurniture[k], furnitureLevel.transform);
                 }
             }
         }

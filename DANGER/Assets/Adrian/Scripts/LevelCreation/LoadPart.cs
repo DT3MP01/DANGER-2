@@ -21,7 +21,7 @@ public class LoadPart : MonoBehaviour {
         // ResetTexts();
 
         Title.text= Path.GetFileName(roomFilePath).Split('.')[0];
-
+        Debug.Log(Title.text);
         System.DateTime date=File.GetLastWriteTime(roomFilePath);
         Line1.text = "Last Play: " +date.Day+"/"+date.Month+"/"+date.Year;
         

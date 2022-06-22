@@ -334,14 +334,14 @@ public class Sensor : MonoBehaviour
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation, transform.lossyScale);
         }
-        Gizmos.DrawWireSphere(transform.position, distance);
-        for(int i=0; i < count; i++){
-            Gizmos.DrawSphere(colliders[i].transform.position,0.2f);
-        }
+        // Gizmos.DrawWireSphere(transform.position, distance);
+        // for(int i=0; i < count; i++){
+        //     Gizmos.DrawSphere(colliders[i].transform.position,0.2f);
+        // }
 
-        Gizmos.color = Color.green;
-        foreach(var obj in Objects){
-            Gizmos.DrawSphere(obj.transform.position,0.2f);
-        }
+        // Gizmos.color = Color.green;
+        // foreach(var obj in Objects){
+        //     Gizmos.DrawSphere(obj.transform.position,0.2f);
+        // }
     }
 }

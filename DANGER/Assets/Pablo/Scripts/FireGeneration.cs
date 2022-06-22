@@ -198,12 +198,18 @@ public class FireGeneration : MonoBehaviour
 
     }
 
+    public void  ClearFireCell(int x, int z, int minAncho, int maxAlto)
+    {
+        GlobalVar.matrix[z, x] = true;
+        GlobalVar.fireDict[new Vector2(z,x)] =null;
+        
+    }
 
-    private IEnumerator generarFuego(int x, int z, int minAncho, int maxAlto) 
+    public IEnumerator generarFuego(int x, int z, int minAncho, int maxAlto) 
     {
         //Debug.Log("Gb" + GlobalVar.matrix.GetLength(0) + "," + GlobalVar.matrix.GetLength(1));
         //Debug.Log("x: " + x + "       Z: " + z);
-
+        yield return new WaitForSeconds(1f);
         if (z<GlobalVar.matrix.GetLength(0) && x<GlobalVar.matrix.GetLength(1) && z>=0 && x>=0) 
         {
             //Debug.Log("Gb" + GlobalVar.matrix.GetLength(0) + "," + GlobalVar.matrix.GetLength(1));
@@ -211,37 +217,11 @@ public class FireGeneration : MonoBehaviour
             if (GlobalVar.matrix[z, x] == true) 
             {
                 GlobalVar.matrix[z, x] = false;
+               
                 newFire = new Vector3(minAncho + x, 0, maxAlto - z);
-                Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                //if(fire.GetComponent<Collider>().)
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x + 1, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x - 1, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z + 1, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z - 1, minAncho, maxAlto));
-                /*
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x + 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x - 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z + 2, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z - 2, minAncho, maxAlto));
-                */
-                /*
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x + 4, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x - 4, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z + 4, minAncho, maxAlto));
-                yield return new WaitForSeconds(fireSpreadSpeed);
-                StartCoroutine(generarFuego(x, z - 4, minAncho, maxAlto));
-                */
+                GameObject firePoint = Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
+                GlobalVar.fireDict.Add(new Vector2(z,x), firePoint);
+                firePoint.GetComponent<FireScript>().SetValues(x, z, minAncho, maxAlto);
 
             }
             

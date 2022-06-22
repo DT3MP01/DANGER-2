@@ -27,6 +27,7 @@ public static class GlobalVar
     public static int remainingNPCs;
     public enum dir { left, up, right, down, centre };
 
+    public static Dictionary<Vector2,GameObject> fireDict = new Dictionary<Vector2, GameObject>();
     
     // Start is called before the first frame update
 

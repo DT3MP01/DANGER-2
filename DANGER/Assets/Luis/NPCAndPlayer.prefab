@@ -6329,7 +6329,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   Objects: []
-  scanTimer: 0.48
+  scanTimer: 0.5
   nearbySmoke: 0
   nearbyFire: 0
   isTerrified: 0
@@ -6339,7 +6339,7 @@ MonoBehaviour:
   animator: {fileID: 6077419868901140805}
   playerHealth: 100
   MaxHealth: 100
-  playerStress: 97.59985
+  playerStress: 97.49985
   MaxStress: 100
   isPlayer: 0
   extinguisherCapacity: 0

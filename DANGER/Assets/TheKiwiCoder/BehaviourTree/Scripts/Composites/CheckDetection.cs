@@ -13,6 +13,9 @@ public class CheckDetection : ActionNode
     }
 
     protected override State OnUpdate() {
-        return State.Success;
+        if(context.gameObject.GetComponent<Sensor>().getDetections(variableToCheck)){
+            return State.Success;
+        }
+        return State.Failure;
     }
 }

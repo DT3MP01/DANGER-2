@@ -141,7 +141,7 @@ public class FireGeneration : MonoBehaviour
             //averiguar coordenadas reales: x= minAncho + anchoRestante, y = maxAlto-altoAvanzado
 
         }
-        //seleccionamos primera posición true:
+        //seleccionamos primera posiciï¿½n true:
         /*
         int indexZ=0;
         int indexX=0;
@@ -197,6 +197,8 @@ public class FireGeneration : MonoBehaviour
 
 
     }
+
+
     private IEnumerator generarFuego(int x, int z, int minAncho, int maxAlto) 
     {
         //Debug.Log("Gb" + GlobalVar.matrix.GetLength(0) + "," + GlobalVar.matrix.GetLength(1));
@@ -248,234 +250,6 @@ public class FireGeneration : MonoBehaviour
 
 
     }
-        /*
-    private IEnumerator generarHumo(int x, int z, int minAncho, int maxAlto)
-    {
-        StartCoroutine(generarFuego(indexX, indexZ, minAncho, maxAlto));
-        //Debug.Log("Gb" + GlobalVar.smokeMatrix.GetLength(0) + "," + GlobalVar.smokeMatrix.GetLength(1));
-        //Debug.Log("x: " + x + "       Z: " + z);
-
-        if (z < GlobalVar.smokeMatrix.GetLength(0) && x < GlobalVar.smokeMatrix.GetLength(1) && z >= 0 && x >= 0)
-        {
-            //Debug.Log("Gb" + GlobalVar.smokeMatrix.GetLength(0) + "," + GlobalVar.smokeMatrix.GetLength(1));
-            //Debug.Log("Z: " + z + "       X: " + x);
-            //Debug.Log(GlobalVar.smokeMatrix[z, x] == true);
-            if (GlobalVar.smokeMatrix[z, x] == true)
-            {
-                //Debug.Log("alive------------------------------------------------------------");
-                GlobalVar.smokeMatrix[z, x] = false;
-                newFire = new Vector3(minAncho + x, 0, maxAlto - z);
-                Instantiate(smoke, newFire, Quaternion.Euler(0f, 0f, 0f));
-                //if(fire.GetComponent<Collider>().)
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x + 1, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x - 1, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z + 1, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z - 1, minAncho, maxAlto));
-
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x + 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x - 2, z, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z + 2, minAncho, maxAlto));
-                yield return new WaitForSeconds(smokeSpreadSpeed);
-                StartCoroutine(generarHumo(x, z - 2, minAncho, maxAlto));
-
-            }
-
-        }
-
-
-
-    }
-
-    */
-    /*
-    public void startFire() 
-    {
-        widths = GlobalVar.widths;
-        lengths = GlobalVar.lengths;
-
-        Debug.Log(rooms[0]+","+ rooms[1]+","+rooms[2]);
-        Debug.Log(widths[0] + "," + widths[1] + "," + widths[2]);
-        Debug.Log(lengths[0] + "," + lengths[1] + "," + lengths[2]);
-        //Fisher_YatesShuffle(rooms);
-        randomIndex = Random.Range(0, rooms.Count);
-        room = rooms[randomIndex];
-
-        
-        Vector3 roomCenter = room.coords; //coords del centro
-        
-        int width = widths[randomIndex]; //ancho de la habitacion
-        int length = lengths[randomIndex]; // largo de la habitacion
-
-        int randomPosition = Random.Range(0, 3);
-        //float desplFireX = Random.Range(0, (int)((width - 1.5f) / 2f));
-        //float desplFireZ = Random.Range(0, (int)((length - 1.5f) / 2f));
-
-        //Para cada uno de los posibles cuadrantes de la sala creamos el fuego y añadimos sus coordenadas a una lista con las coordenadas de los fuegos para no solaparlos.
-        //if (randomPosition == 0) { newFire = new Vector3(roomCenter.x + desplFireX-0.5f, 0, roomCenter.z + desplFireZ-0.5f); }
-        //if (randomPosition == 1) { newFire = new Vector3(roomCenter.x + desplFireX-0.5f, 0, roomCenter.z - desplFireZ+0.5f); }
-        //if (randomPosition == 2) { newFire = new Vector3(roomCenter.x - desplFireX+0.5f, 0, roomCenter.z + desplFireZ-0.5f); }
-        //if (randomPosition == 3) { newFire = new Vector3(roomCenter.x - desplFireX+0.5f, 0, roomCenter.z - desplFireZ+0.5f); }
-
-        newFire = new Vector3(((int)roomCenter.x) -0.5f, 0,((int) roomCenter.z )- 0.5f);
-        Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-        
-        
-        firesPos.Add(newFire);
-        fireQ.Enqueue(newFire);
-        StartCoroutine(propagateFire());
-        //Instantiate(fire, new Vector3(r, 0, -3), Quaternion.Euler(0f, 0f, 0f));
-        //propagateFire();
-    }
-    /*
-    private IEnumerator propagateFire()
-    {
-        
-        while (fireQ.Count != 0)
-        {
-            Vector3 deq = fireQ.Dequeue();
-            //if(deq + x,deq -x ,deq +y, deq-y not in (contains) firePos)--> probar a generarlos
-
-
-            //bool insideARoom = false;
-            // deq + (+1,0,0)
-            // deq + (-1,0,0)
-            // deq + (0,0,+1)
-            // deq + (0,0,-1)
-            for (int j = 0; j < rooms.Count; j++)
-            {
-                
-                //float minX = rooms[j].coords.x - widths[j] / 2f;
-                //float maxX = rooms[j].coords.x + widths[j] / 2f;
-                //float minZ = rooms[j].coords.z - lengths[j] / 2f;
-                //float maxZ = rooms[j].coords.z + lengths[j] / 2f;
-
-                
-                
-               
-                
-                    if ((deq.x + 1 > rooms[j].coords.x - (GlobalVar.widths[j] / 2f)+0.51f)  &&
-                        (deq.x + 1 < rooms[j].coords.x + (GlobalVar.widths[j] / 2f)-0.51f)  &&
-                        (deq.z > rooms[j].coords.z - (GlobalVar.lengths[j] / 2f)+0.51f)  &&
-                        (deq.z < rooms[j].coords.z + (GlobalVar.lengths[j] / 2f) -0.51f) ) 
-                    {
-                            
-                            //newFire = new Vector3(deq.x + 1, 0, deq.z);
-                            if (!firesPos.Contains(new Vector3(deq.x + 1, 0, deq.z))) 
-                            {
-                                newFire = new Vector3(deq.x + 1, 0, deq.z);
-                                Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                                firesPos.Add(newFire);
-                                fireQ.Enqueue(newFire);
-                            }  
-                    
-                    }
-                
-                    if ((deq.x - 1 > rooms[j].coords.x - (GlobalVar.widths[j] / 2f)+0.51f) &&
-                        (deq.x - 1 < rooms[j].coords.x + (GlobalVar.widths[j] / 2f)-0.51f)  &&
-                        (deq.z > rooms[j].coords.z - (GlobalVar.lengths[j] / 2f)+0.51f)  &&
-                        (deq.z < rooms[j].coords.z + (GlobalVar.lengths[j] / 2f)-0.51f) ) 
-                    {
-                            
-                            if (!firesPos.Contains(new Vector3(deq.x - 1, 0, deq.z)))
-                            {
-                                newFire = new Vector3(deq.x - 1, 0, deq.z);
-                                Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                                firesPos.Add(newFire);
-                                fireQ.Enqueue(newFire);
-                            }
-                    }
-                
-                    if ((deq.x > rooms[j].coords.x - (GlobalVar.widths[j] / 2f)+0.51f)  &&
-                        (deq.x < rooms[j].coords.x + (GlobalVar.widths[j] / 2f)-0.51f)  &&
-                        (deq.z+1 > rooms[j].coords.z - (GlobalVar.lengths[j] / 2f)+0.51f)  &&
-                        (deq.z+1 < rooms[j].coords.z + (GlobalVar.lengths[j] / 2f)-0.51f )) 
-                    {
-                            
-                            if (!firesPos.Contains(new Vector3(deq.x, 0, deq.z + 1)))
-                            {
-                                newFire = new Vector3(deq.x, 0, deq.z + 1);
-                                Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                                firesPos.Add(newFire);
-                                fireQ.Enqueue(newFire);
-                            }
-                    }
-
-                    if ((deq.x > rooms[j].coords.x - (GlobalVar.widths[j] / 2f) +0.51f )&&
-                        (deq.x < rooms[j].coords.x + (GlobalVar.widths[j] / 2f)-0.51f)  &&
-                        (deq.z-1 > rooms[j].coords.z - (GlobalVar.lengths[j] / 2f)+0.51f)  &&
-                        (deq.z-1 < rooms[j].coords.z + (GlobalVar.lengths[j] / 2f)-0.51f) ) 
-                    {
-                            
-                            if (!firesPos.Contains(new Vector3(deq.x, 0, deq.z - 1)))
-                            {
-                                newFire = new Vector3(deq.x, 0, deq.z - 1);
-                                Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                                firesPos.Add(newFire);
-                                fireQ.Enqueue(newFire);
-                            }
-                
-                    }
-                    
-                
-                if ((Mathf.Abs(deq.x+1 - rooms[j].coords.x) < widths[j]/2f) & (Mathf.Abs(deq.z - rooms[j].coords.z) < lengths[j] / 2f))
-                {
-                    if (!firesPos.Contains(new Vector3(deq.x+1, 0, deq.z)))
-                    {
-                        newFire = new Vector3(deq.x+1, 0, deq.z);
-                        Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                        firesPos.Add(newFire);
-                        fireQ.Enqueue(newFire);
-                    }
-                }
-
-
-                if ((Mathf.Abs(deq.x-1  - rooms[j].coords.x) < widths[j] / 2f ) & (Mathf.Abs(deq.z - rooms[j].coords.z) < lengths[j] / 2f)) 
-                {
-                    if (!firesPos.Contains(new Vector3(deq.x -1, 0, deq.z)))
-                    {
-                        newFire = new Vector3(deq.x -1, 0, deq.z);
-                        Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                        firesPos.Add(newFire);
-                        fireQ.Enqueue(newFire);
-                    }
-                }
-
-
-                if ((Mathf.Abs(deq.x - rooms[j].coords.x) < widths[j] / 2f) & (Mathf.Abs(deq.z+1  - rooms[j].coords.z) < lengths[j] / 2f))
-                {
-                    if (!firesPos.Contains(new Vector3(deq.x, 0, deq.z+1)))
-                    {
-                        newFire = new Vector3(deq.x, 0, deq.z+1);
-                        Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                        firesPos.Add(newFire);
-                        fireQ.Enqueue(newFire);
-                    }
-                }
-                /*
-                if ((Mathf.Abs(deq.x - rooms[j].coords.x) < widths[j] / 2f) & (Mathf.Abs(deq.z - 1 - rooms[j].coords.z) < lengths[j] / 2f))
-                {
-                    if (!firesPos.Contains(new Vector3(deq.x, 0, deq.z + 1)))
-                    {
-                        newFire = new Vector3(deq.x, 0, deq.z + 1);
-                        Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                        firesPos.Add(newFire);
-                        fireQ.Enqueue(newFire);
-                    }
-                }
-               
-
-            }
-            yield return new WaitForSeconds(fireSpreadSpeed);
-         
-    }
-    */
 
 
 
@@ -484,13 +258,13 @@ public class FireGeneration : MonoBehaviour
         // Recorremos la lista {1,2,3,4}
         for (int i = a.Count - 1; i > 0; i--)
         {
-            // Número aleatorio entre 0 y i (de forma que i decrementa cada iteración)
+            // Nï¿½mero aleatorio entre 0 y i (de forma que i decrementa cada iteraciï¿½n)
             int rnd = UnityEngine.Random.Range(0, i);
 
             // Guardamos el valor que hay en a[i] 
             WorldGenerator.generatorPoint temp = a[i];
 
-            // intercambiamos el valor de a[i] con el valor de que hay en la posición aleatoria
+            // intercambiamos el valor de a[i] con el valor de que hay en la posiciï¿½n aleatoria
             a[i] = a[rnd];
             a[rnd] = temp;
             //if ("1" in ["2","3"]){ }

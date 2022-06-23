@@ -24,6 +24,7 @@ public class Sensor : MonoBehaviour
     public float scanTimer;
     [Header("Detections")]
     public bool nearbySmoke=false;
+    public bool fireAlarm = false;
     public bool nearbyFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;

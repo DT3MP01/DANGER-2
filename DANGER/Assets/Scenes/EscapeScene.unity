@@ -2890,7 +2890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 1746458143501067288, guid: fa6aa3f2ac80a6948b0d2bf11dfb1439, type: 3}
-  wallPrefab: {fileID: 814623339566748033, guid: 05db4992d85573e48b0d7fb12a50ea2c, type: 3}
+  wallPrefab: {fileID: 6322944706469152535, guid: d9695a0085760744e97efeb4376a31dc, type: 3}
   floorPrefab: {fileID: 5200791886696754399, guid: 0e796bd4c5f3f184ca84ad1da6baf03a, type: 3}
   npcPrefab: {fileID: 4023779642572394304, guid: 18f6c90f4a950b04d9e6a56f53794173, type: 3}
   playerPrefab: {fileID: 8989009908110535891, guid: bc2d93e3139565844b6080cb74967c57, type: 3}

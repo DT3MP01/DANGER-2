@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 481737806}
   m_Layer: 3
   m_Name: ParticleSystem_Fire_RateOverTime_Medium
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4864,5 +4864,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3286397a54593d9419888a88c3df6dd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireExtinguisherTime: 0
-  reignite: 0

@@ -202,6 +202,27 @@ public class FireGeneration : MonoBehaviour
     {
         GlobalVar.matrix[z, x] = true;
         GlobalVar.fireDict[new Vector2(z,x)] =null;
+        GlobalVar.fireDict.Remove(new Vector2(z,x));
+        if(GlobalVar.fireDict.ContainsKey(new Vector2(z,x+1)))
+        {
+            FireScript fire = GlobalVar.fireDict[new Vector2(z,x+1)];
+            fire.startFire();
+        }
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z, x - 1)))
+        {
+            FireScript fire = GlobalVar.fireDict[new Vector2(z, x - 1)];
+            fire.startFire();
+        }
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z+1, x)))
+        {
+            FireScript fire = GlobalVar.fireDict[new Vector2(z+1, x)];
+            fire.startFire();
+        }
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z-1, x)))
+        {
+            FireScript fire = GlobalVar.fireDict[new Vector2(z-1, x)];
+            fire.startFire();
+        }
         
     }
 
@@ -220,7 +241,7 @@ public class FireGeneration : MonoBehaviour
                
                 newFire = new Vector3(minAncho + x, 0, maxAlto - z);
                 GameObject firePoint = Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                GlobalVar.fireDict.Add(new Vector2(z,x), firePoint);
+                GlobalVar.fireDict.Add(new Vector2(z,x), firePoint.GetComponent<FireScript>());
                 firePoint.GetComponent<FireScript>().SetValues(x, z, minAncho, maxAlto);
 
             }

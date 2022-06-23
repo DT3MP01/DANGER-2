@@ -25,7 +25,7 @@ public class RoomPopulator : MonoBehaviour
     public int minWidth = 7;
     public int maxWidth = 40;
     public int roomsToGenerate; //= 6;
-    public float doorSize = 3;
+    public float doorSize = 1.5f;
     public int margin;
     private int objWidth;
     private int objLength;

@@ -1134,18 +1134,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1543338449450157007, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
-      propertyPath: m_Convex
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1543338449450157007, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933820281569419782, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3544388859392184486, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
       propertyPath: m_Name
       value: DeskDecor4_1
@@ -1196,27 +1184,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
---- !u!1 &437976052 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3544388859392184486, guid: c904d6958b30b1a40b93d31d130c243b, type: 3}
-  m_PrefabInstance: {fileID: 437976051}
-  m_PrefabAsset: {fileID: 0}
---- !u!208 &437976053
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437976052}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.4480001, y: 0.483, z: 0.874}
-  m_MoveThreshold: 0.1
-  m_Carve: 1
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0.483, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &541786824
 GameObject:
   m_ObjectHideFlags: 0

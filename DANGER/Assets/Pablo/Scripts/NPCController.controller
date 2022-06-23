@@ -57,7 +57,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Crouching
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: -203655887218126122, guid: aca9fd7d715759f4db5850ff2b9bcedf, type: 3}
@@ -412,7 +412,7 @@ AnimatorStateMachine:
     m_Position: {x: 390, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3792061378827778748}
-    m_Position: {x: 680, y: 390, z: 0}
+    m_Position: {x: 1520, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2699170732956844066}
     m_Position: {x: 390, y: 290, z: 0}
@@ -511,7 +511,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
+  m_Name: Movement
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 7400004, guid: a3422ad278cd9a94aa3da8e6bff9deea, type: 3}

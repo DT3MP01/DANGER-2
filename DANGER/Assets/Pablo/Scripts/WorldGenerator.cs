@@ -323,21 +323,6 @@ public class WorldGenerator : RoomPopulator
                 }
                 
             }
-            /*
-            genQ.Enqueue(new generatorPoint(new Vector3(roomCentre.x - (originWidth / 2f), 0, roomCentre.z), dir.left));
-            Instantiate(wallPrefab, new Vector3(roomCentre.x - (originWidth / 2f), 0, roomCentre.z), Quaternion.identity);
-
-            genQ.Enqueue(new generatorPoint(new Vector3(roomCentre.x, 0, roomCentre.z + (originLength / 2f)), dir.up));
-            Instantiate(wallPrefab,         new Vector3(roomCentre.x, 0, roomCentre.z + (originLength / 2f)), Quaternion.identity);
-
-            genQ.Enqueue(new generatorPoint(new Vector3(roomCentre.x, 0, roomCentre.z - (originLength / 2f)), dir.down));
-            Instantiate(wallPrefab,         new Vector3(roomCentre.x, 0, roomCentre.z - (originLength / 2f)), Quaternion.identity);
-
-
-            genQ.Enqueue(new generatorPoint(new Vector3(roomCentre.x + (originWidth / 2f), 0, roomCentre.z), dir.right));
-            Instantiate(wallPrefab,         new Vector3(roomCentre.x + (originWidth / 2f), 0, roomCentre.z), Quaternion.identity);
-            
-            */
             
         }
     }

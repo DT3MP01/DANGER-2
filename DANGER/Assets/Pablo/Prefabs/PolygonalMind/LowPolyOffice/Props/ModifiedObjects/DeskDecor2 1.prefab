@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5573568566952375624}
   - component: {fileID: 5197475115560407714}
   - component: {fileID: 5408210141352604518}
+  - component: {fileID: 7927556533855043809}
   m_Layer: 6
   m_Name: DeskDecor2 1
   m_TagString: Untagged
@@ -164,6 +165,22 @@ FixedJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!208 &7927556533855043809
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726427099206326423}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.4480001, y: 0.483, z: 0.874}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.483, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2736402625932364160
 GameObject:
   m_ObjectHideFlags: 0

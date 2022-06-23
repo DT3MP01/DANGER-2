@@ -66,7 +66,7 @@ public class LoadPart : MonoBehaviour {
         ObjectCreation objectCreation= GameObject.FindObjectsOfType<ObjectCreation>()[0];
         objectCreation.LoadFileRoom(roomFile);
         objectCreation.enableInput();
-        gameObject.transform.parent.parent.parent.gameObject.SetActive(false);
+        GameObject.Find("LoadMenu").SetActive(false);
 
     }
 }

@@ -49,26 +49,18 @@ public class Question : MonoBehaviour
         }
     }
 
-    void OnMouseOver()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetMouseButtonDown(1) && !answered)
+        if(other.tag== "Player" && !answered)
         {
             GameObject quizUI = GameObject.FindGameObjectWithTag("QuizUI");
 
             quizController quiz = quizUI.GetComponent<quizController>();
             quiz.setCanvasActive(true);
-            if (false)
-            {
+            quiz.SetQuiz(id, quistion, optionA, optionB, optionC, correcto, quizExtraInfo);
 
-            }
-            else
-            {
-                quiz.SetQuiz(id, quistion, optionA, optionB, optionC, correcto, quizExtraInfo);
-                
-            }
             answered = true;
-
         }
     }
-    
+
 }

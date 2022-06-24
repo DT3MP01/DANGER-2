@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5095098403989350933}
   - component: {fileID: 5085098571624381815}
   - component: {fileID: 6473718765048106275}
-  - component: {fileID: 8708872511055332705}
   - component: {fileID: 7601800461447600682}
   m_Layer: 2
   m_Name: Dorway-2
@@ -99,20 +98,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300012, guid: ffad064668ec02446b5c0e21cb59764d, type: 3}
---- !u!114 &8708872511055332705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5099163122253024551}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b8082816c737d143802f2bc1b0d1d2f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  door: {fileID: 0}
-  extraInfo: {fileID: 0}
 --- !u!114 &7601800461447600682
 MonoBehaviour:
   m_ObjectHideFlags: 0

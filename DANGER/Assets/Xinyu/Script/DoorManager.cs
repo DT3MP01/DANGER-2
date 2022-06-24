@@ -14,6 +14,7 @@ public class DoorManager : MonoBehaviour
     private TimeController timeController;
     private Canvas dialogController;
 
+    private bool activated;
     SceneOneControl sceneOne;
 
     void Start()
@@ -36,36 +37,35 @@ public class DoorManager : MonoBehaviour
 
     }
 
-    void OnMouseOver()
+    private void OnTriggerEnter(Collider other)
     {
-        if (Input.GetMouseButtonDown(1) && this.isActiveAndEnabled)
+        if(other.tag == "Player" && !activated)
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<BoxCollider>().enabled = false;
-            GetComponent<CustomCursor>().enabled = false;
-
-            if (extraInfo != null)
-            {
-                teamUI.enabled = false;
-                dialogController.GetComponent<DialogController>().text.text = extraInfo.infoToShowOnFail;
-
-                stat.LossHp(extraInfo.hearthToLoss);
-                stat.LossStress(extraInfo.stressToLoss);
-                timeController.LossTime(extraInfo.timeToLoss);
-
-                dialogController.GetComponent<DialogController>().enableDialog();
-                if (extraInfo.doorID == 1)
+                if (extraInfo != null)
                 {
-                    sceneOne.followSign = false;              
+                    teamUI.enabled = false;
+                    dialogController.GetComponent<DialogController>().text.text = extraInfo.infoToShowOnFail;
+
+                    stat.LossHp(extraInfo.hearthToLoss);
+                    stat.LossStress(extraInfo.stressToLoss);
+                    timeController.LossTime(extraInfo.timeToLoss);
+
+                    dialogController.GetComponent<DialogController>().enableDialog();
+                    if (extraInfo.doorID == 1)
+                    {
+                        sceneOne.followSign = false;
+                    }
+                    else if (extraInfo.doorID == 2)
+                    {
+                        sceneOne.OpenDoorCarefully = false;
+                    }
                 }
-                else if (extraInfo.doorID == 2)
-                {
-                    sceneOne.OpenDoorCarefully = false;
-                }
+
+            activated = true;
+
             }
 
-            door.SetActive(false);
 
-        }
     }
+
 }

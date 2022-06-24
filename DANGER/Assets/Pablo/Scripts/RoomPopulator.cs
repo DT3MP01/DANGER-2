@@ -134,29 +134,29 @@ public class RoomPopulator : MonoBehaviour
             room = new ocuppiedArea(minX, maxX, minZ, maxZ);
 
 
-            // position =new Vector3(minX+fireObjWidth,0, roomsList[r].coords.z-doorSize);
-            // Instantiate(extinguishersToSpawn[0], position, Quaternion.identity,generatedRoomList[r]);
-            // position =new Vector3(minX+fireObjWidth,0, roomsList[r].coords.z+doorSize);
-            // Instantiate(extinguishersToSpawn[0], position, Quaternion.identity,generatedRoomList[r]);
+            position = new Vector3(minX + fireObjWidth, 0, roomsList[r].coords.z - doorSize);
+            Instantiate(extinguishersToSpawn[0], position, Quaternion.identity, generatedRoomList[r]);
+            position = new Vector3(minX + fireObjWidth, 0, roomsList[r].coords.z + doorSize);
+            Instantiate(extinguishersToSpawn[0], position, Quaternion.identity, generatedRoomList[r]);
 
-            // position =new Vector3(maxX-fireObjWidth, 0, roomsList[r].coords.z-doorSize);
-            // Instantiate(extinguishersToSpawn[0], position,new Quaternion(0,180,0,0),generatedRoomList[r]);
-            // position =new Vector3(maxX-fireObjWidth,0, roomsList[r].coords.z+doorSize);
-            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,180,0,0),generatedRoomList[r]);
+            position = new Vector3(maxX - fireObjWidth, 0, roomsList[r].coords.z - doorSize);
+            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, 180, 0), generatedRoomList[r]);
+            position = new Vector3(maxX - fireObjWidth, 0, roomsList[r].coords.z + doorSize);
+            Instantiate(extinguishersToSpawn[0], position, Quaternion.Euler(0, 180, 0), generatedRoomList[r]);
 
-            // position =new Vector3(roomsList[r].coords.x-doorSize, 0, minZ+fireObjWidth);
-            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
-            // position =new Vector3(roomsList[r].coords.x+doorSize,0, minZ+fireObjWidth);
-            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+            position = new Vector3(roomsList[r].coords.x - doorSize, 0, minZ + fireObjWidth);
+            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, -90, 0), generatedRoomList[r]);
+            position = new Vector3(roomsList[r].coords.x + doorSize, 0, minZ + fireObjWidth);
+            Instantiate(extinguishersToSpawn[0], position, Quaternion.Euler(0, -90, 0), generatedRoomList[r]);
 
-            // position =new Vector3(roomsList[r].coords.x-doorSize, 0, maxZ-fireObjWidth);
-            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
-            // position =new Vector3(roomsList[r].coords.x+doorSize, 0, maxZ-fireObjWidth);
-            // Instantiate(extinguishersToSpawn[0], position, new Quaternion(0,90,0,0),generatedRoomList[r]);
+            position = new Vector3(roomsList[r].coords.x - doorSize, 0, maxZ - fireObjWidth);
+            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, 90, 0), generatedRoomList[r]);
+            position = new Vector3(roomsList[r].coords.x + doorSize, 0, maxZ - fireObjWidth);
+            Instantiate(extinguishersToSpawn[0], position,Quaternion.Euler(0, 90, 0), generatedRoomList[r]);
 
 
 
-            position =new Vector3(minX, 1.35f, roomsList[r].coords.z);
+            position = new Vector3(minX, 1.35f, roomsList[r].coords.z);
             
             if(!doorsLocations.ContainsKey(position))
             {

@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 1441652197001272519}
   - component: {fileID: 6851700514677484800}
   - component: {fileID: 7919878490494356873}
-  - component: {fileID: 481737805}
-  - component: {fileID: 481737807}
   - component: {fileID: 481737806}
   m_Layer: 3
   m_Name: ParticleSystem_Fire_RateOverTime_Medium
@@ -603,7 +601,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 15
+    maxNumParticles: 30
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -4822,36 +4820,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!136 &481737805
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685568948667721206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.44
-  m_Height: 1.09
-  m_Direction: 1
-  m_Center: {x: 0.03631115, y: 0, z: 0.0007805824}
---- !u!208 &481737807
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7685568948667721206}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 1, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0.125, y: 0.59300005, z: 0.05}
-  m_TimeToStationary: 0.5
 --- !u!114 &481737806
 MonoBehaviour:
   m_ObjectHideFlags: 0

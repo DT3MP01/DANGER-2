@@ -437,7 +437,7 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  duration: 2
+  duration: 5
 --- !u!114 &2323058256126736020
 MonoBehaviour:
   m_ObjectHideFlags: 0

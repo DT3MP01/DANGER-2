@@ -15,7 +15,7 @@ public class OpenDoor : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "NPC")
+        if (other.gameObject.tag == "NPC" || other.gameObject.tag == "Player")
         {
             anim.SetBool("isOpen", true);
             gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");

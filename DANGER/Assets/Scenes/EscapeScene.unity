@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoke: {fileID: 806501038409167133, guid: cacd36646f402994191a2b275923a08f, type: 3}
-  smokeSpreadSpeed: 1
+  smokeSpreadSpeed: 1.5
 --- !u!114 &2028895733
 MonoBehaviour:
   m_ObjectHideFlags: 0

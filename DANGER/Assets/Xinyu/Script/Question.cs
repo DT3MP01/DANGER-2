@@ -57,8 +57,15 @@ public class Question : MonoBehaviour
 
             quizController quiz = quizUI.GetComponent<quizController>();
             quiz.setCanvasActive(true);
+            if (false)
+            {
 
-            quiz.SetQuiz(id,quistion, optionA, optionB, optionC, correcto, quizExtraInfo);
+            }
+            else
+            {
+                quiz.SetQuiz(id, quistion, optionA, optionB, optionC, correcto, quizExtraInfo);
+                
+            }
             answered = true;
 
         }

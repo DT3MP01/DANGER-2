@@ -31,5 +31,4 @@ public class FireExtinguiserh : MonoBehaviour
         other.GetComponent<FireScript>().startCooldown();
     }
     }
-    
 }

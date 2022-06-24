@@ -57,6 +57,8 @@ public class RoomPopulator : MonoBehaviour
     public List<Transform> generatedRoomList;
     public enum dir { left, up, right, down, centre };
     public bool lab;
+
+    private float fireObjWidth = 0.6f;
     //public GameObject fire;
 
 
@@ -112,7 +114,7 @@ public class RoomPopulator : MonoBehaviour
         objHeigth = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.y);
 
 
-        float fireObjWidth =0.8f;
+
 
 
         Vector3 position;
@@ -132,28 +134,6 @@ public class RoomPopulator : MonoBehaviour
 
             //Debug.Log("------------Rellenando sala: " + r+"-------------");
             room = new ocuppiedArea(minX, maxX, minZ, maxZ);
-
-
-            position = new Vector3(minX + fireObjWidth, 0, roomsList[r].coords.z - doorSize);
-            Instantiate(extinguishersToSpawn[0], position, Quaternion.identity, generatedRoomList[r]);
-            position = new Vector3(minX + fireObjWidth, 0, roomsList[r].coords.z + doorSize);
-            Instantiate(extinguishersToSpawn[0], position, Quaternion.identity, generatedRoomList[r]);
-
-            position = new Vector3(maxX - fireObjWidth, 0, roomsList[r].coords.z - doorSize);
-            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, 180, 0), generatedRoomList[r]);
-            position = new Vector3(maxX - fireObjWidth, 0, roomsList[r].coords.z + doorSize);
-            Instantiate(extinguishersToSpawn[0], position, Quaternion.Euler(0, 180, 0), generatedRoomList[r]);
-
-            position = new Vector3(roomsList[r].coords.x - doorSize, 0, minZ + fireObjWidth);
-            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, -90, 0), generatedRoomList[r]);
-            position = new Vector3(roomsList[r].coords.x + doorSize, 0, minZ + fireObjWidth);
-            Instantiate(extinguishersToSpawn[0], position, Quaternion.Euler(0, -90, 0), generatedRoomList[r]);
-
-            position = new Vector3(roomsList[r].coords.x - doorSize, 0, maxZ - fireObjWidth);
-            Instantiate(extinguishersToSpawn[0], position , Quaternion.Euler(0, 90, 0), generatedRoomList[r]);
-            position = new Vector3(roomsList[r].coords.x + doorSize, 0, maxZ - fireObjWidth);
-            Instantiate(extinguishersToSpawn[0], position,Quaternion.Euler(0, 90, 0), generatedRoomList[r]);
-
 
 
             position = new Vector3(minX, 1.35f, roomsList[r].coords.z);
@@ -265,7 +245,22 @@ public class RoomPopulator : MonoBehaviour
         foreach(Vector3 prefabs in doorsLocations.Keys){
             
             if(doorsLocations[prefabs].prefabName == "door"){
-                Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
+                GameObject door = Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
+                GameObject extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                extinguisher.transform.localPosition = new Vector3(doorSize,0,fireObjWidth);
+                extinguisher.transform.localRotation = Quaternion.Euler(0,-90,0);
+
+                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                extinguisher.transform.localPosition = new Vector3(-doorSize,0, fireObjWidth);
+                extinguisher.transform.localRotation = Quaternion.Euler(0, -90, 0);
+
+                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                extinguisher.transform.localPosition = new Vector3(doorSize, 0, -fireObjWidth);
+                extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
+
+                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                extinguisher.transform.localPosition = new Vector3(-doorSize, 0, -fireObjWidth);
+                extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
 
             }
             else{

@@ -16,7 +16,7 @@ public class SliderScripts : MonoBehaviour
     }
     public void Update()
     {
-        FillSlider();
+        //FillSlider();
         
     }
 

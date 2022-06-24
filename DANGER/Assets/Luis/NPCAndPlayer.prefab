@@ -331,7 +331,7 @@ Transform:
   m_GameObject: {fileID: 1172920531499656346}
   m_LocalRotation: {x: 0.0057354923, y: -0.0004193765, z: 0.07292364, w: 0.99732095}
   m_LocalPosition: {x: 0.11354074, y: -0.20369598, z: -0.09169746}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2830011103514363797}
   - {fileID: 7129797232099432963}
@@ -6167,7 +6167,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4023779642572394304}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 3.15231
@@ -6329,9 +6329,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   Objects: []
-  scanTimer: 0.5
+  scanTimer: 0
   nearbySmoke: 0
-  nearbyFire: 0
+  fireAlarm: 0
+  fireInSight: 0
+  touchingFire: 0
   isTerrified: 0
   followPlayer: 0
   extinguisher: {fileID: 4743898290310442400}
@@ -6339,13 +6341,13 @@ MonoBehaviour:
   animator: {fileID: 6077419868901140805}
   playerHealth: 100
   MaxHealth: 100
-  playerStress: 97.49985
+  playerStress: 100
   MaxStress: 100
   isPlayer: 0
   extinguisherCapacity: 0
   usingExtinguisher: 0
-  decrementStress: 0.05
-  decrementHealth: 0.05
+  stressModifier: 0.1
+  healthModifier: 0.1
   currWeight: 0
 --- !u!114 &6945413259881594380
 MonoBehaviour:

@@ -25,7 +25,8 @@ public class Sensor : MonoBehaviour
     [Header("Detections")]
     public bool nearbySmoke=false;
     public bool fireAlarm = false;
-    public bool nearbyFire=false;
+    public bool fireInSight=false;
+    public bool touchingFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
 
@@ -38,7 +39,7 @@ public class Sensor : MonoBehaviour
     public float playerHealth=100f;
 
     public float MaxHealth=100f;
-    public float playerStress=100f;
+    public float playerStress=0f;
     public float MaxStress=100f;
 
     public bool isPlayer;
@@ -47,8 +48,8 @@ public class Sensor : MonoBehaviour
 
     public bool usingExtinguisher;
 
-    public float decrementStress=0.05f;
-    public float decrementHealth = 0.05f;
+    public float stressModifier=0.1f;
+    public float healthModifier = 0.1f;
 
 
     public float currWeight;
@@ -57,6 +58,8 @@ public class Sensor : MonoBehaviour
     Mesh mesh;
     void Start()
     {
+        playerHealth = MaxHealth;
+        playerStress = 0;
         mesh = CreateWedgeMesh();
         scanInterval = 1f / scanFrequency;
         usingExtinguisher = false;
@@ -150,18 +153,17 @@ public class Sensor : MonoBehaviour
 
     private void  CalculateHealth(){
         if(nearbySmoke && !animator.GetBool("isCrouching")){
-            playerHealth -= 3*decrementHealth;
-            playerStress -= decrementStress;
+            playerHealth -= 10*healthModifier;
+            playerStress += 5*stressModifier;
         }
-        if(nearbyFire){
-            playerHealth -= 5*decrementHealth;
-            playerStress -= decrementStress;
+        if(touchingFire)
+        {
+            playerHealth -= 40*healthModifier;
+            playerStress += 10*stressModifier;
         }
         if(isTerrified){
-            playerStress += 30*decrementStress;
+            playerStress -= 30*stressModifier;
         }
-        // playerHealth -= decrementHealth;
-        playerStress -= decrementStress;
 
         if(playerHealth<=0){
             playerHealth = 0;
@@ -179,34 +181,83 @@ public class Sensor : MonoBehaviour
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
         Objects.Clear();
-        bool checkSmoke = false;
-        bool checkFire = false;
+        fireInSight = false;
+        nearbySmoke = false;
+        int smokeCount = 0;
+
         for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
-            if(checkSmoke == false && obj.tag == "Smoke"){
-                    nearbySmoke = true;
-                    checkSmoke=true;
-            }
-            else if (checkFire == false && obj.tag == "Fire"){
-                nearbyFire = true;
-                checkFire=true;
+            if(obj.tag == "Smoke"){
+                smokeCount++;
             }
             else if (IsInSight(obj))
             {
                 Objects.Add(obj);
+                if (obj.tag == "Fire")
+                {
+                    fireInSight = true;
+                }
             }
         }
-        nearbySmoke = checkSmoke;
-        nearbyFire = checkFire;
+        if (smokeCount>=20)
+        {
+            nearbySmoke=true;
+        }
+
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Fire")
+        {
+            Debug.Log("AY ME QUEMO");
+            touchingFire=true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Fire")
+        {
+            Debug.Log("YANO");
+            touchingFire = false;
+        }
+    }
+
+    private bool IsInSight(GameObject obj)
+    {
+        Vector3 origin = transform.position;
+        Vector3 dest = obj.transform.position;
+
+        Vector3 direction = dest - origin;
+        Debug.DrawRay(origin, direction, Color.red);
+        if (direction.y < 0 || direction.y > height)
+        {
+            return false;
+        }
+        direction.y = 0;
+        float deltaAngle = Vector3.Angle(direction, transform.forward);
+        if (deltaAngle > angle)
+        {
+            return false;
+        }
+
+        origin.y += height / 2;
+        dest.y = origin.y;
+        if (Physics.Linecast(origin, dest, OcclusionLayer))
+        {
+            return false;
+        }
+        return true;
     }
 
     public bool getDetections(string detection){
         switch(detection){
             case "nearbySmoke":
                 return nearbySmoke;
-            case "nearbyFire":
-                return nearbyFire;
+            case "fireInSight":
+                return fireInSight;
             case "isTerrified":
                 return isTerrified;
             case "followPlayer":
@@ -215,91 +266,90 @@ public class Sensor : MonoBehaviour
                 return false;
         }
     }
+
+
+
     Mesh CreateWedgeMesh(){
-    Mesh mesh = new Mesh();
-    int segments = 10;
-    int numTriangles = (segments * 4) + 2 + 2;
-    int numVertices = 3 * numTriangles;
+        Mesh mesh = new Mesh();
+        int segments = 10;
+        int numTriangles = (segments * 4) + 2 + 2;
+        int numVertices = 3 * numTriangles;
 
+        Vector3[] vertices = new Vector3[numVertices]; 
+        int[] triangles = new int[numTriangles * 3];
 
+        Vector3 bottomCenter = Vector3.zero;
+        Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward*distance;
+        Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward*distance;
 
-    Vector3[] vertices = new Vector3[numVertices]; 
-    int[] triangles = new int[numTriangles * 3];
+        Vector3 topCenter = bottomCenter + Vector3.up * height;
+        Vector3 topRight =  bottomRight + Vector3.up * height;
+        Vector3 topLeft =  bottomLeft + Vector3.up * height;
 
-    Vector3 bottomCenter = Vector3.zero;
-    Vector3 bottomLeft = Quaternion.Euler(0, -angle, 0) * Vector3.forward*distance;
-    Vector3 bottomRight = Quaternion.Euler(0, angle, 0) * Vector3.forward*distance;
+        int vert = 0 ;
 
-    Vector3 topCenter = bottomCenter + Vector3.up * height;
-    Vector3 topRight =  bottomRight + Vector3.up * height;
-    Vector3 topLeft =  bottomLeft + Vector3.up * height;
-
-    int vert = 0 ;
-
-    //left Side
-    vertices[vert++] = bottomCenter;
-    vertices[vert++] = bottomLeft;
-    vertices[vert++] = topLeft;
-
-    vertices[vert++] = topLeft;
-    vertices[vert++] = topCenter;
-    vertices[vert++] = bottomCenter;
-
-    //right side
-    vertices[vert++] = bottomCenter;
-    vertices[vert++] = topCenter;
-    vertices[vert++] = topRight;
-
-    vertices[vert++] = topRight;
-    vertices[vert++] = bottomRight;
-    vertices[vert++] = bottomCenter;
-    
-    float currentAngle= -angle;
-    float deltaAngle = (angle * 2) / segments;
-
-    for (int i=0; i < segments; i++){
-
-
-        bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward*distance;
-        bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward*distance;
-
-        topLeft = bottomLeft + Vector3.up * height;
-        topRight = bottomRight + Vector3.up * height;
-
-        //far side
-        vertices[vert++] = bottomLeft;
-        vertices[vert++] = bottomRight;
-        vertices[vert++] = topRight;
-
-        vertices[vert++] = topRight;
-        vertices[vert++] = topLeft;
-        vertices[vert++] = bottomLeft;
-
-        //top
-        vertices[vert++] = topCenter;
-        vertices[vert++] = topLeft;
-        vertices[vert++] = topRight;
-
-        //bottom
+        //left Side
         vertices[vert++] = bottomCenter;
-        vertices[vert++] = bottomRight;
         vertices[vert++] = bottomLeft;
+        vertices[vert++] = topLeft;
 
-        currentAngle += deltaAngle;
+        vertices[vert++] = topLeft;
+        vertices[vert++] = topCenter;
+        vertices[vert++] = bottomCenter;
 
-    }
+        //right side
+        vertices[vert++] = bottomCenter;
+        vertices[vert++] = topCenter;
+        vertices[vert++] = topRight;
+
+        vertices[vert++] = topRight;
+        vertices[vert++] = bottomRight;
+        vertices[vert++] = bottomCenter;
+    
+        float currentAngle= -angle;
+        float deltaAngle = (angle * 2) / segments;
+
+        for (int i=0; i < segments; i++){
 
 
+            bottomLeft = Quaternion.Euler(0, currentAngle, 0) * Vector3.forward*distance;
+            bottomRight = Quaternion.Euler(0, currentAngle + deltaAngle, 0) * Vector3.forward*distance;
 
-    for(int i = 0; i < numVertices; i++){
-        triangles[i]=i;
-    }
+            topLeft = bottomLeft + Vector3.up * height;
+            topRight = bottomRight + Vector3.up * height;
 
-    mesh.vertices = vertices;
-    mesh.triangles = triangles;
-    mesh.RecalculateNormals();
+            //far side
+            vertices[vert++] = bottomLeft;
+            vertices[vert++] = bottomRight;
+            vertices[vert++] = topRight;
 
-    return mesh;
+            vertices[vert++] = topRight;
+            vertices[vert++] = topLeft;
+            vertices[vert++] = bottomLeft;
+
+            //top
+            vertices[vert++] = topCenter;
+            vertices[vert++] = topLeft;
+            vertices[vert++] = topRight;
+
+            //bottom
+            vertices[vert++] = bottomCenter;
+            vertices[vert++] = bottomRight;
+            vertices[vert++] = bottomLeft;
+
+            currentAngle += deltaAngle;
+
+        }
+
+        for(int i = 0; i < numVertices; i++){
+            triangles[i]=i;
+        }
+
+        mesh.vertices = vertices;
+        mesh.triangles = triangles;
+        mesh.RecalculateNormals();
+
+        return mesh;
     }
 
     private void OnValidate(){
@@ -307,28 +357,6 @@ public class Sensor : MonoBehaviour
         scanInterval = 1 / scanFrequency;
     }
 
-    private bool IsInSight(GameObject obj){
-        Vector3 origin = transform.position;
-        Vector3 dest = obj.transform.position;
-        
-        Vector3 direction = dest - origin;
-        Debug.DrawRay(origin, direction, Color.red);
-        if(direction.y < 0 || direction.y > height){
-            return false;
-        }
-        direction.y = 0;
-        float deltaAngle = Vector3.Angle(direction, transform.forward);
-        if(deltaAngle > angle){
-            return false;
-        }
-
-        origin.y += height/2;
-        dest.y = origin.y;
-        if(Physics.Linecast(origin, dest, OcclusionLayer)){
-            return false;
-        }
-        return true;
-    }
     private void OnDrawGizmos()
     {
         if(mesh){

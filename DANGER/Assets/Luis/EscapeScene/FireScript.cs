@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class FireScript : MonoBehaviour
 {
+    public bool propagateFire;
     private int minAncho;
     private int maxAlto;
     private int x;
@@ -13,19 +14,18 @@ public class FireScript : MonoBehaviour
     private float firePropagationTime;
     void Start()
     {
-        firePropagationTime = 5f;
-        fireData =GameObject.FindGameObjectWithTag("GameController").GetComponent<FireGeneration>();
-        StartCoroutine(startFire());
+        if (propagateFire)
+        {
+            firePropagationTime = 5f;
+            fireData = GameObject.FindGameObjectWithTag("GameController").GetComponent<FireGeneration>();
+            StartCoroutine(startFire());
+        }
+
 
     }
 
     // Start is called before the first frame update
-    void Update()
-    {
 
-
-
-    }
     public void SetValues(int x, int z, int minAncho, int maxAlto)
     {
         this.x = x;
@@ -40,7 +40,10 @@ public class FireScript : MonoBehaviour
     }
     void OnDestroy()
     {
-        fireData.ClearFireCell(x, z,minAncho,maxAlto);
+        if (propagateFire)
+        {
+            fireData.ClearFireCell(x, z, minAncho, maxAlto);
+        }
     }
 
     public IEnumerator startFire(){

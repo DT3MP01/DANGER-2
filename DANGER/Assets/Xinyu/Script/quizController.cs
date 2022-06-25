@@ -28,7 +28,7 @@ public class quizController : MonoBehaviour
     
     //Info personaje
     public GameObject player;
-    public CharacterStat playerStat;
+    public Sensor playerStat;
 
     //Control tiempo
     public Text countDownText;
@@ -100,7 +100,7 @@ public class quizController : MonoBehaviour
         dialogUI = GameObject.FindGameObjectWithTag("DialogUI").GetComponent<Canvas>();
 
         player = GameObject.FindGameObjectWithTag("Player");
-        playerStat = player.GetComponent<CharacterStat>();
+        playerStat = player.GetComponent<Sensor>();
 
         extraResquestItem = new Items.ItemType[8];
 

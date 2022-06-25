@@ -57,7 +57,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crouching
+  m_Name: Crawling
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: -203655887218126122, guid: aca9fd7d715759f4db5850ff2b9bcedf, type: 3}
@@ -68,18 +68,18 @@ BlendTree:
     m_DirectBlendParameter: AxisX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: d71d598d93ba0d44380b7295396322c3, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: b90980a36e6d73c4bac393e457286423, type: 3}
     m_Threshold: 0.25
     m_Position: {x: 0, y: 1}
-    m_TimeScale: 1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: AxisX
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: -203655887218126122, guid: d71d598d93ba0d44380b7295396322c3, type: 3}
+    m_Motion: {fileID: -203655887218126122, guid: b90980a36e6d73c4bac393e457286423, type: 3}
     m_Threshold: 0.5
     m_Position: {x: 0, y: -1}
-    m_TimeScale: -1
+    m_TimeScale: 1.5
     m_CycleOffset: 0
     m_DirectBlendParameter: AxisX
     m_Mirror: 0

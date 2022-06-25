@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GetHp : MonoBehaviour
 {
     private GameObject SomeOne;
-    private CharacterStat Stat;
+    private Sensor Stat;
 
     private Slider Scrollbar;
 
@@ -15,7 +15,7 @@ public class GetHp : MonoBehaviour
     {
         SomeOne = GameObject.FindGameObjectWithTag("Player");
         Scrollbar = GetComponent<Slider>();
-        Stat = SomeOne.GetComponent<CharacterStat>();
+        Stat = SomeOne.GetComponent<Sensor>();
     }
 
     // Update is called once per frame

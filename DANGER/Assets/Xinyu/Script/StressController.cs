@@ -9,7 +9,7 @@ public class StressController : MonoBehaviour
     public Slider[] stressSliders;
 
     private GameObject SomeOne;
-    private CharacterStat Stat;
+    private Sensor Stat;
     private int CurrentState;
 
     public enum StressLevel
@@ -19,7 +19,7 @@ public class StressController : MonoBehaviour
     void Start()
     {
         SomeOne = GameObject.FindGameObjectWithTag("Player");
-        Stat = SomeOne.GetComponent<CharacterStat>();
+        Stat = SomeOne.GetComponent<Sensor>();
         double totalStress = Stat.GetMaxStress();
         double eachSection = totalStress / stressSliders.Length;
 

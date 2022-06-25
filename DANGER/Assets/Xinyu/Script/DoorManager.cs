@@ -9,7 +9,7 @@ public class DoorManager : MonoBehaviour
     public GameObject door;
     public QuizExtraInfo extraInfo;
 
-    private CharacterStat stat;
+    private Sensor stat;
     private Canvas teamUI;
     private TimeController timeController;
     private Canvas dialogController;
@@ -23,7 +23,7 @@ public class DoorManager : MonoBehaviour
         sceneOne = GameObject.FindGameObjectWithTag("SceneOneControl").GetComponent<SceneOneControl>();
         if (extraInfo != null)
         {
-            stat = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterStat>();
+            stat = GameObject.FindGameObjectWithTag("Player").GetComponent<Sensor>();
             teamUI = GameObject.FindGameObjectWithTag("TeamUI").GetComponent<Canvas>();
             timeController = GameObject.FindGameObjectWithTag("TeamUI").GetComponent<TimeController>();
             dialogController = GameObject.FindGameObjectWithTag("DialogUI").GetComponent<Canvas>();

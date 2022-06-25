@@ -6,7 +6,9 @@ using TheKiwiCoder;
 
 public class Sensor : MonoBehaviour
 {
- // Start is called before the first frame update
+    // Start is called before the first frame update
+    [Header("Player")]
+    public bool isPlayer;
 
     public float distance = 10;
     public float angle = 30;
@@ -30,19 +32,21 @@ public class Sensor : MonoBehaviour
     public bool isTerrified=false;
     public bool followPlayer = false;
 
-    [Header("Player")]
+    
     public GameObject extinguisher;
     public ParticleSystem fog;
 
     public Animator animator;
 
-    public float playerHealth=100f;
+    public double playerHealth=100f;
 
-    public float MaxHealth=100f;
-    public float playerStress=0f;
-    public float MaxStress=100f;
+    public double MaxHealth =100f;
+    public double playerStress =0f;
+    public double MaxStress =100f;
 
-    public bool isPlayer;
+    private List<Items.ItemType> ItemList = new List<Items.ItemType>();
+
+    
 
     public float extinguisherCapacity=0f;
 
@@ -122,7 +126,63 @@ public class Sensor : MonoBehaviour
         
     }
 
+    public double GetMaxHp()
+    {
+        return MaxHealth;
+    }
 
+
+    public double GetCurrentHp()
+    {
+        return playerHealth;
+    }
+
+    public double GetMaxStress()
+    {
+        return MaxStress;
+    }
+
+    public double GetCurrentStress()
+    {
+        return playerStress;
+    }
+
+    public List<Items.ItemType> GetItemList()
+    {
+        return ItemList;
+    }
+
+
+    public void AddHp(double i)
+    {
+        playerHealth += i;
+    }
+
+    public void LossHp(double i)
+    {
+        playerHealth -= i;
+    }
+
+    public void AddStress(double i)
+    {
+        playerStress += i;
+    }
+
+    public void LossStress(double i)
+    {
+        playerStress -= i;
+    }
+
+    public void addItem(Items.ItemType it)
+    {
+        ItemList.Add(it);
+    }
+
+    public void LostItem(Items.ItemType it)
+    {
+        if (ItemList.Contains(it))
+            ItemList.Remove(it);
+    }
 
     IEnumerator LerpFunction(float startValue,float endValue, float lerpDuration,float valueToLerp)
     {
@@ -363,14 +423,16 @@ public class Sensor : MonoBehaviour
             Gizmos.color = meshColor;
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation, transform.lossyScale);
         }
-        // Gizmos.DrawWireSphere(transform.position, distance);
-        // for(int i=0; i < count; i++){
-        //     Gizmos.DrawSphere(colliders[i].transform.position,0.2f);
-        // }
+        Gizmos.DrawWireSphere(transform.position, distance);
+        for (int i = 0; i < count; i++)
+        {
+            Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
+        }
 
-        // Gizmos.color = Color.green;
-        // foreach(var obj in Objects){
-        //     Gizmos.DrawSphere(obj.transform.position,0.2f);
-        // }
+        Gizmos.color = Color.green;
+        foreach (var obj in Objects)
+        {
+            Gizmos.DrawSphere(obj.transform.position, 0.2f);
+        }
     }
 }

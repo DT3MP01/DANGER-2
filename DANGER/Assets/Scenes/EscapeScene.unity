@@ -2950,7 +2950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeda14f51525dea4195f8870a07ef5ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: {fileID: 1253142483436318, guid: 89956e675b749204c8e10395ce2b5fb9, type: 3}
+  fire: {fileID: 3438479129706787431, guid: f3fa8f3a5d04e5244919ade8f40e5c75, type: 3}
   fireSpreadSpeed: 2
   maxAncho: 0
   minAncho: 0

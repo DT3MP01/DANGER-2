@@ -4060,7 +4060,6 @@ GameObject:
   - component: {fileID: 2107602063}
   - component: {fileID: 2107602062}
   - component: {fileID: 2107602061}
-  - component: {fileID: 2107602060}
   - component: {fileID: 2107602059}
   - component: {fileID: 2107602065}
   m_Layer: 5
@@ -4166,18 +4165,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2107602060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2107602058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cabdb1715d544fa0b4a11655e5bb9d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2107602061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4274,6 +4261,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioMixer: {fileID: 24100000, guid: fb607caf947152346871315d87f63196, type: 2}
   ResolutionDropdown: {fileID: 790791846}
+  SliderVolume: {fileID: 1743809140}
+  ToogleFullscreen: {fileID: 756331856}
 --- !u!1 &2129087848
 GameObject:
   m_ObjectHideFlags: 0

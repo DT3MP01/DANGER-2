@@ -10,6 +10,8 @@ public class OptionsMenu : MonoBehaviour
     public AudioMixer AudioMixer;
     Resolution[] resolutions;
     public TMP_Dropdown ResolutionDropdown;
+    public Slider SliderVolume;
+    public Toggle ToogleFullscreen;
 
 
     private void Start()
@@ -35,19 +37,49 @@ public class OptionsMenu : MonoBehaviour
         }
 
         ResolutionDropdown.AddOptions(options);
-        ResolutionDropdown.value = CurrentResolutionIndex;
+
+
+        if (PlayerPrefs.HasKey("volume"))
+        {
+            float volumen = PlayerPrefs.GetFloat("volume");
+            SliderVolume.value = volumen;
+        }
+
+        if (PlayerPrefs.HasKey("resolution"))
+        {
+            int res = PlayerPrefs.GetInt("resolution");
+            ResolutionDropdown.value = res;
+            Debug.Log("resolution"+res);
+        }
+        else
+        {
+            ResolutionDropdown.value = CurrentResolutionIndex;
+        }
         ResolutionDropdown.RefreshShownValue();
+
+        if (PlayerPrefs.HasKey("fullscreen"))
+        {
+            float volumen = PlayerPrefs.GetInt("fullscreen");
+            ToogleFullscreen.isOn= volumen == 1 ? true:false ;
+            Debug.Log("Elvolumen es" + volumen);
+        }
+
+
     }
 
     public void SetResolution(int ResolutionIndex)
     {
         Resolution resolution = resolutions[ResolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        PlayerPrefs.SetInt("resolution",ResolutionIndex);
+        Debug.Log("resolution"+ResolutionIndex);
     }
 
     public void SetVolume(float volume)
     {
         AudioMixer.SetFloat("volume", volume);
+        PlayerPrefs.SetFloat("volume",volume);
+        Debug.Log("SETING VOLUMEN");
     }
 
     /*
@@ -60,5 +92,6 @@ public class OptionsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+        PlayerPrefs.SetInt("fullscreen", isFullscreen ? 1 : 0 );
     }
 }

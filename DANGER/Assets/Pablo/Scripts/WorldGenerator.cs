@@ -10,7 +10,7 @@ public class WorldGenerator : RoomPopulator
 
     private float length;
     private float width;
-    public float doorMargin;
+    private float doorMargin;
     private generatorPoint genP;
     private int createdRooms;
 

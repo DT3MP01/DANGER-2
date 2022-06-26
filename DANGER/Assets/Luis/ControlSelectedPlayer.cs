@@ -31,7 +31,6 @@ public class ControlSelectedPlayer : MonoBehaviour
     {
         if(player != null)
         {
-            Debug.Log(player.GetComponent<Sensor>().playerHealth);
             playerHealthSlider.value = (float)player.GetComponent<Sensor>().playerHealth / 100.0f;
             palyerStressSlider.value = (float)player.GetComponent<Sensor>().playerStress / 100.0f;
         }

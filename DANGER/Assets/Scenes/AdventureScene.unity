@@ -62558,6 +62558,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7456189061326442494, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
+      propertyPath: scanTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456189061326442494, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
+      propertyPath: meshColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456189061326442494, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
+      propertyPath: meshColor.g
+      value: 0.0683719
+      objectReference: {fileID: 0}
+    - target: {fileID: 7456189061326442494, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
+      propertyPath: meshColor.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
 --- !u!64 &8498765564012811046

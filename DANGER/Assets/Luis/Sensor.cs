@@ -23,7 +23,7 @@ public class Sensor : MonoBehaviour
     int count;
     public List<GameObject> Objects = new List<GameObject>();
     float scanInterval;
-    public float scanTimer;
+    private float scanTimer;
     [Header("Detections")]
     public bool nearbySmoke=false;
     public bool fireAlarm = false;

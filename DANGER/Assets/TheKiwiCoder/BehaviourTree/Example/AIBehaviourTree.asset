@@ -415,6 +415,7 @@ MonoBehaviour:
   - {fileID: -9112207320745141895}
   - {fileID: 3997837025101882060}
   - {fileID: -7876523439086046653}
+  - {fileID: 8820174324566770227}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &427412917064391008
@@ -685,3 +686,24 @@ MonoBehaviour:
   - {fileID: 4120257462241444155}
   - {fileID: 2947813185910065197}
   - {fileID: 6394760385867950365}
+--- !u!114 &8820174324566770227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460be9e34c566ea45b9e282b1adcb028, type: 3}
+  m_Name: Selector
+  m_EditorClassIdentifier: 
+  state: 0
+  started: 0
+  guid: 3ce3b71c8af44b94aab58739b7670f44
+  position: {x: 0, y: 0}
+  blackboard:
+    moveToPosition: {x: 0, y: 0, z: 0}
+  description: 
+  drawGizmos: 0
+  children: []

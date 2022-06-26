@@ -11,12 +11,13 @@ public class RoomPopulator : MonoBehaviour
 
     public GameObject doorPrefab;
     public GameObject wallPrefab;
+    public GameObject windowPrefab;
     public GameObject floorPrefab;
     public GameObject npcPrefab;
     public GameObject playerPrefab;
     public GameObject roomParentPrefab;
     public NavMeshSurface navMesh;
-    public GameObject exit;
+    public GameObject exitPrefab;
     public bool enablePopulate;
     
 
@@ -112,10 +113,11 @@ public class RoomPopulator : MonoBehaviour
         objLength = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.z);
         Debug.Log("ObjectZsize: " + objLength);
         objHeigth = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.y);
-
-
-
-
+        Dictionary<String,Transform> exits = new Dictionary<String,Transform>();
+        exits.Add("left", generatedRoomList[0]);
+        exits.Add("right", generatedRoomList[0]);
+        exits.Add("bottom", generatedRoomList[0]);
+        exits.Add("top", generatedRoomList[0]);
 
         Vector3 position;
         //1) Calcular esquinas como centro + width (o length) /2
@@ -126,6 +128,23 @@ public class RoomPopulator : MonoBehaviour
             maxX = roomsList[r].coords.x + width[r] / 2f;
             minZ = roomsList[r].coords.z - length[r] / 2f;
             maxZ = roomsList[r].coords.z + length[r] / 2f;
+
+            if(generatedRoomList[r].position.x < exits["left"].position.x)
+            {
+                exits["left"] = generatedRoomList[r];
+            }
+            if(generatedRoomList[r].position.x > exits["right"].position.x)
+            {
+                exits["right"]= generatedRoomList[r];
+            }
+            if(generatedRoomList[r].position.z < exits["bottom"].position.z)
+            {
+                exits["bottom"] = generatedRoomList[r];
+            }
+            if(generatedRoomList[r].position.z > exits["top"].position.z)
+            {
+                exits["top"] = generatedRoomList[r];
+            }
             
             restrictedAreas.Add(new ocuppiedArea(roomsList[r].coords.x-1.5f, roomsList[r].coords.x + 1.5f, roomsList[r].coords.z-length[r]/2f, roomsList[r].coords.z + length[r] / 2f));
             restrictedAreas.Add(new ocuppiedArea(roomsList[r].coords.x - width[r]/2f, roomsList[r].coords.x +width[r]/2f, roomsList[r].coords.z - 1f, roomsList[r].coords.z + 1f));
@@ -246,21 +265,32 @@ public class RoomPopulator : MonoBehaviour
             
             if(doorsLocations[prefabs].prefabName == "door"){
                 GameObject door = Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                GameObject extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
-                extinguisher.transform.localPosition = new Vector3(doorSize,0,fireObjWidth);
-                extinguisher.transform.localRotation = Quaternion.Euler(0,-90,0);
+                GameObject extinguisher;
+                int randomNumber = UnityEngine.Random.Range(0, 3);
+                switch (randomNumber)
+                {
+                    case 0:
+                        extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                        extinguisher.transform.localPosition = new Vector3(doorSize, 0, fireObjWidth);
+                        extinguisher.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                        break;
+                    case 1:
+                        extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                        extinguisher.transform.localPosition = new Vector3(-doorSize, 0, fireObjWidth);
+                        extinguisher.transform.localRotation = Quaternion.Euler(0, -90, 0);
+                        break;
+                    case 2:
+                        extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                        extinguisher.transform.localPosition = new Vector3(doorSize, 0, -fireObjWidth);
+                        extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                        break;
+                    default:
+                        extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
+                        extinguisher.transform.localPosition = new Vector3(-doorSize, 0, -fireObjWidth);
+                        extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                        break;
 
-                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
-                extinguisher.transform.localPosition = new Vector3(-doorSize,0, fireObjWidth);
-                extinguisher.transform.localRotation = Quaternion.Euler(0, -90, 0);
-
-                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
-                extinguisher.transform.localPosition = new Vector3(doorSize, 0, -fireObjWidth);
-                extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
-
-                extinguisher = Instantiate(extinguishersToSpawn[0], door.transform);
-                extinguisher.transform.localPosition = new Vector3(-doorSize, 0, -fireObjWidth);
-                extinguisher.transform.localRotation = Quaternion.Euler(0, 90, 0);
+                }
 
             }
             else{
@@ -268,28 +298,60 @@ public class RoomPopulator : MonoBehaviour
                 GameObject wall;
                 switch(doorsLocations[prefabs].position){
                     case "left":
-                        pos = prefabs + new Vector3(0,-1.35f,0);
-                        wall= Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
-                        wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
+                        if(exits["left"] == doorsLocations[prefabs].roomParent)
+                        {
+                            Instantiate(exitPrefab, prefabs, Quaternion.identity, doorsLocations[prefabs].roomParent);
+                        }
+                        else
+                        {
+                            pos = prefabs + new Vector3(0, -1.35f, 0);
+
+                            wall = Instantiate(windowPrefab, pos, doorsLocations[prefabs].rotation, doorsLocations[prefabs].roomParent);
+
+                            wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize / 2, 0, 0);
+                        }
+
                         break;
                     case "right":
-                        pos = prefabs + new Vector3(0,-1.35f,0);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
+                        if (exits["right"] == doorsLocations[prefabs].roomParent)
+                        {
+                            Instantiate(exitPrefab, prefabs, Quaternion.identity, doorsLocations[prefabs].roomParent);
+                        }
+                        else
+                        {
+                            pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall=Instantiate(windowPrefab, pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
+                        }
                         break;
                     case "top":
-                        pos = prefabs + new Vector3(0,-1.35f,0);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
+                        if (exits["top"] == doorsLocations[prefabs].roomParent)
+                        {
+                            Instantiate(exitPrefab, prefabs, Quaternion.identity, doorsLocations[prefabs].roomParent);
+                        }
+                        else
+                        {
+                            pos = prefabs + new Vector3(0,-1.35f,0);
+                        wall=Instantiate(windowPrefab, pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
+                        }
                         break;
                     case "bottom":
+                        if (exits["bottom"] == doorsLocations[prefabs].roomParent)
+                        {
+                            Instantiate(exitPrefab, prefabs, Quaternion.identity, doorsLocations[prefabs].roomParent);
+                        }
+                        else
+                        {
                         pos = prefabs + new Vector3(0,-1.35f,0);
-                        wall=Instantiate(wallPrefab,pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
+                        wall=Instantiate(windowPrefab, pos,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                         wall.transform.localScale = wall.transform.localScale + new Vector3(doorSize/2,0,0);
+                        }
                         break;
                     default:
                         break;
                 }
+                
             }
             
 

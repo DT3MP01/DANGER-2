@@ -279,7 +279,7 @@ public class WorldGenerator : RoomPopulator
             leftUpVer.transform.localScale += new Vector3(0, 0, length - 1);
             rightDownVer.transform.localScale += new Vector3(0, 0, length - 1);
             rightUpVer.transform.localScale += new Vector3(0, 0, length - 1);
-            Instantiate(npcPrefab, new Vector3(roomCentre.x, -2f, roomCentre.z), Quaternion.identity);  // A�adimos un primer agente en el centro de la sala
+            Instantiate(npcPrefab, new Vector3(roomCentre.x, 0, roomCentre.z), Quaternion.identity);  // A�adimos un primer agente en el centro de la sala
             GlobalVar.totalNPCs += 1;
 
 
@@ -366,16 +366,16 @@ public class WorldGenerator : RoomPopulator
                 //aux1.coords += new Vector3(0, 0.55f, 0); // para que no este en contacto con el suelo sino levitando sobre el y n haya colisi�n
                 //aux2.coords += new Vector3(0, 0.55f, 0);
                 //Cogemos los 2 ultimos generadores, calculamos la distrancia con el centro del mapa y escogemos aquel que est?mas alejado
-                if (Mathf.Sqrt(
-                                    Mathf.Pow((GlobalVar.middleX - aux1.coords.x), 2) + Mathf.Pow((GlobalVar.middleZ - aux1.coords.z), 2)) >
+                //if (Mathf.Sqrt(
+                //                    Mathf.Pow((GlobalVar.middleX - aux1.coords.x), 2) + Mathf.Pow((GlobalVar.middleZ - aux1.coords.z), 2)) >
 
 
-                        Mathf.Sqrt(
-                                    Mathf.Pow((GlobalVar.middleX - aux2.coords.x), 2) + Mathf.Pow((GlobalVar.middleZ - aux2.coords.z), 2))
+                //        Mathf.Sqrt(
+                //                    Mathf.Pow((GlobalVar.middleX - aux2.coords.x), 2) + Mathf.Pow((GlobalVar.middleZ - aux2.coords.z), 2))
 
 
-                                    ) { Debug.Log("escogido1"); Instantiate(exit, aux1.coords, Quaternion.identity); }
-                else { Debug.Log("escogido2"); Instantiate(exit, aux2.coords, Quaternion.identity); }
+                //                    ) { Debug.Log("escogido1"); Instantiate(exit, aux1.coords, Quaternion.identity); }
+                //else { Debug.Log("escogido2"); Instantiate(exit, aux2.coords, Quaternion.identity); }
                 
                 GlobalVar.remainingNPCs = GlobalVar.totalNPCs;
             }

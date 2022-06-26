@@ -15,7 +15,6 @@ public class Sensor : MonoBehaviour
     public float height = 1;
     public Color meshColor = Color.blue;
 
-
     public int  scanFrequency = 2 ;
     public LayerMask layer;
     public LayerMask OcclusionLayer;
@@ -257,10 +256,11 @@ public class Sensor : MonoBehaviour
                 if (obj.tag == "Fire")
                 {
                     fireInSight = true;
+                    Debug.Log("FUEGOOO");
                 }
             }
         }
-        if (smokeCount>=20)
+        if (smokeCount>=15)
         {
             nearbySmoke=true;
         }

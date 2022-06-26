@@ -17,30 +17,39 @@ public class NearbyObject : ActionNode
         //inicializar las variables para el pathfinding
 
         minDistance = float.MaxValue;
-        objects = GameObject.FindGameObjectsWithTag(objectTag);
-
-        foreach (GameObject points in objects) {
-            path = new NavMeshPath();
-            if (context.agent.CalculatePath(points.transform.position, path) && path.status == NavMeshPathStatus.PathComplete) {
-                float distance = Vector3.Distance(context.transform.position, path.corners[0]);
-                for (int i = 1; i < path.corners.Length; i++) {
-                    distance += Vector3.Distance(path.corners[i-1], path.corners[i]);
-                }
-                if (distance < minDistance) {
-                        minDistance = distance;
-                        nearestObject = points;
-                    }
-            }
-        }
+        
     }
 
     protected override void OnStop() {
     }
 
     protected override State OnUpdate() {
-        if(minDistance ==float.MaxValue){
+        objects = GameObject.FindGameObjectsWithTag(objectTag);
+        if (objects == null)
+        {
+            return State.Failure;
+        }
+        foreach (GameObject points in objects)
+        {
+            path = new NavMeshPath();
+            if (context.agent.CalculatePath(points.transform.position, path) && path.status == NavMeshPathStatus.PathComplete)
+            {
+                float distance = Vector3.Distance(context.transform.position, path.corners[0]);
+                for (int i = 1; i < path.corners.Length; i++)
+                {
+                    distance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+                }
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestObject = points;
+                }
+            }
+        }
+        if (minDistance ==float.MaxValue){
                 return State.Failure;
         }
+
         blackboard.moveToPosition = nearestObject.transform.position;
         return State.Success;
     }

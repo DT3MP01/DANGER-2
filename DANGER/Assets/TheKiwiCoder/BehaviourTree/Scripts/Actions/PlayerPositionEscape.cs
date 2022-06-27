@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TheKiwiCoder;
 
-public class PlayerPosition : ActionNode
+public class PlayerPositionEscape : ActionNode
 {
     public GameObject player;
 

@@ -242,7 +242,7 @@ public class FireGeneration : MonoBehaviour
                 newFire = new Vector3(minAncho + x, 0, maxAlto - z);
                 GameObject firePoint = Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
                 GlobalVar.fireDict.Add(new Vector2(z,x), firePoint.GetComponent<FireScript>());
-                firePoint.GetComponent<FireScript>().SetValues(x, z, minAncho, maxAlto);
+                firePoint.GetComponentInChildren<FireScript>().SetValues(x, z, minAncho, maxAlto);
 
             }
             

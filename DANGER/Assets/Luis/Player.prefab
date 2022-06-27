@@ -6947,7 +6947,6 @@ GameObject:
   - component: {fileID: 7456189061593818679}
   - component: {fileID: 7456189061326442494}
   - component: {fileID: 511902916983395869}
-  - component: {fileID: 7456189061645804503}
   - component: {fileID: 5900528150611796563}
   m_Layer: 0
   m_Name: Player
@@ -7133,7 +7132,7 @@ MonoBehaviour:
   distance: 7
   angle: 30
   height: 1
-  meshColor: {r: 0, g: 0, b: 1, a: 1}
+  meshColor: {r: 1, g: 0.0683719, b: 0, a: 1}
   scanFrequency: 2
   layer:
     serializedVersion: 2
@@ -7142,7 +7141,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   Objects: []
-  scanTimer: 0.16666666
   nearbySmoke: 0
   fireAlarm: 0
   fireInSight: 0
@@ -7176,21 +7174,6 @@ MonoBehaviour:
   parameterHorizontal: AxisX
   parameterVertical: AxisY
   underControl: 1
---- !u!114 &7456189061645804503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5813832890575120209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eed3a6942ca95d94b9df19f01d48b4c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 8219bfdc2f8e07c4087a040ba8777203, type: 3}
-  cursorMode: 0
-  hotSpot: {x: 0, y: 0}
 --- !u!82 &5900528150611796563
 AudioSource:
   m_ObjectHideFlags: 0

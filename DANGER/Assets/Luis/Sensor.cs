@@ -26,6 +26,7 @@ public class Sensor : MonoBehaviour
     [Header("Detections")]
     public bool nearbySmoke=false;
     public bool fireAlarm = false;
+    public bool fireNearby = false;
     public bool fireInSight=false;
     public bool touchingFire=false;
     public bool isTerrified=false;
@@ -48,7 +49,7 @@ public class Sensor : MonoBehaviour
     
 
     public float extinguisherCapacity=0f;
-
+    public float extinguisherDepletionRate = 4f;
     public bool usingExtinguisher;
 
     public float stressModifier=0.1f;
@@ -80,7 +81,7 @@ public class Sensor : MonoBehaviour
             Scan();
             CalculateHealth();
             if(usingExtinguisher){
-                extinguisherCapacity= Mathf.Max(0,extinguisherCapacity-4f);
+                extinguisherCapacity= Mathf.Max(0,extinguisherCapacity- extinguisherDepletionRate);
             }
             if(isPlayer && gameObject.GetComponent<BehaviourTreeRunner>().enabled == true){
             gameObject.GetComponent<CharacterMovment>().underControl = true;
@@ -241,6 +242,7 @@ public class Sensor : MonoBehaviour
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
         Objects.Clear();
         fireInSight = false;
+        fireNearby = false;
         nearbySmoke = false;
         int smokeCount = 0;
 
@@ -250,13 +252,16 @@ public class Sensor : MonoBehaviour
             if(obj.tag == "Smoke"){
                 smokeCount++;
             }
-            else if (IsInSight(obj))
+            if (obj.tag == "Fire")
+            {
+                fireNearby = true;
+            }
+            if (IsInSight(obj))
             {
                 Objects.Add(obj);
                 if (obj.tag == "Fire")
                 {
                     fireInSight = true;
-                    Debug.Log("FUEGOOO");
                 }
             }
         }

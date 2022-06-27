@@ -19307,6 +19307,7 @@ GameObject:
   - component: {fileID: 1223653094458917658}
   - component: {fileID: 8539464382898666012}
   - component: {fileID: 4379502300272884518}
+  - component: {fileID: 4218261310265076771}
   m_Layer: 3
   m_Name: FireParticles
   m_TagString: Fire
@@ -24129,3 +24130,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4218261310265076771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4519084695969491378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3286397a54593d9419888a88c3df6dd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  propagateFire: 0

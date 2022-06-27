@@ -30,19 +30,25 @@ public class DBManager : MonoBehaviour
     private FirebaseUser User;
 
     [Header("Login")]
+    public GameObject login;
     public TMP_InputField loginEmail;
     public TMP_InputField loginPassword;
     public TMP_Text warningLoginText;
     public TMP_Text confirmLoginText;
+    public GameObject logoutButton;
 
 
     [Header("Register")]
+    public GameObject register;
     public TMP_InputField registerUsername;
     public TMP_InputField registerEmail;
     public TMP_InputField registerPassword;
     public TMP_InputField registerPasswordVerify;
     public TMP_Text warningRegisterText;
 
+    [Header("Upload")]
+    public GameObject upload;
+    public TMP_InputField uploadName;
 
     // Start is called before the first frame update
     void Start()
@@ -53,10 +59,36 @@ public class DBManager : MonoBehaviour
 
         // Get the root reference location of the database.
         //reference = FirebaseDatabase.DefaultInstance.RootReference;
-        auth = FirebaseAuth.DefaultInstance;
+        auth = FirebaseAuth.DefaultInstance; 
+        auth.StateChanged += AuthStateChanged;
+        AuthStateChanged(this, null);
         database = FirebaseFirestore.DefaultInstance;
         storage= FirebaseStorage.DefaultInstance;
 
+    }
+    void AuthStateChanged(object sender, System.EventArgs eventArgs)
+    {
+        if (auth.CurrentUser != User)
+        {
+            bool signedIn = User != auth.CurrentUser && auth.CurrentUser != null;
+            if (!signedIn && User != null)
+            {
+                Debug.Log("Signed out " + User.UserId);
+                logoutButton.SetActive(false);
+            }
+            User = auth.CurrentUser;
+            if (signedIn)
+            {
+                Debug.Log("Signed in " + User.UserId);
+                logoutButton.SetActive(true);
+
+            }
+        }
+    }
+
+    public void Logout()
+    {
+        auth.SignOut();
     }
 
     IEnumerator SaveRoom()
@@ -77,8 +109,8 @@ public class DBManager : MonoBehaviour
         StatsRoom statsRoom = new StatsRoom(game.meters, game.extinguishers, game.windows, game.doors, game.countScans);
         Dictionary<string, object>data =  new Dictionary<string, object> {
             {"Image",docDataImage.Path},
-            {"PlayerName", "PlayerExample"},
-            {"RoomName", "ROOM"},
+            {"PlayerName", auth.CurrentUser},
+            {"RoomName", uploadName},
             {"Meters",game.SaveRoomData.statsRoom.meters},
             {"Extinguishers",game.SaveRoomData.statsRoom.extinguishers},
             {"Windows",game.SaveRoomData.statsRoom.windows},
@@ -227,23 +259,30 @@ public class DBManager : MonoBehaviour
         StartCoroutine(Register(registerEmail.text, registerPassword.text, registerUsername.text));
     }
 
+    public void UploadRoom()
+    {
+        StartCoroutine(SaveRoom());
 
+        
+    }
+    public void LoginStep()
+    {
+        if (auth.CurrentUser != null)
+        {
+            upload.SetActive(true);
+        }
+        else
+        {
+            game.disableInput();
+            login.SetActive(true);
+        }
+    }
     public void inicializarBD()
     {
 
         // Debug.Log(text);
         // Debug.Log(this.game.json);
-        StartCoroutine(SaveRoom());
-
         
-
-        // reference.Child("User").Child(text).Child("Alias").SetValueAsync("DUDETE");
-        // reference.Child("User").Child(text).Child("Games").Child(partida).SetRawJsonValueAsync(game.json);
-
-        // this.id = int.Parse(text);
-        // this.id++;
-
-        // File.WriteAllText(idFile, id.ToString());
     }
 
     

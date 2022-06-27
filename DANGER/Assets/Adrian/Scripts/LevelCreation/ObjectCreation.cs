@@ -1271,7 +1271,7 @@ public class ObjectCreation : MonoBehaviour
         {
             timer.GetComponent<timer>().isActive = false;
             roomSecuredText.SetActive(true);
-            dbManager.inicializarBD();
+            //dbManager.inicializarBD();
         }
         else
         {

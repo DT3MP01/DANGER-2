@@ -31,6 +31,7 @@ public class Sensor : MonoBehaviour
     public bool touchingFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
+    public bool isCrawling = false;
 
     
     public GameObject extinguisher;
@@ -120,6 +121,7 @@ public class Sensor : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.LeftControl))
         {
+            isCrawling = !animator.GetBool("isCrouching");
             animator.SetBool("isCrouching",!animator.GetBool("isCrouching"));
             
         }

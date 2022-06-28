@@ -6172,7 +6172,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 3.15231
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &4023779642572394302
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6317,6 +6317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4bc84b9b25f3347b393c5f7da0fca2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPlayer: 0
   distance: 7
   angle: 30
   height: 1
@@ -6329,13 +6330,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   Objects: []
-  scanTimer: 0.5
   nearbySmoke: 0
   fireAlarm: 0
+  fireNearby: 0
   fireInSight: 0
   touchingFire: 0
   isTerrified: 0
   followPlayer: 0
+  isCrawling: 0
   extinguisher: {fileID: 4743898290310442400}
   fog: {fileID: 3025238167892741703}
   animator: {fileID: 6077419868901140805}
@@ -6343,8 +6345,8 @@ MonoBehaviour:
   MaxHealth: 100
   playerStress: 0
   MaxStress: 100
-  isPlayer: 0
   extinguisherCapacity: 0
+  extinguisherDepletionRate: 4
   usingExtinguisher: 0
   stressModifier: 0.1
   healthModifier: 0.1

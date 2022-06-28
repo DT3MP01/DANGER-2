@@ -7079,7 +7079,7 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 3.15231
   m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!195 &5813832890575120175
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7244,6 +7244,7 @@ MonoBehaviour:
   touchingFire: 0
   isTerrified: 0
   followPlayer: 0
+  isCrawling: 0
   extinguisher: {fileID: 2786604667223066033}
   fog: {fileID: 5657218668186887766}
   animator: {fileID: 3688132920705237332}

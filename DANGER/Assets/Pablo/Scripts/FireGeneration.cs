@@ -201,27 +201,24 @@ public class FireGeneration : MonoBehaviour
     public void  ClearFireCell(int x, int z, int minAncho, int maxAlto)
     {
         GlobalVar.matrix[z, x] = true;
-        GlobalVar.fireDict[new Vector2(z,x)] =null;
+        Debug.Log(GlobalVar.fireDict.ContainsKey(new Vector2(z, x + 1)));
         GlobalVar.fireDict.Remove(new Vector2(z,x));
-        if(GlobalVar.fireDict.ContainsKey(new Vector2(z,x+1)))
+
+        if(GlobalVar.fireDict.ContainsKey(new Vector2(z, x + 1)) && GlobalVar.fireDict[new Vector2(z, x + 1)] != null)
         {
-            FireScript fire = GlobalVar.fireDict[new Vector2(z,x+1)];
-            fire.startFire();
+             GlobalVar.fireDict[new Vector2(z, x + 1)].startFire();
         }
-        if (GlobalVar.fireDict.ContainsKey(new Vector2(z, x - 1)))
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z, x - 1)) && GlobalVar.fireDict[new Vector2(z, x - 1)] != null)
         {
-            FireScript fire = GlobalVar.fireDict[new Vector2(z, x - 1)];
-            fire.startFire();
+             GlobalVar.fireDict[new Vector2(z, x - 1)].startFire();
         }
-        if (GlobalVar.fireDict.ContainsKey(new Vector2(z+1, x)))
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z + 1, x)) && GlobalVar.fireDict[new Vector2(z + 1, x)] != null)
         {
-            FireScript fire = GlobalVar.fireDict[new Vector2(z+1, x)];
-            fire.startFire();
+             GlobalVar.fireDict[new Vector2(z + 1, x)].startFire();
         }
-        if (GlobalVar.fireDict.ContainsKey(new Vector2(z-1, x)))
+        if (GlobalVar.fireDict.ContainsKey(new Vector2(z - 1, x)) && GlobalVar.fireDict[new Vector2(z - 1, x)] != null)
         {
-            FireScript fire = GlobalVar.fireDict[new Vector2(z-1, x)];
-            fire.startFire();
+            GlobalVar.fireDict[new Vector2(z-1, x)].startFire();
         }
         
     }
@@ -237,13 +234,13 @@ public class FireGeneration : MonoBehaviour
             //Debug.Log("Z: " + z + "       X: " + x);
             if (GlobalVar.matrix[z, x] == true) 
             {
-                GlobalVar.matrix[z, x] = false;
-               
+                
                 newFire = new Vector3(minAncho + x, 0, maxAlto - z);
                 GameObject firePoint = Instantiate(fire, newFire, Quaternion.Euler(0f, 0f, 0f));
-                GlobalVar.fireDict.Add(new Vector2(z,x), firePoint.GetComponent<FireScript>());
                 firePoint.GetComponentInChildren<FireScript>().SetValues(x, z, minAncho, maxAlto);
 
+                GlobalVar.fireDict.Add(new Vector2(z, x), firePoint.GetComponent<FireScript>());
+                GlobalVar.matrix[z, x] = false;
             }
             
         }

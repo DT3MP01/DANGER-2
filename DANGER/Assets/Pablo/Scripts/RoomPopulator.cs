@@ -266,7 +266,7 @@ public class RoomPopulator : MonoBehaviour
             if(doorsLocations[prefabs].prefabName == "door"){
                 GameObject door = Instantiate(doorPrefab,prefabs,doorsLocations[prefabs].rotation,doorsLocations[prefabs].roomParent);
                 GameObject extinguisher;
-                int randomNumber = UnityEngine.Random.Range(0, 3);
+                int randomNumber = UnityEngine.Random.Range(0, 4);
                 switch (randomNumber)
                 {
                     case 0:

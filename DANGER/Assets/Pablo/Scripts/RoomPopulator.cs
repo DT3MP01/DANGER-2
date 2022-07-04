@@ -16,6 +16,7 @@ public class RoomPopulator : MonoBehaviour
     public GameObject npcPrefab;
     public GameObject playerPrefab;
     public GameObject roomParentPrefab;
+    public GameObject alarmPrefab;
     public NavMeshSurface navMesh;
     public GameObject exitPrefab;
     public bool enablePopulate;
@@ -107,7 +108,6 @@ public class RoomPopulator : MonoBehaviour
         Fisher_YatesShuffle(spawnObjects);
         doorsLocations = new Dictionary<Vector3, ObjectTransform>();
         restrictedAreas = new List<ocuppiedArea>();
-        //Debug.Log(objectsToSpawn[0]);
         objWidth = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.x);
         Debug.Log("ObjectXsize: " + objWidth);
         objLength = Mathf.CeilToInt(spawnObjects[0].GetComponent<Renderer>().bounds.size.z);
@@ -225,18 +225,11 @@ public class RoomPopulator : MonoBehaviour
                             )
 
                             { fits = false; /*Debug.Log("Choca con otros objetos");*/ break; }
-                            else { /*fits = false; Debug.Log("Choca con otros objetos"); break;*/ }
                         }
                     }
                     else
                     {
                         //Debug.Log("Fuera de la sala");
-                        //Debug.Log("DEPURACION");
-                        //Debug.Log(esqAI.x + ">=" + room.minX + " &&" + esqAI.x + " <=" + room.maxX + "&&" + esqAI.z + " >=" + room.minZ + "&&" + esqAI.z + "<=" + room.maxZ);
-                        //Debug.Log(esqBI.x + ">=" + room.minX + " &&" + esqBI.x + " <=" + room.maxX + "&&" + esqBI.z + " >=" + room.minZ + "&&" + esqBI.z + "<=" + room.maxZ);
-                        //Debug.Log(esqAD.x + ">=" + room.minX + " &&" + esqAD.x + " <=" + room.maxX + "&&" + esqAD.z + " >=" + room.minZ + "&&" + esqAD.z + "<=" + room.maxZ);
-                        //Debug.Log(esqBD.x + ">=" + room.minX + " &&" + esqBD.x + " <=" + room.maxX + "&&" + esqBD.z + " >=" + room.minZ + "&&" + esqBD.z + "<=" + room.maxZ);
-
                         fits = false;
                     }
 

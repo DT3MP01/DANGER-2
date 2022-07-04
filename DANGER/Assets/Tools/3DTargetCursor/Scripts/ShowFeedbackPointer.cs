@@ -14,17 +14,13 @@ namespace Graphics.Feedback.Scripts
         [SerializeField]
         private GameObject _moveToIndicator;
 
-        [SerializeField]
-        private NavMeshAgent _navMeshAgent;
+        private CharacterMovment canMove;
 
         [SerializeField]
         private int _walkableNavMeshMask = -1;
 
         public void InteractOnPerformed(Vector2 position)
         {
-            if (_navMeshAgent.isOnOffMeshLink)
-                return;
-
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(position.x, position.y, Camera.main.nearClipPlane));
 
             const float maxDistance = 300f;
@@ -36,22 +32,19 @@ namespace Graphics.Feedback.Scripts
             if (!navHit.hit)
                 return;
 
-            var path = new NavMeshPath();
-            if (!_navMeshAgent.CalculatePath(navHit.position, path) || path.status == NavMeshPathStatus.PathInvalid)
-                return;
-
             _feedbackPointer.ShowPointer(navHit.position);
-            _navMeshAgent.SetPath(path);
+
         }
 
         private void Start()
         {
             _feedbackPointer.PreparePointer(_moveToIndicator, _feedbackPointerScale);
+             canMove = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovment>();
         }
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && canMove.underControl==true)
                 InteractOnPerformed(Input.mousePosition);
         }
     }

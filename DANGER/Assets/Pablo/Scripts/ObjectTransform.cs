@@ -7,7 +7,6 @@ public class ObjectTransform
    public Quaternion rotation;
    public string prefabName;
    public string position;
-
    public Transform roomParent;
 
     public ObjectTransform(Quaternion rotation, string prefabName,string position,Transform roomParent)

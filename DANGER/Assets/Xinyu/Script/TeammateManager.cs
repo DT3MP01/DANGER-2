@@ -26,7 +26,7 @@ public class TeammateManager : MonoBehaviour
     void Update()
     {
         //Si desaparece hud, personaje no pude mover
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = GetComponent<Canvas>().isActiveAndEnabled;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovment>().underControl = GetComponent<Canvas>().isActiveAndEnabled;
         teamNumberText.text = teamNumber.ToString();
     }
 

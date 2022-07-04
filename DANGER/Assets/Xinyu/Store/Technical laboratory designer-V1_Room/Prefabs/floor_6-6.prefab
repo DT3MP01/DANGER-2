@@ -173,6 +173,8 @@ GameObject:
   - component: {fileID: 4000012771917564}
   - component: {fileID: 33000013793812750}
   - component: {fileID: 23000014008075160}
+  - component: {fileID: 8724737400191314964}
+  - component: {fileID: 6866737650994189219}
   m_Layer: 0
   m_Name: floor_6-6
   m_TagString: Untagged
@@ -187,7 +189,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014249080164}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.480938, y: -13.138, z: -35.6622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -195,7 +197,7 @@ Transform:
   - {fileID: 4000011279290222}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &33000013793812750
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -245,3 +247,33 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8724737400191314964
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014249080164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: ffad064668ec02446b5c0e21cb59764d, type: 3}
+--- !u!114 &6866737650994189219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014249080164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc237c457be01642a6cd71c3bf1e8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _feedbackPointerScale: 5
+  _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
+  canMove: {fileID: 0}
+  _walkableNavMeshMask: -1

@@ -21,7 +21,6 @@ public class CharacterMovment : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -33,18 +32,17 @@ public class CharacterMovment : MonoBehaviour
                 {// si el rayo choca con algo actualiza el punto de intersección como destino
                     agent.destination = hit.point;
                     agent.stoppingDistance = 0.3f;
-                    // agent.
                 }
             }
-            //actualizar la animación de locomoción con los parámetros de avance y giro del agente
-            animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);  
-            animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
+
         }
         else{
             agent.destination = transform.position;
             agent.stoppingDistance = 0f;
         }
-
+        //actualizar la animación de locomoción con los parámetros de avance y giro del agente
+        animator.SetFloat(parameterHorizontal, transform.InverseTransformDirection(agent.velocity).x);
+        animator.SetFloat(parameterVertical, transform.InverseTransformDirection(agent.velocity).z);
 
     }
 }

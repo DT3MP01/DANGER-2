@@ -206,19 +206,20 @@ public class FireGeneration : MonoBehaviour
 
         if(GlobalVar.fireDict.ContainsKey(new Vector2(z, x + 1)) && GlobalVar.fireDict[new Vector2(z, x + 1)] != null)
         {
-             GlobalVar.fireDict[new Vector2(z, x + 1)].startFire();
+            StartCoroutine(GlobalVar.fireDict[new Vector2(z, x + 1)].startFire());
+            
         }
         if (GlobalVar.fireDict.ContainsKey(new Vector2(z, x - 1)) && GlobalVar.fireDict[new Vector2(z, x - 1)] != null)
         {
-             GlobalVar.fireDict[new Vector2(z, x - 1)].startFire();
+            StartCoroutine(GlobalVar.fireDict[new Vector2(z, x - 1)].startFire());
         }
         if (GlobalVar.fireDict.ContainsKey(new Vector2(z + 1, x)) && GlobalVar.fireDict[new Vector2(z + 1, x)] != null)
         {
-             GlobalVar.fireDict[new Vector2(z + 1, x)].startFire();
+            StartCoroutine(GlobalVar.fireDict[new Vector2(z + 1, x)].startFire());
         }
         if (GlobalVar.fireDict.ContainsKey(new Vector2(z - 1, x)) && GlobalVar.fireDict[new Vector2(z - 1, x)] != null)
         {
-            GlobalVar.fireDict[new Vector2(z-1, x)].startFire();
+            StartCoroutine(GlobalVar.fireDict[new Vector2(z-1, x)].startFire());
         }
         
     }

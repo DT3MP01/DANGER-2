@@ -91,7 +91,7 @@ public class DBManager : MonoBehaviour
         auth.SignOut();
     }
 
-    IEnumerator SaveRoom()
+    IEnumerator UploadData()
     {
         yield return StartCoroutine(game.RecordFrame());
 
@@ -109,8 +109,8 @@ public class DBManager : MonoBehaviour
         StatsRoom statsRoom = new StatsRoom(game.meters, game.extinguishers, game.windows, game.doors, game.countScans);
         Dictionary<string, object>data =  new Dictionary<string, object> {
             {"Image",docDataImage.Path},
-            {"PlayerName", auth.CurrentUser},
-            {"RoomName", uploadName},
+            {"PlayerName", auth.CurrentUser.DisplayName},
+            {"RoomName", uploadName.text},
             {"Meters",game.SaveRoomData.statsRoom.meters},
             {"Extinguishers",game.SaveRoomData.statsRoom.extinguishers},
             {"Windows",game.SaveRoomData.statsRoom.windows},
@@ -261,7 +261,7 @@ public class DBManager : MonoBehaviour
 
     public void UploadRoom()
     {
-        StartCoroutine(SaveRoom());
+        StartCoroutine(UploadData());
 
         
     }

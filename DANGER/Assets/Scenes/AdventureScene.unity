@@ -2858,7 +2858,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: -13.619, y: 56.431, z: -118.218}
 --- !u!1 &122400929 stripped
 GameObject:
@@ -2947,7 +2947,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122744601}
-  m_LocalRotation: {x: 0.4748561, y: 8.79006e-10, z: 4.742804e-10, w: 0.8800635}
+  m_LocalRotation: {x: 0.4748561, y: -8.790047e-10, z: -4.742825e-10, w: 0.8800635}
   m_LocalPosition: {x: -4.59, y: 12.089998, z: -18.238205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4730,7 +4730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &221032241
 PrefabInstance:
@@ -12314,7 +12314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &549418931
 GameObject:
@@ -13235,7 +13235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &591308421
 MeshCollider:
@@ -19670,7 +19669,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855826928}
-  m_LocalRotation: {x: 0.39995578, y: -0.000000014886696, z: 0.0000000072655952, w: 0.9165345}
+  m_LocalRotation: {x: 0.39995578, y: -0.00000004079132, z: 0.000000023138272, w: 0.9165345}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21279,7 +21278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &910191031
 PrefabInstance:
@@ -22348,63 +22347,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 809409001895233029, guid: cacd36646f402994191a2b275923a08f, type: 3}
   m_PrefabInstance: {fileID: 948188256}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &952782040
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.0407495
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.09000206
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -3.4901056
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787427, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3438479129706787431, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
-      propertyPath: m_Name
-      value: FireAdventure
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8ba8fb1ea9e126140af2cbfe9ebcf943, type: 3}
 --- !u!1001 &957564234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24749,7 +24691,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027024217}
-  m_LocalRotation: {x: 0.42415538, y: -0.000000008395304, z: 0.0000000033094891, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000058574905, z: 0.000000036937315, w: 0.90558946}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31402,7 +31344,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1313482546
 PrefabInstance:
@@ -32872,7 +32814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &1374964904
 MeshCollider:
@@ -33318,7 +33259,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &1391755790
 MeshCollider:
@@ -36849,7 +36789,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9112295840113919825, guid: b96d8af55e78c2e4cb50b2c8c3be7a53, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 9112295840113919825, guid: b96d8af55e78c2e4cb50b2c8c3be7a53, type: 3}
       propertyPath: m_AnchorMax.x
@@ -37556,7 +37496,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7988843364756484245, guid: 7ab72111fcb324047acc7f1182fb8967, type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7988843364756484245, guid: 7ab72111fcb324047acc7f1182fb8967, type: 3}
       propertyPath: m_AnchorMax.x
@@ -40812,7 +40752,7 @@ Transform:
   - {fileID: 4840637415165780467}
   - {fileID: 486915134}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1794403954
 PrefabInstance:
@@ -41404,7 +41344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7337692065969818879, guid: 4d48bdf6b827f8049a6a2c31dad29a47, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7337692065969818879, guid: 4d48bdf6b827f8049a6a2c31dad29a47, type: 3}
       propertyPath: m_AnchorMax.x
@@ -51828,7 +51768,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037606446}
-  m_LocalRotation: {x: 0.3756121, y: -0.00000001507338, z: 0.00000000686993, w: 0.92677695}
+  m_LocalRotation: {x: 0.3756121, y: -0.000000041388134, z: 0.00000002205297, w: 0.92677695}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -52186,7 +52126,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2061776549 stripped
 GameObject:
@@ -54130,7 +54070,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &312143265484305555
 MonoBehaviour:
@@ -54146,7 +54085,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &315737014768518802
 MonoBehaviour:
@@ -54162,7 +54100,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!1 &325549478695323296
 GameObject:
@@ -55356,9 +55293,9 @@ MonoBehaviour:
   extinguisher: {fileID: 2092872247}
   fog: {fileID: 1924723881}
   animator: {fileID: 325549478702724466}
-  playerHealth: 95.99999994039536
+  playerHealth: 100
   MaxHealth: 100
-  playerStress: 2.0000000298023224
+  playerStress: 0
   MaxStress: 100
   extinguisherCapacity: 0
   extinguisherDepletionRate: 6
@@ -57799,7 +57736,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147005902225451
 MonoBehaviour:
@@ -57815,7 +57751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147005966557682
 MonoBehaviour:
@@ -57831,7 +57766,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147006113946487
 MonoBehaviour:
@@ -57847,7 +57781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147006472433774
 MonoBehaviour:
@@ -57863,7 +57796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147006921917470
 MonoBehaviour:
@@ -57879,7 +57811,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &1968147007057971029
 MonoBehaviour:
@@ -57895,7 +57826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &1998369661711981278
 MeshCollider:
@@ -58037,7 +57967,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206180584613849
 MonoBehaviour:
@@ -58053,7 +57982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206180645272709
 MonoBehaviour:
@@ -58069,7 +57997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206180706704732
 MonoBehaviour:
@@ -58085,7 +58012,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206181075055911
 MonoBehaviour:
@@ -58101,7 +58027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206181798362107
 MonoBehaviour:
@@ -58117,7 +58042,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206181934414000
 MonoBehaviour:
@@ -58133,7 +58057,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2157206182289722560
 MonoBehaviour:
@@ -58149,7 +58072,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414125837910430
 MonoBehaviour:
@@ -58165,7 +58087,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414125894113986
 MonoBehaviour:
@@ -58181,7 +58102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414125950712603
 MonoBehaviour:
@@ -58197,7 +58117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414126319965024
 MonoBehaviour:
@@ -58213,7 +58132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414126637113079
 MonoBehaviour:
@@ -58229,7 +58147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414127042125244
 MonoBehaviour:
@@ -58245,7 +58162,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &2293414127538580103
 MonoBehaviour:
@@ -58261,7 +58177,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!23 &2343066719500796287
 MeshRenderer:
@@ -58304,11 +58219,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!195 &2398380139256472274 stripped
-NavMeshAgent:
-  m_CorrespondingSourceObject: {fileID: 5813832890575120175, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
-  m_PrefabInstance: {fileID: 8207282768146433533}
-  m_PrefabAsset: {fileID: 0}
 --- !u!64 &2446966998823122243
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58553,7 +58463,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674993195717841
 MonoBehaviour:
@@ -58569,7 +58478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674993343114836
 MonoBehaviour:
@@ -58585,7 +58493,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674993834081450
 MonoBehaviour:
@@ -58601,7 +58508,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674994287407734
 MonoBehaviour:
@@ -58617,7 +58523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674994692419901
 MonoBehaviour:
@@ -58633,7 +58538,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &3125674994763007309
 MonoBehaviour:
@@ -58649,7 +58553,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!1 &3213065179010125297
 GameObject:
@@ -58906,7 +58809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936179730470489
 MonoBehaviour:
@@ -58922,7 +58824,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936179843132636
 MonoBehaviour:
@@ -58938,7 +58839,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936179920882949
 MonoBehaviour:
@@ -58954,7 +58854,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936180491615552
 MonoBehaviour:
@@ -58970,7 +58869,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936180932414075
 MonoBehaviour:
@@ -58986,7 +58884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4144936181064272176
 MonoBehaviour:
@@ -59002,7 +58899,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &4195411353509408981
 MeshCollider:
@@ -59111,7 +59007,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810795767717264
 MonoBehaviour:
@@ -59127,7 +59022,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810796319746731
 MonoBehaviour:
@@ -59143,7 +59037,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810796825623351
 MonoBehaviour:
@@ -59159,7 +59052,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810796890397422
 MonoBehaviour:
@@ -59175,7 +59067,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810796980208050
 MonoBehaviour:
@@ -59191,7 +59082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4542810797529895756
 MonoBehaviour:
@@ -59207,7 +59097,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &4626865281440275688
 MeshCollider:
@@ -59279,7 +59168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492864873853183
 MonoBehaviour:
@@ -59295,7 +59183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492864933908774
 MonoBehaviour:
@@ -59311,7 +59198,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492865081306019
 MonoBehaviour:
@@ -59327,7 +59213,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492865443971258
 MonoBehaviour:
@@ -59343,7 +59228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492866025371521
 MonoBehaviour:
@@ -59359,7 +59243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &4675492866430383306
 MonoBehaviour:
@@ -59375,7 +59258,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!1001 &4717097086774621729
 PrefabInstance:
@@ -66806,7 +66688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726676802607699
 MonoBehaviour:
@@ -66822,7 +66703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726677207739939
 MonoBehaviour:
@@ -66838,7 +66718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726677603960122
 MonoBehaviour:
@@ -66854,7 +66733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726677726068671
 MonoBehaviour:
@@ -66870,7 +66748,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726677778390630
 MonoBehaviour:
@@ -66886,7 +66763,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5137726678162036676
 MonoBehaviour:
@@ -66902,7 +66778,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308933914811426
 MonoBehaviour:
@@ -66918,7 +66793,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308934130509906
 MonoBehaviour:
@@ -66934,7 +66808,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308934534998809
 MonoBehaviour:
@@ -66950,7 +66823,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308934852404677
 MonoBehaviour:
@@ -66966,7 +66838,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308935468676923
 MonoBehaviour:
@@ -66982,7 +66853,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308935559277671
 MonoBehaviour:
@@ -66998,7 +66868,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &5150308935624314302
 MonoBehaviour:
@@ -67014,7 +66883,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!33 &5160446288849720880
 MeshFilter:
@@ -72558,7 +72426,7 @@ Transform:
   m_Children:
   - {fileID: 5980778562772242524}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &5980778562772242524
 Transform:
@@ -72588,7 +72456,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!64 &6383505627082732143
 MeshCollider:
@@ -72746,7 +72613,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6828171179054621809
 MonoBehaviour:
@@ -72762,7 +72628,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737650861805800
 MonoBehaviour:
@@ -72778,7 +72643,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737650994189219
 MonoBehaviour:
@@ -72794,7 +72658,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737651350955987
 MonoBehaviour:
@@ -72810,7 +72673,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737651797511370
 MonoBehaviour:
@@ -72826,7 +72688,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737651854497686
 MonoBehaviour:
@@ -72842,7 +72703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737651919746639
 MonoBehaviour:
@@ -72858,7 +72718,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!114 &6866737652288478772
 MonoBehaviour:
@@ -72874,7 +72733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!23 &6878461784416836014
 MeshRenderer:
@@ -73183,7 +73041,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!1 &7564931961912886591
 GameObject:
@@ -73234,7 +73091,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5813832890575120169, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5813832890575120169, guid: 0f6af3260c5673a4487b51df87446f7b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -73545,7 +73402,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!4 &8880849319247552436 stripped
 Transform:
@@ -73590,7 +73446,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _feedbackPointerScale: 5
   _moveToIndicator: {fileID: 3750812764573365532, guid: c3b6040f102868242836d96af1ce7946, type: 3}
-  _navMeshAgent: {fileID: 2398380139256472274}
   _walkableNavMeshMask: -1
 --- !u!1 &9045470046948396867
 GameObject:

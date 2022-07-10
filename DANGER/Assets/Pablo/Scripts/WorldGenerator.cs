@@ -26,6 +26,11 @@ public class WorldGenerator : RoomPopulator
     private int originLength;
 
 
+
+    public GameObject RoomsPrefabs;
+
+
+
     Queue<generatorPoint> genQ;
     private int[] queueOrder;
 
@@ -52,7 +57,7 @@ public class WorldGenerator : RoomPopulator
         
     }
 
-    struct ocuppiedArea 
+    public struct ocuppiedArea 
     {
 
         public float minX;
@@ -98,45 +103,48 @@ public class WorldGenerator : RoomPopulator
     }
     void worldGenerator() 
     {
-        while(roomsToGenerate > 0)
+        while (roomsToGenerate > 0)
         {
             roomGenerator(genP);
             //Debug.Log("Origin: "+genP.coords);
-            if (!ocuppied) {
+            if (!ocuppied)
+            {
                 //aux2 previo
                 //aux1 ultimo
                 //if (roomsToGenerate == 3) { aux1 = genP; }
                 //if (roomsToGenerate == 2) { aux2 = genP; }
-                roomsToGenerate = roomsToGenerate - 1; }  // a�adimos a generatedRooms una sala si esta ha podido ser generada al no haber colisiones
+                roomsToGenerate = roomsToGenerate - 1;
+            }  // a�adimos a generatedRooms una sala si esta ha podido ser generada al no haber colisiones
             else { ocuppied = false; }
             genP = genQ.Dequeue();
-            
+
 
         }
-        while (genQ.Count>0 ) 
-        
+        while (genQ.Count > 0)
+
         {
             aux2 = aux1;
             aux1 = genQ.Dequeue();
         }
-        
-        
+
+
         navMesh.BuildNavMesh();
         // Generamos el Mesh para los agentes
         //Debug.Log(generatedRooms[0]);
 
         //RoomPopulateST(generatedRooms);
-        
+
         GlobalVar.widths = generatedWidths;
         GlobalVar.lengths = generatedLengths;
-        if (enablePopulate) {
-            if (lab) { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, labItems,extinguishersToSpawn, margin); }
-            else { RoomPopulate(generatedRoomList,generatedRooms, generatedWidths, generatedLengths, objectsToSpawn,extinguishersToSpawn, margin); }
-            
+        if (enablePopulate)
+        {
+            if (lab) { RoomPopulate(generatedRoomList, generatedRooms, generatedWidths, generatedLengths, labItems, extinguishersToSpawn, margin); }
+            else { RoomPopulate(generatedRoomList, generatedRooms, generatedWidths, generatedLengths, objectsToSpawn, extinguishersToSpawn, margin); }
+
         }
         GlobalVar.rooms = generatedRooms;
-        
-        
+
+
 
 
     }

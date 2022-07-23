@@ -13,6 +13,8 @@ public class EscapeGen : MonoBehaviour
 
     void Start()
 	{
+        Random.InitState(421241241);
+        Debug.Log(Random.value);
         Transform building = new GameObject("Building").transform;
         ocuppiedAreas = new List<WorldGenerator.ocuppiedArea>();
 		RoomDetails startModule = Instantiate(StartRoom, transform.position, transform.rotation,building).GetComponent<RoomDetails>();;
@@ -31,26 +33,29 @@ public class EscapeGen : MonoBehaviour
             int randomDoorway = Random.Range(0, newRoomDoorways.Count);
             Doorway exitToMatch = newRoomDoorways[randomDoorway];
             bool isInPlace = false;
-            foreach (Doorway doorway in pendingDoorways)
+            foreach (Doorway doorway in Fisher_YatesShuffle(pendingDoorways))
             {
-                
                 MatchExits(doorway, exitToMatch);
                 
                 if (IsFree(newRoom.getSizeRoom()))
                 {
                     pendingDoorways.Remove(doorway);
                     isInPlace= true;
-                    pendingDoorways.AddRange(newRoomDoorways);
+                    pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
                     break;
                 }
             }
             if (!isInPlace)
             {
                 Debug.Log("-1");
+                
                 Destroy(newRoom.transform.gameObject);
             }
         }
-
+        foreach (Doorway doorway in pendingDoorways)
+        {
+           doorway.transform.gameObject.SetActive(false);
+        }
         //for (int iteration = 0; iteration < 1; iteration++){
         //    List<Doorway> newDoorways = new List<Doorway>();
         //    foreach (Doorway doorway in pendingDoorways){
@@ -94,8 +99,24 @@ public class EscapeGen : MonoBehaviour
         newRoom.transform.position += correctiveTranslation;
     }
 
+    List<Doorway> Fisher_YatesShuffle(List<Doorway> a)
+    {
+        // Recorremos la lista {1,2,3,4}
+        for (int i = a.Count - 1; i > 0; i--)
+        {
+            // Numero aleatorio entre 0 y i (de forma que i decrementa cada iteraci?n)
+            int rnd = Random.Range(0, i);
 
-	private static TItem GetRandom<TItem>(TItem[] array)
+            // Guardamos el valor que hay en a[i] 
+            Doorway temp = a[i];
+
+            // intercambiamos el valor de a[i] con el valor de que hay en la posici?n aleatoria
+            a[i] = a[rnd];
+            a[rnd] = temp;
+        }
+        return a;
+    }
+    private static TItem GetRandom<TItem>(TItem[] array)
 	{
 		return array[Random.Range(0, array.Length)];
 	}

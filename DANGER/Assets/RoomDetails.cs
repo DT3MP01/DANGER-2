@@ -49,7 +49,7 @@ public class RoomDetails : MonoBehaviour
             }
         }
         
-        Debug.Log(area.minX + " " + area.maxZ + " " +area.maxX+ " "+ area.minZ);
+        //Debug.Log(area.minX + " " + area.maxZ + " " +area.maxX+ " "+ area.minZ);
         return area;
     }
 }

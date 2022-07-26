@@ -3005,12 +3005,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoomList:
   - {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
-  - {fileID: 929603655830363020, guid: 15ae46abedd7f8a42b3f20ff14332746, type: 3}
-  - {fileID: 929603655830363020, guid: 0a5421576082c8e468d1594fcda78e8d, type: 3}
+  - {fileID: 929603655830363020, guid: 50580eac3b1251f41a2f838e87ead5d8, type: 3}
   - {fileID: 929603655830363020, guid: 11cc698d99da7d749bd176799ba4f8ec, type: 3}
-  - {fileID: 6621492850010673480, guid: b63a6ac70f02c5a40b968781f6d5b57b, type: 3}
+  - {fileID: 929603655830363020, guid: da5bc0283b590aa43a2b7bf9f849d592, type: 3}
+  - {fileID: 929603655830363020, guid: 15ae46abedd7f8a42b3f20ff14332746, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   roomsToGenerate: 20
+  variance: 0.75
 --- !u!1 &2062500807
 GameObject:
   m_ObjectHideFlags: 0

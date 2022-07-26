@@ -7,27 +7,60 @@ public class EscapeGen : MonoBehaviour
     public List<GameObject> RoomList;
 	public GameObject StartRoom;
     public int roomsToGenerate = 15;
+    [Range(0.0f, 1.0f)]
+    public float variance = 0.75f;
 
     public List<WorldGenerator.ocuppiedArea> ocuppiedAreas;
 
+    private List<GameObject> smallRoomList;
+    private List<GameObject> defaultRoomList;
 
     void Start()
 	{
-        Random.InitState(421241241);
-        Debug.Log(Random.value);
+        smallRoomList = new List<GameObject>();
+        defaultRoomList = new List<GameObject>();
+
+        foreach (GameObject Room in RoomList)
+        {
+            if (Room.GetComponent<RoomDetails>().GetDoorways().Count >= 2)
+            {
+                smallRoomList.Add(Room);
+
+            }
+            else
+            {
+                defaultRoomList.Add(Room);
+            }
+
+        }
+
+
+
+        Random.InitState(12);
+        
         Transform building = new GameObject("Building").transform;
         ocuppiedAreas = new List<WorldGenerator.ocuppiedArea>();
-		RoomDetails startModule = Instantiate(StartRoom, transform.position, transform.rotation,building).GetComponent<RoomDetails>();;
+        RoomDetails startModule = Instantiate(StartRoom, transform.position, transform.rotation, building).GetComponent<RoomDetails>(); ;
         List<Doorway> pendingDoorways = startModule.GetDoorways();
         ocuppiedAreas.Add(startModule.getSizeRoom());
-       for (int i = 0; i < roomsToGenerate-1; i++)
+        GameObject newRoomPrefab;
+
+        for (int i = 0; i < roomsToGenerate - 1; i++)
         {
             List<Doorway> newDoorways = new List<Doorway>();
-            int randomRoom = Random.Range(0, RoomList.Count);
-            GameObject newRoomPrefab = RoomList[randomRoom];
             //Instantiate a New Room
+            if (Random.value > variance)
+            {
+                int randomRoom = Random.Range(0, defaultRoomList.Count);
+                newRoomPrefab = defaultRoomList[randomRoom];
+            }
+            else
+            {
+                int randomRoom = Random.Range(0, smallRoomList.Count);
+                newRoomPrefab = smallRoomList[randomRoom];
+            }
             RoomDetails newRoom = Instantiate(newRoomPrefab, transform.position, Quaternion.identity, building).GetComponent<RoomDetails>();
-            
+
             List<Doorway> newRoomDoorways = newRoom.GetDoorways();
             //Get Random DoorWay
             int randomDoorway = Random.Range(0, newRoomDoorways.Count);
@@ -36,11 +69,11 @@ public class EscapeGen : MonoBehaviour
             foreach (Doorway doorway in Fisher_YatesShuffle(pendingDoorways))
             {
                 MatchExits(doorway, exitToMatch);
-                
+
                 if (IsFree(newRoom.getSizeRoom()))
                 {
                     pendingDoorways.Remove(doorway);
-                    isInPlace= true;
+                    isInPlace = true;
                     pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
                     break;
                 }
@@ -48,14 +81,23 @@ public class EscapeGen : MonoBehaviour
             if (!isInPlace)
             {
                 Debug.Log("-1");
-                
+
                 Destroy(newRoom.transform.gameObject);
             }
         }
+
+
+
         foreach (Doorway doorway in pendingDoorways)
         {
-           doorway.transform.gameObject.SetActive(false);
+            doorway.transform.gameObject.SetActive(false);
         }
+
+
+
+
+
+
         //for (int iteration = 0; iteration < 1; iteration++){
         //    List<Doorway> newDoorways = new List<Doorway>();
         //    foreach (Doorway doorway in pendingDoorways){

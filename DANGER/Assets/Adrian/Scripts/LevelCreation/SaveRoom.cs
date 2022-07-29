@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
     public class SaveRoom {
         public List<string> floorName;
-        public List<FurnitureObject> furnitureObjects;
+        public List<FurnitureData> furnitureObjects;
         public List<Vector3> floorPositions;
         public List<ScriptValues> floorscriptValues;
         public StatsRoom statsRoom;
@@ -18,12 +18,12 @@ using UnityEngine;
             floorPositions = new List<Vector3>();
             floorName = new List<string>();
             floorscriptValues = new List<ScriptValues>();
-            furnitureObjects = new List<FurnitureObject>();
+            furnitureObjects = new List<FurnitureData>();
             foreach (Transform cube in room.transform) {
                 floorPositions.Add(cube.position);
                 floorName.Add(cube.name.Replace("(Clone)", ""));
                 floorscriptValues.Add(new ScriptValues(cube.GetComponent<CubeObjects>()));
-                furnitureObjects.Add(new FurnitureObject(cube));
+                furnitureObjects.Add(new FurnitureData(cube));
                 }
         }
     }

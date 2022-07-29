@@ -4,22 +4,22 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class FurnitureObject {
+public class FurnitureData {
     public List<string> prefabName;
-    public List<WallFurniture> wallObjects;
+    public List<WallData> wallObjects;
     public List<Vector3> positionFurniture;
     public List<Quaternion> rotationFurniture;
 
-    public FurnitureObject(Transform cube) {
+    public FurnitureData(Transform cube) {
         positionFurniture = new List<Vector3>();
         rotationFurniture = new List<Quaternion>();
         prefabName = new List<string>();
-        wallObjects = new List<WallFurniture>();
+        wallObjects = new List<WallData>();
         foreach (Transform child in cube) {
             positionFurniture.Add(child.position);
             rotationFurniture.Add(child.rotation);
             prefabName.Add(child.name.Replace("(Clone)", ""));
-            wallObjects.Add(new WallFurniture(child));
+            wallObjects.Add(new WallData(child));
         }
     }
 }

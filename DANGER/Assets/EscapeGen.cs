@@ -9,14 +9,23 @@ public class EscapeGen : MonoBehaviour
     public int roomsToGenerate = 15;
     [Range(0.0f, 1.0f)]
     public float variance = 0.75f;
-
+    public string seedName;
     public List<WorldGenerator.ocuppiedArea> ocuppiedAreas;
-
+    private List<string> words;
     private List<GameObject> smallRoomList;
     private List<GameObject> defaultRoomList;
 
     void Start()
 	{
+        
+
+        words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
+        int randomNumber = Random.Range(0, words.Count);
+        seedName = words[randomNumber].ToString();
+
+        Random.InitState(words[randomNumber].GetHashCode());
+
+
         smallRoomList = new List<GameObject>();
         defaultRoomList = new List<GameObject>();
 
@@ -34,9 +43,6 @@ public class EscapeGen : MonoBehaviour
 
         }
 
-
-
-        Random.InitState(12);
         
         Transform building = new GameObject("Building").transform;
         ocuppiedAreas = new List<WorldGenerator.ocuppiedArea>();

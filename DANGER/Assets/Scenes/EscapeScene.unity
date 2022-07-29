@@ -3009,8 +3009,9 @@ MonoBehaviour:
   - {fileID: 929603655830363020, guid: 11cc698d99da7d749bd176799ba4f8ec, type: 3}
   - {fileID: 929603655830363020, guid: da5bc0283b590aa43a2b7bf9f849d592, type: 3}
   - {fileID: 929603655830363020, guid: 15ae46abedd7f8a42b3f20ff14332746, type: 3}
+  - {fileID: 929603655830363020, guid: 0a5421576082c8e468d1594fcda78e8d, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
-  roomsToGenerate: 20
+  roomsToGenerate: 25
   variance: 0.75
 --- !u!1 &2062500807
 GameObject:

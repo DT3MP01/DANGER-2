@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class WallFurniture {
+public class WallData {
     public List<string> prefabName;
     public List<Vector3> positionFurniture;
     public List<Quaternion> rotationFurniture;
-    public WallFurniture(Transform cube) {
+    public WallData(Transform cube) {
         positionFurniture = new List<Vector3>();
         rotationFurniture = new List<Quaternion>();
         prefabName = new List<string>();

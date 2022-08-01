@@ -1,11 +1,13 @@
 using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.AI;
 public class EscapeGen : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> RoomList;
 	public GameObject StartRoom;
+    public NavMeshSurface navMesh;
     public int roomsToGenerate = 15;
     [Range(0.0f, 1.0f)]
     public float variance = 0.75f;
@@ -100,7 +102,7 @@ public class EscapeGen : MonoBehaviour
         }
 
 
-
+        navMesh.BuildNavMesh();
 
 
 
@@ -143,7 +145,7 @@ public class EscapeGen : MonoBehaviour
 		var correctiveRotation = Azimuth(forwardVectorToMatch) - Azimuth(newExit.transform.forward);
 		newRoom.RotateAround(newExit.transform.position, Vector3.up, correctiveRotation);
         newRoom.transform.position = new Vector3(0, 0, 0);
-        var correctiveTranslation = oldExit.transform.position - newExit.transform.position;
+        var correctiveTranslation = oldExit.GetComponent<Renderer>().bounds.center - newExit.GetComponent<Renderer>().bounds.center;
         newRoom.transform.position += correctiveTranslation;
     }
 

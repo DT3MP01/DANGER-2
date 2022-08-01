@@ -20,7 +20,7 @@ public class Doorway : MonoBehaviour
         Vector2 size = new Vector2(GetComponent<Renderer>().bounds.size.x, GetComponent<Renderer>().bounds.size.y);
         Vector2 halfSize = size * 0.5f;
 
-
+        
         // Draw Forward Vector
         float lineLength = Mathf.Min(size.x, size.y);
 

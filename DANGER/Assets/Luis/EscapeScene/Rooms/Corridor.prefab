@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5636652423352937758}
   - component: {fileID: 6990410675393079632}
   - component: {fileID: 8185067190863729423}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AnimatedDoor (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1016,7 +1016,7 @@ GameObject:
   - component: {fileID: 1823289069632087595}
   - component: {fileID: 7441928930703361974}
   - component: {fileID: 253062110366323779}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   - component: {fileID: 6500671840667887913}
   - component: {fileID: 6761448389969822855}
   - component: {fileID: 5271486110906351901}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1793,7 +1793,7 @@ GameObject:
   - component: {fileID: 3188179984198807102}
   - component: {fileID: 2264352819556157066}
   - component: {fileID: 3940064072494316627}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2124,7 +2124,7 @@ GameObject:
   - component: {fileID: 6326353876289535168}
   - component: {fileID: 3402590119252686717}
   - component: {fileID: 307510283600073613}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: AnimatedDoor (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2340,7 +2340,7 @@ GameObject:
   - component: {fileID: 1073936810998461061}
   - component: {fileID: 3085773039323307998}
   - component: {fileID: 6889355764830436029}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}

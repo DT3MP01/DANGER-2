@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5532713578504248868}
   - component: {fileID: 5532713578504248869}
   - component: {fileID: 5532713578504248866}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EscapeAnimatedDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 5532713578640587953}
   - component: {fileID: 5532713578640587918}
   - component: {fileID: 5532713578640587919}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 5532713579124483813}
   - component: {fileID: 5532713579124483815}
   - component: {fileID: 5532713579124483812}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: doorKnob
   m_TagString: Untagged
   m_Icon: {fileID: 0}

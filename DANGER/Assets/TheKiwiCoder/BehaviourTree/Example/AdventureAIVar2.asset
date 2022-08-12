@@ -323,7 +323,6 @@ MonoBehaviour:
   description: 
   drawGizmos: 0
   children:
-  - {fileID: 3955841529067057462}
   - {fileID: -6968173796618001695}
   - {fileID: 6525050007858862085}
 --- !u!114 &-151574970459012447
@@ -414,7 +413,6 @@ MonoBehaviour:
   - {fileID: 3140376563065158691}
   - {fileID: -9112207320745141895}
   - {fileID: -7876523439086046653}
-  - {fileID: 3955841529067057462}
   - {fileID: 341005095071203}
   - {fileID: 2646545993368161765}
   - {fileID: 5927918835225883620}
@@ -548,33 +546,12 @@ MonoBehaviour:
   position: {x: 585.8001, y: 391.20007}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
-  description: Panick
+  description: Panic
   drawGizmos: 0
   children:
   - {fileID: 3140376563065158691}
   - {fileID: -131001251150454698}
   - {fileID: 2323058256126736020}
---- !u!114 &3955841529067057462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61431bba79d7d7843b82bf1de71703f5, type: 3}
-  m_Name: Sequencer
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: ea0f53aded95c09418932716bcb0415b
-  position: {x: -245.65024, y: 120.8}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-  description: 
-  drawGizmos: 0
-  children: []
 --- !u!114 &4120257462241444155
 MonoBehaviour:
   m_ObjectHideFlags: 0

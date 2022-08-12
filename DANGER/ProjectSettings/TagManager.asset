@@ -24,6 +24,7 @@ TagManager:
   - Smoke
   - Alarm
   - NPC
+  - Floor
   layers:
   - Default
   - TransparentFX
@@ -35,7 +36,7 @@ TagManager:
   - Ignore MainCam
   - Intereactuable
   - FloorLayer
-  - 
+  - DoorLayer
   - 
   - 
   - 

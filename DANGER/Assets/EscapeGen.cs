@@ -10,7 +10,7 @@ public class EscapeGen : MonoBehaviour
     public NavMeshSurface navMesh;
     public int roomsToGenerate = 15;
     [Range(0.0f, 1.0f)]
-    public float variance = 0.75f;
+    public float variance = 0.8f;
     public string seedName;
     public List<WorldGenerator.ocuppiedArea> ocuppiedAreas;
     private List<string> words;
@@ -19,9 +19,10 @@ public class EscapeGen : MonoBehaviour
 
     void Start()
 	{
-        
 
-        words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
+        int roomCount = roomsToGenerate;
+        //words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
+        words = new List<string> { "Incendio"};
         int randomNumber = Random.Range(0, words.Count);
         seedName = words[randomNumber].ToString();
 
@@ -102,7 +103,7 @@ public class EscapeGen : MonoBehaviour
         }
 
 
-        navMesh.BuildNavMesh();
+        //navMesh.BuildNavMesh();
 
 
 

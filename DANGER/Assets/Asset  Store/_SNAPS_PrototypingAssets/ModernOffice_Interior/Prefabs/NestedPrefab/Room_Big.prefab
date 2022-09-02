@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 318030629946091321}
-  m_RootOrder: 36
+  m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &802023907004178016
 GameObject:
@@ -58,7 +58,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 1.334, z: 1}
   m_Children: []
   m_Father: {fileID: 318030629946091321}
-  m_RootOrder: 32
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4211260023553201111
 GameObject:
@@ -196,8 +196,8 @@ Transform:
   m_LocalScale: {x: 1.8, y: 1.9, z: 1.2499998}
   m_Children:
   - {fileID: 3580734135159152604}
-  m_Father: {fileID: 318030629946091321}
-  m_RootOrder: 30
+  m_Father: {fileID: 3483776326680860677}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &1687166727748155583
 MeshFilter:
@@ -410,13 +410,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5711242382448290209}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 2, z: -5}
   m_LocalScale: {x: 1.8, y: 1.9, z: 1.2499998}
   m_Children:
   - {fileID: 9091944341583393636}
-  m_Father: {fileID: 318030629946091321}
-  m_RootOrder: 38
+  m_Father: {fileID: 3483776326680860677}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &646877040097618658
 MeshFilter:
@@ -547,7 +547,7 @@ Transform:
   m_LocalScale: {x: 0.4, y: 1.334, z: 1}
   m_Children: []
   m_Father: {fileID: 318030629946091321}
-  m_RootOrder: 31
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6594324457824228193
 GameObject:
@@ -606,7 +606,6 @@ Transform:
   - {fileID: 8590909434295012953}
   - {fileID: 8185127798895286089}
   - {fileID: 9003804578417193245}
-  - {fileID: 4154829868783255468}
   - {fileID: 5711758110724464575}
   - {fileID: 5644787130512456865}
   - {fileID: 5032377884708505227}
@@ -614,7 +613,6 @@ Transform:
   - {fileID: 3478551736063373394}
   - {fileID: 5725538927878403865}
   - {fileID: 7791223022194803468}
-  - {fileID: 6293354791429023254}
   - {fileID: 5934080102409660234}
   m_Father: {fileID: 3483776326680860677}
   m_RootOrder: 0
@@ -654,6 +652,8 @@ Transform:
   - {fileID: 2933931680416011295}
   - {fileID: 4084392868042565176}
   - {fileID: 2296445623361760305}
+  - {fileID: 4154829868783255468}
+  - {fileID: 6293354791429023254}
   - {fileID: 1407442311217707243}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -863,6 +863,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3483776326680860677}
     m_Modifications:
+    - target: {fileID: 120456275858722261, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718765364182554434, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1288831549624138539, guid: 06056e591616ff54188bea147cdc754a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -907,9 +915,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1628294956730386181, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9219457144112854639, guid: 06056e591616ff54188bea147cdc754a, type: 3}
       propertyPath: m_Name
       value: DeskDecor5 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219457144112854639, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06056e591616ff54188bea147cdc754a, type: 3}
@@ -928,6 +944,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -991,9 +1011,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
-      value: 34
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1053,6 +1077,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -1111,6 +1139,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3483776326680860677}
     m_Modifications:
+    - target: {fileID: 120456275858722261, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 718765364182554434, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1288831549624138539, guid: 06056e591616ff54188bea147cdc754a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1155,9 +1191,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1628294956730386181, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9219457144112854639, guid: 06056e591616ff54188bea147cdc754a, type: 3}
       propertyPath: m_Name
       value: DeskDecor5 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219457144112854639, guid: 06056e591616ff54188bea147cdc754a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06056e591616ff54188bea147cdc754a, type: 3}
@@ -1176,6 +1220,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -1238,6 +1286,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -1305,6 +1357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -1366,6 +1422,10 @@ PrefabInstance:
     - target: {fileID: 1201589705723942, guid: 6ceca4d01ca8690498194787a589d0ea, type: 3}
       propertyPath: m_Name
       value: Cabinet_04_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1201589705723942, guid: 6ceca4d01ca8690498194787a589d0ea, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4759334854888036, guid: 6ceca4d01ca8690498194787a589d0ea, type: 3}
       propertyPath: m_RootOrder
@@ -1429,6 +1489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -1490,6 +1554,10 @@ PrefabInstance:
     - target: {fileID: 1611924968046708, guid: 09bbc701d5952e2479584092953ee7a4, type: 3}
       propertyPath: m_Name
       value: PotPlant_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611924968046708, guid: 09bbc701d5952e2479584092953ee7a4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4383897055993122, guid: 09bbc701d5952e2479584092953ee7a4, type: 3}
       propertyPath: m_RootOrder
@@ -1565,6 +1633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cabinet_01_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1514666194077504, guid: 14e4e479b0ada4d49bfe66d6f080bb7c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4090742931207612, guid: 14e4e479b0ada4d49bfe66d6f080bb7c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1639,6 +1711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1700,6 +1776,10 @@ PrefabInstance:
     - target: {fileID: 1098767648853912, guid: f816c7b96377bf74dab570a6ffd7ccda, type: 3}
       propertyPath: m_Name
       value: Classic_WallWindow_03_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1098767648853912, guid: f816c7b96377bf74dab570a6ffd7ccda, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4796209233773504, guid: f816c7b96377bf74dab570a6ffd7ccda, type: 3}
       propertyPath: m_RootOrder
@@ -1763,6 +1843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -1825,9 +1909,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
-      value: 35
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1883,13 +1971,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3483776326680860677}
     m_Modifications:
+    - target: {fileID: 665546787411755191, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2776265819918012709, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2776265820348111218, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
       propertyPath: m_Name
       value: EscapeExtinguisher
       objectReference: {fileID: 0}
+    - target: {fileID: 2776265820348111218, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2776265820348111229, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 2776265820348111229, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
       propertyPath: m_LocalScale.x
@@ -1943,6 +2043,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3213065178747214830, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4012810908372460934, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6427265931434071668, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564931962178491168, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8573559627718805593, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9045470047216032092, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da42dd2916f813c43a0da8819b977af5, type: 3}
 --- !u!4 &1407442311217707243 stripped
@@ -1960,6 +2084,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -2026,6 +2154,10 @@ PrefabInstance:
     - target: {fileID: 1844781713210790, guid: 9207d796a4eef5c4fb42153a24ebf588, type: 3}
       propertyPath: m_Name
       value: Shelf_04_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1844781713210790, guid: 9207d796a4eef5c4fb42153a24ebf588, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4481777221271996, guid: 9207d796a4eef5c4fb42153a24ebf588, type: 3}
       propertyPath: m_RootOrder
@@ -2097,6 +2229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -2163,9 +2299,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
-      value: 33
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2224,6 +2364,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -2286,6 +2430,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -2353,6 +2501,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2414,6 +2566,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -2481,9 +2637,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_LocalScale.x
@@ -2547,6 +2707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -2608,6 +2772,10 @@ PrefabInstance:
     - target: {fileID: 1026955781263852, guid: 7843b542e9ef1324fa4cadf54f39397f, type: 3}
       propertyPath: m_Name
       value: Classic_WallDoorFrame_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026955781263852, guid: 7843b542e9ef1324fa4cadf54f39397f, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217857267948842, guid: 7843b542e9ef1324fa4cadf54f39397f, type: 3}
       propertyPath: m_RootOrder
@@ -2675,6 +2843,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_WallWindow_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1954526449541300, guid: 37a8ccf3c573ef34d8b175f6fe0e578b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4764978980562440, guid: 37a8ccf3c573ef34d8b175f6fe0e578b, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -2741,6 +2913,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2803,9 +2979,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 36
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2864,6 +3044,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -2926,6 +3110,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -2993,6 +3181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 28
@@ -3054,6 +3246,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -3117,6 +3313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -3178,6 +3378,10 @@ PrefabInstance:
     - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
@@ -3241,6 +3445,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Classic_Wall_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -3302,6 +3510,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder
@@ -3369,6 +3581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -3431,6 +3647,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neo_Floor_02_snaps001
       objectReference: {fileID: 0}
+    - target: {fileID: 1736829470956072, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4561544271246036, guid: 9b1b38ad56a221f4bb6ad963a1996883, type: 3}
       propertyPath: m_RootOrder
       value: 29
@@ -3492,6 +3712,10 @@ PrefabInstance:
     - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_Name
       value: Classic_Wall_snaps001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1153918397919294, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4657047982645578, guid: aef7c887e1f419b45b3e480ff017b110, type: 3}
       propertyPath: m_RootOrder

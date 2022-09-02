@@ -34,7 +34,7 @@ public class FireScript : MonoBehaviour
         this.maxAlto = maxAlto;
     }
 
-    public  void startCooldown()
+    public  void stopFire()
     {
         GetComponent<ParticleSystem>().Stop();
     }

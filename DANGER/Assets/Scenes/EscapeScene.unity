@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 56253491}
   - component: {fileID: 56253490}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: SeedName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -559,8 +559,8 @@ RectTransform:
   m_Father: {fileID: 989007942}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.2783505, y: 0}
-  m_AnchorMax: {x: 0.2783505, y: 1}
+  m_AnchorMin: {x: 0.29411766, y: 0}
+  m_AnchorMax: {x: 0.29411766, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2454,7 +2454,7 @@ GameObject:
   - component: {fileID: 981944123}
   - component: {fileID: 981944122}
   m_Layer: 5
-  m_Name: InputField (TMP) (2)
+  m_Name: NPCs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2528,14 +2528,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -5247,9 +5247,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 60843186}
   m_Direction: 0
   m_MinValue: 3
-  m_MaxValue: 100
+  m_MaxValue: 20
   m_WholeNumbers: 1
-  m_Value: 30
+  m_Value: 8
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5551,7 +5551,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RoomList:
-  - {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   - {fileID: 929603655830363020, guid: 50580eac3b1251f41a2f838e87ead5d8, type: 3}
   - {fileID: 929603655830363020, guid: 11cc698d99da7d749bd176799ba4f8ec, type: 3}
   - {fileID: 929603655830363020, guid: da5bc0283b590aa43a2b7bf9f849d592, type: 3}
@@ -5560,11 +5559,12 @@ MonoBehaviour:
   - {fileID: 1942656994187768148, guid: a68ab25f011a3e84d9e3e7a8832599d8, type: 3}
   - {fileID: 6621492850010673480, guid: b63a6ac70f02c5a40b968781f6d5b57b, type: 3}
   - {fileID: 203960331900563673, guid: 917d9c94d29da4f438a1ab683559f7dc, type: 3}
+  - {fileID: 929603655830363020, guid: 3936106ee1b7cb845a3253b75ba9bf39, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   navMesh: {fileID: 2028895727}
   roomsToGenerate: 25
-  variance: 0.75
-  seedName: 
+  variance: 0.8
+  seedName: fuego
 --- !u!1 &2061720755
 GameObject:
   m_ObjectHideFlags: 0
@@ -5689,7 +5689,7 @@ GameObject:
   - component: {fileID: 2090580176}
   - component: {fileID: 2090580175}
   m_Layer: 5
-  m_Name: InputField (TMP) (1)
+  m_Name: RoomName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5763,14 +5763,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 2
   m_InputType: 0
   m_AsteriskChar: 42
-  m_KeyboardType: 0
+  m_KeyboardType: 4
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 2
   m_RegexValue: 
   m_GlobalPointSize: 14
   m_CharacterLimit: 0
@@ -5884,7 +5884,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.2783505, y: 1}
+  m_AnchorMax: {x: 0.29411766, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5939,7 +5939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 69485290083722744, guid: 07b8640f4ac40734c89ebee1de562808, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 69485290083722749, guid: 07b8640f4ac40734c89ebee1de562808, type: 3}
       propertyPath: m_RootOrder
@@ -6512,7 +6512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7086453093794497242, guid: af076ab68fb22f8469d25f98172ca4b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af076ab68fb22f8469d25f98172ca4b5, type: 3}
@@ -6775,7 +6775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9186500971115204154, guid: cce8019edd5c9a14885095b5e30f5cb5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cce8019edd5c9a14885095b5e30f5cb5, type: 3}
@@ -6894,7 +6894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2605779294360171610, guid: 516baab3b96ce1d4580e58d20f86e4ab, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516baab3b96ce1d4580e58d20f86e4ab, type: 3}
@@ -8506,7 +8506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 662640004018199912, guid: 4dccb241ce177fa458ca5670ffb71571, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dccb241ce177fa458ca5670ffb71571, type: 3}

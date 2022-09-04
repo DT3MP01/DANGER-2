@@ -7,20 +7,24 @@ using System;
 public class RoomDetails : MonoBehaviour
 {
     public List<Doorway> doors;
+    WorldGenerator.ocuppiedArea area;
     // Start is called before the first frame update
     void Start()
     {
-
-
-
     }
+
+    public WorldGenerator.generatorPoint GeneratorPoint()
+    {
+        return new WorldGenerator.generatorPoint(gameObject.transform.position);
+    }
+
     public List<Doorway> GetDoorways()
     {
         return doors;
     }
     public WorldGenerator.ocuppiedArea getSizeRoom()
     {
-        WorldGenerator.ocuppiedArea area = new WorldGenerator.ocuppiedArea(Mathf.Infinity, Mathf.NegativeInfinity, Mathf.Infinity, Mathf.NegativeInfinity);
+        area = new WorldGenerator.ocuppiedArea(Mathf.Infinity, Mathf.NegativeInfinity, Mathf.Infinity, Mathf.NegativeInfinity);
         foreach (Transform child in gameObject.transform)
         {
             if(child.name == "Structure")

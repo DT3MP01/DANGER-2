@@ -2,6 +2,8 @@ using System.Linq;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.AI;
+using static WorldGenerator;
+
 public class EscapeGen : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -17,8 +19,14 @@ public class EscapeGen : MonoBehaviour
     private List<GameObject> smallRoomList;
     private List<GameObject> defaultRoomList;
 
+    private List<generatorPoint> generatedRooms;
+    private List<int> generatedWidths;
+    private List<int> generatedLengths;
     void Start()
 	{
+        generatedRooms = new List<generatorPoint>();
+        generatedWidths = new List<int>();
+        generatedLengths = new List<int>();
 
         int roomCount = roomsToGenerate;
         //words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
@@ -37,7 +45,6 @@ public class EscapeGen : MonoBehaviour
             if (Room.GetComponent<RoomDetails>().GetDoorways().Count >= 2)
             {
                 smallRoomList.Add(Room);
-
             }
             else
             {
@@ -84,13 +91,13 @@ public class EscapeGen : MonoBehaviour
                     pendingDoorways.Remove(doorway);
                     isInPlace = true;
                     pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
+
                     break;
                 }
             }
             if (!isInPlace)
             {
                 Debug.Log("-1");
-
                 Destroy(newRoom.transform.gameObject);
             }
         }
@@ -104,24 +111,10 @@ public class EscapeGen : MonoBehaviour
 
 
         //navMesh.BuildNavMesh();
+        //GlobalVar.rooms = ocuppiedAreas;
+        GlobalVar.ocuppiedAreas = ocuppiedAreas;
 
 
-
-        //for (int iteration = 0; iteration < 1; iteration++){
-        //    List<Doorway> newDoorways = new List<Doorway>();
-        //    foreach (Doorway doorway in pendingDoorways){
-        //        int randomRoom = Random.Range(0,RoomList.Count);
-        //        GameObject newRoomPrefab = RoomList[randomRoom];
-        //        newRoomPrefab.GetComponent<RoomDetails>().getSizeRoom();
-        //        RoomDetails newRoom = Instantiate(newRoomPrefab, transform.position, Quaternion.identity).GetComponent<RoomDetails>();
-        //        List<Doorway> newRoomDoorways = newRoom.GetDoorways();
-        //        int randomDoorway = Random.Range(0, newRoomDoorways.Count);
-        //        Doorway exitToMatch = newRoomDoorways[randomDoorway];
-        //        MatchExits(doorway, exitToMatch);
-        //        newDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
-        //    }
-        //    pendingDoorways = newDoorways;
-        //}
     }
 
     private bool IsFree(WorldGenerator.ocuppiedArea newArea)

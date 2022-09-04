@@ -4,6 +4,8 @@ using UnityEngine;
 
 public static class GlobalVar
 {
+    public static List<WorldGenerator.ocuppiedArea> ocuppiedAreas = null;
+    public static List<Doorway> doors = null;
     public static int selectedAgent = -1;
     public static int prevAgent = -1;
     public static int agentCounter = 0;

@@ -53,8 +53,12 @@ public class WorldGenerator : RoomPopulator
             this.coords = coordinates;
             this.direction = direction;
         }
-        
-        
+        public generatorPoint(Vector3 coordinates)
+        {
+            this.coords = coordinates;
+            this.direction = dir.centre;
+        }
+
     }
 
     public struct ocuppiedArea 

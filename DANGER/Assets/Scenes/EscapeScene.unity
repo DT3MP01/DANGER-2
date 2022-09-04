@@ -5562,7 +5562,7 @@ MonoBehaviour:
   - {fileID: 929603655830363020, guid: 3936106ee1b7cb845a3253b75ba9bf39, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   navMesh: {fileID: 2028895727}
-  roomsToGenerate: 25
+  roomsToGenerate: 15
   variance: 0.8
   seedName: fuego
 --- !u!1 &2061720755

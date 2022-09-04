@@ -68,60 +68,93 @@ public class FireGeneration : MonoBehaviour
         maxAncho = (int)ocuppiedAreas[0].maxX;
         minAncho = (int)ocuppiedAreas[0].minX;
         maxAlto = (int)ocuppiedAreas[0].maxZ;
-        minAlto = (int)-100;
+        minAlto = (int)ocuppiedAreas[0].minZ;
 
         foreach(WorldGenerator.ocuppiedArea area in ocuppiedAreas) {
             if(maxAncho < area.maxX) { maxAncho = (int)area.maxX; }
             if (minAncho > area.minX) { minAncho = (int)area.minX; }
             if (maxAlto < area.maxZ) { maxAlto = (int)area.maxZ; }
-            if (maxAlto > area.minZ) { minAlto = (int)area.minZ; }
+            if (minAlto > area.minZ) { minAlto = (int)area.minZ; }
 
         }
         Debug.Log(minAncho + " T " + maxAncho + " T " + minAlto + " T " + maxAlto);
-        matrix = new bool[maxAlto - minAlto, maxAncho - minAncho];
+        matrix = new bool[1+maxAlto - minAlto,1+ maxAncho - minAncho];
 
         Debug.Log("Matrix: " + matrix.GetLength(0) + "," + matrix.GetLength(1));
         GlobalVar.sizeX = matrix.GetLength(1);
         GlobalVar.sizeZ = matrix.GetLength(0);
+        GlobalVar.middleX = Mathf.Abs(minAncho);
+        GlobalVar.middleZ = Mathf.Abs(minAlto);
 
-        GlobalVar.middleZ = matrix.GetLength(1) / 2f;
-        GlobalVar.middleX = matrix.GetLength(0) / 2f;
-        WorldGenerator.ocuppiedArea areaT =ocuppiedAreas[0];
-        Debug.Log(areaT.minX + " " + areaT.maxZ + " " +areaT.maxX+ " "+ areaT.minZ);
+        foreach (WorldGenerator.ocuppiedArea area in ocuppiedAreas)
+        {
+            
+            int minZ = (int)(area.minZ + GlobalVar.middleZ);
+            int maxZ = (int)(area.maxZ + GlobalVar.middleZ);
+            int minX = (int)(area.minX + GlobalVar.middleX);
+            int maxX = (int)(area.maxX + GlobalVar.middleX);
 
-        //matrix[-8 - minAlto, 8 + GlobalVar.middleX]=true;
+            for (int z = minZ+1; z < maxZ; z++)
+            {
+                for (int x = minX + 1; x < maxX; x++)
+                {
+                        matrix[z, x] = true;
+                }
 
+            }
+
+        }
+        foreach (Doorway door in GlobalVar.doors)
+        {
+            int z = (int)(door.transform.position.z + GlobalVar.middleZ);
+            int x = (int)(door.transform.position.x + GlobalVar.middleX);
+            matrix[z, x] = true;
+            matrix[z-1, x] = true;
+            matrix[z+1, x] = true;
+            matrix[z, x-1] = true;
+            matrix[z, x+1] = true;
+
+        }
+        bool [,] zMatrix = new bool[1 + maxAlto - minAlto, 1 + maxAncho - minAncho];
+        string aux = "";
         for (int z = 0; z < matrix.GetLength(0); z++)
         {
             //aux = "";
             for (int x = 0; x < matrix.GetLength(1); x++)
             {
-                
-
-                //foreach (WorldGenerator.ocuppiedArea area in ocuppiedAreas)
-                //{
-                //    Debug.Log("hola");
-                //    if (area.minX + GlobalVar.middleX > x && area.minZ + GlobalVar.middleZ > z 
-                //        && area.maxX + GlobalVar.middleX < x&& area.maxZ + GlobalVar.middleZ < z )
-                //        matrix[z, x] = true;
-                //}
-            }
-
-        }
-
-        string aux = "";
-        for (int z = matrix.GetLength(0)-1; z >=0; z--)
-        {
-            //aux = "";
-            for (int x = 0; x < matrix.GetLength(1); x++)
-            {
-                if (matrix[z, x]) aux += "T";
-                else { aux += "F"; }
+                zMatrix[matrix.GetLength(0)-1-z, x] = matrix[z, x];
+                if (matrix[z, x]) aux += "*";
+                else { aux += "x"; }
             }
             aux += "\n";
 
         }
         Debug.Log(aux);
+        matrix = zMatrix;
+
+        indexZ = Random.Range(0, matrix.GetLength(0) - 1);
+        indexX = Random.Range(0, matrix.GetLength(1) - 1);
+        while (matrix[indexZ, indexX] != true)
+        {
+            indexZ = Random.Range(0, matrix.GetLength(0) - 1);
+            indexX = Random.Range(0, matrix.GetLength(1) - 1);
+        }
+         
+        
+        //SmokeGeneration sg = new SmokeGeneration();
+        //SmokeGeneration.startSmoke(indexX,indexZ,minAncho,maxAlto);
+        
+        GlobalVar.matrix = matrix;
+        GlobalVar.smokeMatrix = (bool[,])matrix.Clone();
+        GlobalVar.minAncho = minAncho;
+        GlobalVar.minAncho = maxAlto;
+        GlobalVar.indexX = indexX;
+        GlobalVar.indexZ = indexZ;
+
+        //Debug.Log("X_F:" + indexZ);
+        //Debug.Log("F:" + (GlobalVar.matrix[indexZ, indexX] == true).ToString());
+
+        StartCoroutine(generarFuego(indexX, indexZ, minAncho, maxAlto));
 
     }
 

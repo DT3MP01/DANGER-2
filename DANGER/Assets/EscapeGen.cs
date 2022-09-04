@@ -56,6 +56,7 @@ public class EscapeGen : MonoBehaviour
         
         Transform building = new GameObject("Building").transform;
         ocuppiedAreas = new List<WorldGenerator.ocuppiedArea>();
+        List<Doorway> usedDoors = new List<Doorway>();
         RoomDetails startModule = Instantiate(StartRoom, transform.position, transform.rotation, building).GetComponent<RoomDetails>(); ;
         List<Doorway> pendingDoorways = startModule.GetDoorways();
         ocuppiedAreas.Add(startModule.getSizeRoom());
@@ -89,6 +90,7 @@ public class EscapeGen : MonoBehaviour
                 if (IsFree(newRoom.getSizeRoom()))
                 {
                     pendingDoorways.Remove(doorway);
+                    usedDoors.Add(doorway);
                     isInPlace = true;
                     pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
 
@@ -113,6 +115,7 @@ public class EscapeGen : MonoBehaviour
         //navMesh.BuildNavMesh();
         //GlobalVar.rooms = ocuppiedAreas;
         GlobalVar.ocuppiedAreas = ocuppiedAreas;
+        GlobalVar.doors = usedDoors;
 
 
     }

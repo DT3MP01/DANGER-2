@@ -24,36 +24,40 @@ public class RoomDetails : MonoBehaviour
     }
     public WorldGenerator.ocuppiedArea getSizeRoom()
     {
-        area = new WorldGenerator.ocuppiedArea(Mathf.Infinity, Mathf.NegativeInfinity, Mathf.Infinity, Mathf.NegativeInfinity);
-        foreach (Transform child in gameObject.transform)
+        
+        Bounds hola = GetBounds();
+        Debug.Log("BOUNDS "+ Mathf.Round(hola.min.x)+ " " + Mathf.Round(hola.max.z) + " " + Mathf.Round(hola.max.x) + " " + Mathf.Round(hola.min.z));
+        area = new WorldGenerator.ocuppiedArea(Mathf.Round(hola.min.x), Mathf.Round(hola.max.x), Mathf.Round(hola.min.z), Mathf.Round(hola.max.z));
+        return area;
+    }
+
+    public  Bounds GetBounds()
+
+    {
+        Bounds bounds = new Bounds();
+        Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+        if (renderers.Length > 0)
         {
-            if(child.name == "Structure")
+            //Find first enabled renderer to start encapsulate from it
+            foreach (Renderer renderer in renderers)
             {
-                foreach (Transform bound in child)
+                if (renderer.enabled)
                 {
-                    var posX = (float)Math.Round(bound.transform.position.x, 2);
-                    var posZ = (float)Math.Round(bound.transform.position.z,2);
-                    if (posX < area.minX)
-                    {
-                        area.minX = posX;
-                    }
-                    else if(posX > area.maxX)
-                    {
-                        area.maxX = posX;
-                    }
-                    else if (posZ < area.minZ)
-                    {
-                        area.minZ = posZ;
-                    }
-                    else if (posZ > area.maxZ)
-                    {
-                        area.maxZ = posZ;
-                    }
+                    bounds = renderer.bounds;
+                    break;
+                }
+            }
+            //Encapsulate for all renderers
+            foreach (Renderer renderer in renderers)
+            {
+                if (renderer.enabled)
+
+                {
+                    bounds.Encapsulate(renderer.bounds);
                 }
             }
         }
-        
-        //Debug.Log(area.minX + " " + area.maxZ + " " +area.maxX+ " "+ area.minZ);
-        return area;
+        return bounds;
+
     }
 }

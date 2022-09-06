@@ -10,7 +10,7 @@ public class EscapeGen : MonoBehaviour
     public List<GameObject> RoomList;
 	public GameObject StartRoom;
     public NavMeshSurface navMesh;
-    public int roomsToGenerate = 15;
+    private int roomsToGenerate = 15;
     [Range(0.0f, 1.0f)]
     public float variance = 0.8f;
     public string seedName;
@@ -18,16 +18,21 @@ public class EscapeGen : MonoBehaviour
     private List<string> words;
     private List<GameObject> smallRoomList;
     private List<GameObject> defaultRoomList;
-
     private List<generatorPoint> generatedRooms;
     private List<int> generatedWidths;
     private List<int> generatedLengths;
+
     void Start()
+    {
+        StartGen(10,12);
+    }
+
+    void StartGen(int numNPC, int numRoom)
 	{
         generatedRooms = new List<generatorPoint>();
         generatedWidths = new List<int>();
         generatedLengths = new List<int>();
-
+        roomsToGenerate = numRoom;
         int roomCount = roomsToGenerate;
         //words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
         words = new List<string> { "Incendio"};
@@ -108,7 +113,7 @@ public class EscapeGen : MonoBehaviour
 
         foreach (Doorway doorway in pendingDoorways)
         {
-            doorway.transform.gameObject.SetActive(false);
+            doorway.ReplaceDoorWithWall();
         }
 
 
@@ -137,7 +142,7 @@ public class EscapeGen : MonoBehaviour
     }
     private void MatchExits(Doorway oldExit, Doorway newExit)
 	{
-		var newRoom = newExit.transform.parent;
+		var newRoom = newExit.transform.parent.parent;
 		var forwardVectorToMatch = -oldExit.transform.forward;
 		var correctiveRotation = Azimuth(forwardVectorToMatch) - Azimuth(newExit.transform.forward);
 		newRoom.RotateAround(newExit.transform.position, Vector3.up, correctiveRotation);

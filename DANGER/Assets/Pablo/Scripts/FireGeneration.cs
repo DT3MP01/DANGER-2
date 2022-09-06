@@ -52,13 +52,13 @@ public class FireGeneration : MonoBehaviour
         {
             if (GlobalVar.rooms != null)
             {
-                started = true; StartFire();
+                started = true; StartFire2();
 
             }
-            else if (GlobalVar.ocuppiedAreas != null)
-            {
-                started = true; StartFire();
-            }
+            //else if (GlobalVar.ocuppiedAreas != null)
+            //{
+            //    started = true; StartFire();
+            //}
         }
     }
     public void StartFire()
@@ -154,11 +154,11 @@ public class FireGeneration : MonoBehaviour
         //Debug.Log("X_F:" + indexZ);
         //Debug.Log("F:" + (GlobalVar.matrix[indexZ, indexX] == true).ToString());
 
-        StartCoroutine(generarFuego(indexX, indexZ, minAncho, maxAlto));
+        StartCoroutine(GenerarFuego(indexX, indexZ, minAncho, maxAlto));
 
     }
 
-    public void startFire2()
+    public void StartFire2()
     {
         
         rooms = GlobalVar.rooms;
@@ -296,7 +296,7 @@ public class FireGeneration : MonoBehaviour
         //Debug.Log("X_F:" + indexZ);
         //Debug.Log("F:" + (GlobalVar.matrix[indexZ, indexX] == true).ToString());
 
-        StartCoroutine(generarFuego(indexX, indexZ, minAncho, maxAlto));
+        StartCoroutine(GenerarFuego(indexX, indexZ, minAncho, maxAlto));
         //StartCoroutine(generarHumo(indexX, indexZ, minAncho, maxAlto));
         
         GlobalVar.start = true;
@@ -332,7 +332,7 @@ public class FireGeneration : MonoBehaviour
         
     }
 
-    public IEnumerator generarFuego(int x, int z, int minAncho, int maxAlto) 
+    public IEnumerator GenerarFuego(int x, int z, int minAncho, int maxAlto) 
     {
         //Debug.Log("Gb" + GlobalVar.matrix.GetLength(0) + "," + GlobalVar.matrix.GetLength(1));
         //Debug.Log("x: " + x + "       Z: " + z);

@@ -5,9 +5,22 @@ using UnityEngine;
 public class Doorway : MonoBehaviour
 {
     [ExecuteInEditMode]
+    public GameObject prefabwall;
     // Start is called before the first frame update
     void Start()
     {
+        prefabwall.SetActive(false);
+    }
+
+    public void ReplaceDoorWithWall()
+    {
+
+
+        prefabwall.SetActive(true);
+        //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //cube.transform.position = gameObject.transform.position;
+        gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame

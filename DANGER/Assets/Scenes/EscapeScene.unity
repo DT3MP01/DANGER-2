@@ -5421,7 +5421,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028895726}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8e82cd628aa9bd4587d81ffc7dc0c29, type: 3}
   m_Name: 
@@ -5545,7 +5545,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028895726}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b59292762fab6b54eb3db14b3ca2bbbf, type: 3}
   m_Name: 
@@ -5560,9 +5560,8 @@ MonoBehaviour:
   - {fileID: 203960331900563673, guid: 917d9c94d29da4f438a1ab683559f7dc, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   navMesh: {fileID: 2028895727}
-  roomsToGenerate: 25
   variance: 0.8
-  seedName: fuego
+  seedName: ayuda
 --- !u!1 &2061720755
 GameObject:
   m_ObjectHideFlags: 0

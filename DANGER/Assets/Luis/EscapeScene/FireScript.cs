@@ -48,13 +48,13 @@ public class FireScript : MonoBehaviour
 
     public IEnumerator startFire(){
         yield return new WaitForSeconds(fireData.fireSpreadSpeed);
-        StartCoroutine(fireData.generarFuego(x + 1, z, minAncho, maxAlto));
+        StartCoroutine(fireData.GenerarFuego(x + 1, z, minAncho, maxAlto));
         yield return new WaitForSeconds(fireData.fireSpreadSpeed);
-        StartCoroutine(fireData.generarFuego(x - 1, z, minAncho, maxAlto));
+        StartCoroutine(fireData.GenerarFuego(x - 1, z, minAncho, maxAlto));
         yield return new WaitForSeconds(fireData.fireSpreadSpeed);
-        StartCoroutine(fireData.generarFuego(x, z + 1, minAncho, maxAlto));
+        StartCoroutine(fireData.GenerarFuego(x, z + 1, minAncho, maxAlto));
         yield return new WaitForSeconds(fireData.fireSpreadSpeed);
-        StartCoroutine(fireData.generarFuego(x, z - 1, minAncho, maxAlto));
+        StartCoroutine(fireData.GenerarFuego(x, z - 1, minAncho, maxAlto));
         
 
     }

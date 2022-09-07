@@ -26,7 +26,7 @@ public class RoomDetails : MonoBehaviour
     {
         
         Bounds hola = GetBounds();
-        Debug.Log("BOUNDS "+ Mathf.Round(hola.min.x)+ " " + Mathf.Round(hola.max.z) + " " + Mathf.Round(hola.max.x) + " " + Mathf.Round(hola.min.z));
+        //Debug.Log("BOUNDS "+ Mathf.Round(hola.min.x)+ " " + Mathf.Round(hola.max.z) + " " + Mathf.Round(hola.max.x) + " " + Mathf.Round(hola.min.z));
         area = new WorldGenerator.ocuppiedArea(Mathf.Round(hola.min.x), Mathf.Round(hola.max.x), Mathf.Round(hola.min.z), Mathf.Round(hola.max.z));
         return area;
     }

@@ -16,7 +16,7 @@ public class TemperatureDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fireDetector.fireNearby)
+        if (fireDetector.nearbyFire)
         {
             GetComponent<MeshRenderer>().enabled = true;
             if (fireDetector.touchingFire)

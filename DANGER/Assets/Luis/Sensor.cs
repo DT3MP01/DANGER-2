@@ -20,19 +20,19 @@ public class Sensor : MonoBehaviour
     public LayerMask OcclusionLayer;
     Collider[] colliders = new Collider[100];
     int count;
-    public List<GameObject> Objects = new List<GameObject>();
+    public List<GameObject> objectsInRange = new List<GameObject>();
     float scanInterval;
     private float scanTimer;
     [Header("Detections")]
     public bool nearbySmoke=false;
     public bool fireAlarm = false;
-    public bool fireNearby = false;
+    public bool nearbyFire = false;
     public bool fireInSight=false;
     public bool touchingFire=false;
     public bool isTerrified=false;
     public bool followPlayer = false;
     public bool isCrawling = false;
-
+    public bool isDead = false;
     
     public GameObject extinguisher;
     public ParticleSystem fog;
@@ -242,9 +242,9 @@ public class Sensor : MonoBehaviour
     }
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
-        Objects.Clear();
+        objectsInRange.Clear();
         fireInSight = false;
-        fireNearby = false;
+        nearbyFire = false;
         nearbySmoke = false;
         int smokeCount = 0;
 
@@ -256,11 +256,11 @@ public class Sensor : MonoBehaviour
             }
             if (obj.tag == "Fire")
             {
-                fireNearby = true;
+                nearbyFire = true;
             }
             if (IsInSight(obj))
             {
-                Objects.Add(obj);
+                objectsInRange.Add(obj);
                 if (obj.tag == "Fire")
                 {
                     fireInSight = true;
@@ -294,6 +294,7 @@ public class Sensor : MonoBehaviour
 
     private bool IsInSight(GameObject obj)
     {
+        
         Vector3 origin = transform.position;
         Vector3 dest = obj.transform.position;
 
@@ -434,12 +435,15 @@ public class Sensor : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
+            Gizmos.DrawLine(gameObject.transform.position, colliders[i].transform.position);
         }
 
         Gizmos.color = Color.green;
-        foreach (var obj in Objects)
+        foreach (var obj in objectsInRange)
         {
+            Gizmos.DrawLine (gameObject.transform.position, obj.transform.position);
             Gizmos.DrawSphere(obj.transform.position, 0.2f);
+            
         }
     }
 }

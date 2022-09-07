@@ -24,7 +24,7 @@ public class EscapeGen : MonoBehaviour
 
     void Start()
     {
-        StartGen(10,12);
+        StartGen(10,15);
     }
 
     void StartGen(int numNPC, int numRoom)
@@ -117,7 +117,7 @@ public class EscapeGen : MonoBehaviour
         }
 
 
-        //navMesh.BuildNavMesh();
+        navMesh.BuildNavMesh();
         //GlobalVar.rooms = ocuppiedAreas;
         GlobalVar.ocuppiedAreas = ocuppiedAreas;
         GlobalVar.doors = usedDoors;

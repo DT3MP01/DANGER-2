@@ -3150,7 +3150,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122744601}
-  m_LocalRotation: {x: 0.4748561, y: -8.790047e-10, z: -4.742825e-10, w: 0.8800635}
+  m_LocalRotation: {x: 0.4748561, y: 0.00000002625689, z: -0.0000000141356935, w: 0.8800635}
   m_LocalPosition: {x: 0.07, y: 12.089998, z: -19.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10069,6 +10069,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf1cab6e88ceca49bd46161d545ab3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scrollSpeed: 15
+  maxZoom: 60
+  minZoom: 40
 --- !u!1001 &441759462
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20314,7 +20317,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855826928}
-  m_LocalRotation: {x: 0.39995578, y: -0.000000014886703, z: 0.0000000072655983, w: 0.9165345}
+  m_LocalRotation: {x: 0.39995578, y: 0.0000000100722914, z: -0.000000009020203, w: 0.9165345}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -25378,7 +25381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027024217}
-  m_LocalRotation: {x: 0.42415538, y: -0.000000008479652, z: 0.0000000033677774, w: 0.90558946}
+  m_LocalRotation: {x: 0.42415538, y: -0.000000033771276, z: 0.000000020845508, w: 0.90558946}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -56671,15 +56674,16 @@ MonoBehaviour:
   OcclusionLayer:
     serializedVersion: 2
     m_Bits: 1
-  Objects: []
+  objectsInRange: []
   nearbySmoke: 0
   fireAlarm: 0
-  fireNearby: 0
+  nearbyFire: 0
   fireInSight: 0
   touchingFire: 0
   isTerrified: 0
   followPlayer: 0
   isCrawling: 0
+  isDead: 0
   extinguisher: {fileID: 2092872247}
   fog: {fileID: 1924723881}
   animator: {fileID: 325549478702724466}
@@ -60656,6 +60660,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 605030296}
     m_Modifications:
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Size.x
+      value: 2.3455212
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Size.y
+      value: 1.3653816
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Size.z
+      value: 2.5969207
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Center.x
+      value: 0.84380394
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Center.y
+      value: 0.0458171
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
+      propertyPath: m_Center.z
+      value: 0.037765637
+      objectReference: {fileID: 0}
     - target: {fileID: 4717097086176778692, guid: 7f4313f60f64980498c3a61b840de4d8, type: 3}
       propertyPath: m_IsTrigger
       value: 1

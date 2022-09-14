@@ -277,23 +277,19 @@ public class ObjectCreation : MonoBehaviour
                             }
                             if (Vector3.Dot(Camera.main.transform.forward, Vector3.forward) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, 0.35f)])
                             {
-                                Debug.Log("Exterior1");
                                 quadGameobject.localRotation =Quaternion.Euler(0,0,0);
                             }
                             else if (Vector3.Dot(Camera.main.transform.forward, Vector3.back) > 0.4 && cube.exteriors[new Vector3(0f, 1.5f, -0.35f)])
                             {
-                                Debug.Log("Exterior2");
                                 quadGameobject.localRotation  =Quaternion.Euler(0, 0, 180);
                                 
                             }
                             else if (Vector3.Dot(Camera.main.transform.forward, Vector3.right) > 0.4 && cube.exteriors[new Vector3(0.35f, 1.5f, 0f)])
                             {
-                                Debug.Log("Exterior3");
                                 quadGameobject.localRotation =Quaternion.Euler(0, 0, -90);
                             }
                             else if (Vector3.Dot(Camera.main.transform.forward, Vector3.left) > 0.4 && cube.exteriors[new Vector3(-0.35f, 1.5f, 0f)])
                             {
-                                Debug.Log("Exterior4");
                                 quadGameobject.localRotation =Quaternion.Euler(0, 0, 90);
                             }
 

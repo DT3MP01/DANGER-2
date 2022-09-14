@@ -16,12 +16,9 @@ using TMPro;
 public class DBManager : MonoBehaviour
 {
 
-    public string idFile;
-    public int id;
-    public string text;
 
     public string partida;
-
+    public DependencyStatus dependencyStatus;
     public ObjectCreation game;
     public timer timer;
     private FirebaseFirestore database;
@@ -50,16 +47,31 @@ public class DBManager : MonoBehaviour
     public GameObject upload;
     public TMP_InputField uploadName;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-
-        idFile = Application.dataPath + "/ID.txt";
-        text = File.ReadAllText(idFile);
-
+        //Check that all of the necessary dependencies for Firebase are present on the system
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+        {
+            dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                //If they are avalible Initialize Firebase
+                InitializeFirebase();
+            }
+            else
+            {
+                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyStatus);
+            }
+        });
+    }
+    // Start is called before the first frame update
+    void InitializeFirebase()
+    {
         // Get the root reference location of the database.
         //reference = FirebaseDatabase.DefaultInstance.RootReference;
-        auth = FirebaseAuth.DefaultInstance; 
+        auth = FirebaseAuth.DefaultInstance;
+        
         auth.StateChanged += AuthStateChanged;
         AuthStateChanged(this, null);
         database = FirebaseFirestore.DefaultInstance;
@@ -79,12 +91,13 @@ public class DBManager : MonoBehaviour
             User = auth.CurrentUser;
             if (signedIn)
             {
-                Debug.Log("Signed in " + User.UserId);
+                Debug.Log("Signed in" + User.UserId);
                 logoutButton.SetActive(true);
-
             }
         }
     }
+
+
 
     public void Logout()
     {
@@ -165,6 +178,11 @@ public class DBManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+
+            login.SetActive(false);
+            loginEmail.text = "";
+            loginPassword.text = "";
+            warningRegisterText.text = "";
         }
     }
 
@@ -240,6 +258,14 @@ public class DBManager : MonoBehaviour
                     {
                         //Username is now set
                         //Now return to login screen
+                        register.SetActive(false);
+                        registerUsername.text = "";
+                        registerPassword.text = "";
+                        registerEmail.text = "";
+                        registerPasswordVerify.text = "";
+                        login.SetActive(false);
+                        loginEmail.text = "";
+                        loginPassword.text = "";
                         warningRegisterText.text = "";
                     }
                 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4079657690167600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4950596310475004}
   - component: {fileID: 33067868470398982}
   - component: {fileID: 23533626751538704}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4751214727866208}
   - component: {fileID: 33478067370136126}
   - component: {fileID: 23254335244898050}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}

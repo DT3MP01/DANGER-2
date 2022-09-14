@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1509746448431563092}
   - component: {fileID: 2994326705879350649}
   - component: {fileID: 2343066719764240224}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2776265819918012708}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Extinguisher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2776265820348111229}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EscapeExtinguisher
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 5415345915426550706}
   - component: {fileID: 3213065178747214825}
   - component: {fileID: 3213065178747214824}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 5649482594977331360}
   - component: {fileID: 5160446288577822767}
   - component: {fileID: 345695830448281606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5918694096185418067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 7147810579317438367}
   - component: {fileID: 8776640490164959565}
   - component: {fileID: 1630886490568044570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Line001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 7269482384081756061}
   - component: {fileID: 4414484132974350878}
   - component: {fileID: 8613769824903351582}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 7442179489937384112}
   - component: {fileID: 188489935808288686}
   - component: {fileID: 6878461784147562417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Box001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

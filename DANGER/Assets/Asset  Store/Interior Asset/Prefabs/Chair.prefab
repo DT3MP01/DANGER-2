@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345901071339074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 4139448919274436}
   - component: {fileID: 33870954619144092}
   - component: {fileID: 23707390080403776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 4154292416886470}
   - component: {fileID: 33651035154886026}
   - component: {fileID: 23891022199854256}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PillowChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}

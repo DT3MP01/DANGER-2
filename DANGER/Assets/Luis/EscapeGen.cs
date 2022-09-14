@@ -10,40 +10,32 @@ public class EscapeGen : MonoBehaviour
     public List<GameObject> RoomList;
 	public GameObject StartRoom;
     public NavMeshSurface navMesh;
-    private int roomsToGenerate = 15;
+    public GameObject npc;
+    public GameObject exit;
+    public int roomsToGenerate;
     [Range(0.0f, 1.0f)]
     public float variance = 0.8f;
     public string seedName;
+    [Range(0.0f, 1.0f)]
+    public float minRoonPercentage = 0.6f;
     public List<WorldGenerator.ocuppiedArea> ocuppiedAreas;
-    private List<string> words;
     private List<GameObject> smallRoomList;
     private List<GameObject> defaultRoomList;
-    private List<generatorPoint> generatedRooms;
-    private List<int> generatedWidths;
-    private List<int> generatedLengths;
 
     void Start()
     {
-        StartGen(10,15);
     }
 
-    void StartGen(int numNPC, int numRoom)
+    public void StartGenerator(string seed, int numRoom, int numNPC)
 	{
-        generatedRooms = new List<generatorPoint>();
-        generatedWidths = new List<int>();
-        generatedLengths = new List<int>();
         roomsToGenerate = numRoom;
-        int roomCount = roomsToGenerate;
-        //words = new List<string> { "Llamas", "Incendio", "Fuego","Humo" };
-        words = new List<string> { "Incendio"};
-        int randomNumber = Random.Range(0, words.Count);
-        seedName = words[randomNumber].ToString();
-
-        Random.InitState(words[randomNumber].GetHashCode());
-
-
+        int roomCount;
+        Random.InitState(seed.GetHashCode());
         smallRoomList = new List<GameObject>();
         defaultRoomList = new List<GameObject>();
+        List<Doorway> usedDoors;
+        List<Doorway> pendingDoorways;
+        Transform building= null;
 
         foreach (GameObject Room in RoomList)
         {
@@ -57,68 +49,139 @@ public class EscapeGen : MonoBehaviour
             }
 
         }
-
+        do { 
         
-        Transform building = new GameObject("Building").transform;
+        if (building != null)
+        {
+            Destroy(building.gameObject);
+        }
+        roomCount = 1;
+        building = new GameObject("Building").transform;
         ocuppiedAreas = new List<WorldGenerator.ocuppiedArea>();
-        List<Doorway> usedDoors = new List<Doorway>();
+        usedDoors = new List<Doorway>();
         RoomDetails startModule = Instantiate(StartRoom, transform.position, transform.rotation, building).GetComponent<RoomDetails>(); ;
-        List<Doorway> pendingDoorways = startModule.GetDoorways();
+        pendingDoorways = startModule.GetDoorways();
         ocuppiedAreas.Add(startModule.getSizeRoom());
         GameObject newRoomPrefab;
 
-        for (int i = 0; i < roomsToGenerate - 1; i++)
-        {
-            List<Doorway> newDoorways = new List<Doorway>();
-            //Instantiate a New Room
-            if (Random.value > variance)
-            {
-                int randomRoom = Random.Range(0, defaultRoomList.Count);
-                newRoomPrefab = defaultRoomList[randomRoom];
-            }
-            else
-            {
-                int randomRoom = Random.Range(0, smallRoomList.Count);
-                newRoomPrefab = smallRoomList[randomRoom];
-            }
-            RoomDetails newRoom = Instantiate(newRoomPrefab, transform.position, Quaternion.identity, building).GetComponent<RoomDetails>();
 
-            List<Doorway> newRoomDoorways = newRoom.GetDoorways();
-            //Get Random DoorWay
-            int randomDoorway = Random.Range(0, newRoomDoorways.Count);
-            Doorway exitToMatch = newRoomDoorways[randomDoorway];
-            bool isInPlace = false;
-            foreach (Doorway doorway in Fisher_YatesShuffle(pendingDoorways))
+            for (int i = 0; i < roomsToGenerate - 1; i++)
             {
-                MatchExits(doorway, exitToMatch);
-
-                if (IsFree(newRoom.getSizeRoom()))
+                List<Doorway> newDoorways = new List<Doorway>();
+                //Instantiate a New Room
+                if (Random.value > variance)
                 {
-                    pendingDoorways.Remove(doorway);
-                    usedDoors.Add(doorway);
-                    isInPlace = true;
-                    pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
+                    int randomRoom = Random.Range(0, defaultRoomList.Count);
+                    newRoomPrefab = defaultRoomList[randomRoom];
+                }
+                else
+                {
+                    int randomRoom = Random.Range(0, smallRoomList.Count);
+                    newRoomPrefab = smallRoomList[randomRoom];
+                }
+                RoomDetails newRoom = Instantiate(newRoomPrefab, transform.position, Quaternion.identity, building).GetComponent<RoomDetails>();
 
-                    break;
+                List<Doorway> newRoomDoorways = newRoom.GetDoorways();
+                //Get Random DoorWay
+                int randomDoorway = Random.Range(0, newRoomDoorways.Count);
+                Doorway exitToMatch = newRoomDoorways[randomDoorway];
+                bool isInPlace = false;
+                foreach (Doorway doorway in pendingDoorways)
+                {
+                    MatchExits(doorway, exitToMatch);
+
+                    if (IsFree(newRoom.getSizeRoom()))
+                    {
+                        pendingDoorways.Remove(doorway);
+                        usedDoors.Add(doorway);
+                        isInPlace = true;
+                        roomCount++;
+                        pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
+
+                        break;
+                    }
+                }
+                if (!isInPlace)
+                {
+                    Destroy(newRoom.transform.gameObject);
                 }
             }
-            if (!isInPlace)
+            Debug.Log(roomCount);
+        }while (roomsToGenerate*minRoonPercentage > roomCount);
+
+        Doorway minDoorX = pendingDoorways[0];
+        Doorway minDoorZ = pendingDoorways[0];
+        Doorway maxDoorX = pendingDoorways[0];
+        Doorway maxDoorZ = pendingDoorways[0];
+        foreach(Doorway doorway in pendingDoorways)
+        {
+            if(doorway.transform.position.x > minDoorX.transform.position.x)
             {
-                Debug.Log("-1");
-                Destroy(newRoom.transform.gameObject);
+                minDoorX = doorway;
             }
+            else if(doorway.transform.position.x < maxDoorX.transform.position.x)
+            {
+                maxDoorX = doorway;
+            }
+            else if(doorway.transform.position.z > minDoorZ.transform.position.z)
+            {
+                minDoorZ = doorway;
+            }
+            else if(doorway.transform.position.z < maxDoorZ.transform.position.z)
+            {
+                maxDoorZ = doorway;
+            }
+
         }
+        List<Doorway> exitDoors = new List<Doorway>();
+        exitDoors.Add(minDoorX);
+        exitDoors.Add(minDoorZ);
+        exitDoors.Add(maxDoorX);
+        exitDoors.Add(maxDoorZ);
 
-
+        
+        Instantiate(exit, new Vector3(minDoorX.transform.position.x,0, minDoorX.transform.position.z), Quaternion.identity, building);
+        Instantiate(exit, new Vector3(maxDoorX.transform.position.x,0, maxDoorX.transform.position.z), Quaternion.identity, building);
+        Instantiate(exit, new Vector3(minDoorZ.transform.position.x, 0, minDoorZ.transform.position.z), Quaternion.identity, building);
+        Instantiate(exit, new Vector3(maxDoorZ.transform.position.x, 0, maxDoorZ.transform.position.z), Quaternion.identity, building);
 
         foreach (Doorway doorway in pendingDoorways)
         {
-            doorway.ReplaceDoorWithWall();
+            if(exitDoors.Contains(doorway)){
+                doorway.transform.gameObject.SetActive(false);
+            }
+            else
+            {
+                doorway.ReplaceDoorWithWall();
+            }
+            
         }
 
 
         navMesh.BuildNavMesh();
-        //GlobalVar.rooms = ocuppiedAreas;
+        //NPC;
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(new Vector3(0,0,0), out hit, 1.0f, NavMesh.AllAreas))
+        {
+            Instantiate(npc, new Vector3(0, 0, 0), Quaternion.identity);  
+        }
+
+        for(int i = 1; i < numNPC; i++)
+        {
+            WorldGenerator.ocuppiedArea spawnArea = ocuppiedAreas[Random.Range(1, ocuppiedAreas.Count)];
+            float posX= Random.Range(spawnArea.minX, spawnArea.maxX);
+            float posZ = Random.Range(spawnArea.minZ, spawnArea.maxZ);
+
+            if (NavMesh.SamplePosition(new Vector3(posX, 0, posZ), out hit, 1.0f, NavMesh.AllAreas))
+            {
+                Instantiate(npc, new Vector3(posX, 0, posZ), Quaternion.identity);
+            }
+        }
+
+
+
+
+
         GlobalVar.ocuppiedAreas = ocuppiedAreas;
         GlobalVar.doors = usedDoors;
 
@@ -150,31 +213,14 @@ public class EscapeGen : MonoBehaviour
         var correctiveTranslation = oldExit.GetComponent<Renderer>().bounds.center - newExit.GetComponent<Renderer>().bounds.center;
         newRoom.transform.position += correctiveTranslation;
     }
-
-    List<Doorway> Fisher_YatesShuffle(List<Doorway> a)
-    {
-        // Recorremos la lista {1,2,3,4}
-        for (int i = a.Count - 1; i > 0; i--)
-        {
-            // Numero aleatorio entre 0 y i (de forma que i decrementa cada iteraci?n)
-            int rnd = Random.Range(0, i);
-
-            // Guardamos el valor que hay en a[i] 
-            Doorway temp = a[i];
-
-            // intercambiamos el valor de a[i] con el valor de que hay en la posici?n aleatoria
-            a[i] = a[rnd];
-            a[rnd] = temp;
-        }
-        return a;
-    }
     private static TItem GetRandom<TItem>(TItem[] array)
 	{
 		return array[Random.Range(0, array.Length)];
 	}
 
 
-	private static float Azimuth(Vector3 vector)
+
+    private static float Azimuth(Vector3 vector)
 	{
 		return Vector3.Angle(Vector3.forward, vector) * Mathf.Sign(vector.x);
 	}

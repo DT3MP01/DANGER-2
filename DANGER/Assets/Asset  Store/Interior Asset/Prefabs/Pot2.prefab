@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4812138058650102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4424770089882442}
   - component: {fileID: 33697585136162508}
   - component: {fileID: 23760575867495078}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlowerCactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4699639248127534}
   - component: {fileID: 33326873063133282}
   - component: {fileID: 23024342554405258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cactus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 4807691997957586}
   - component: {fileID: 33045371745142662}
   - component: {fileID: 23678689943282736}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

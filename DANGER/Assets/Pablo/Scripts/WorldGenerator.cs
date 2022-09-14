@@ -80,8 +80,11 @@ public class WorldGenerator : RoomPopulator
 
 
     }
-    void Start()
+    public void StartGenerator(string seed,int numRoom, int numNPC)
     {
+        roomsToGenerate = numRoom;
+        Random.InitState(seed.GetHashCode());
+
         genP = new generatorPoint(new Vector3(0, 0, 0), dir.centre);
         doorMargin = doorSize / 2f;
         genQ = new Queue<generatorPoint>(roomsToGenerate*roomsToGenerate * 4); //Cola de puntos generadores (situados en las puertas de las salas para generar una sala nueva)

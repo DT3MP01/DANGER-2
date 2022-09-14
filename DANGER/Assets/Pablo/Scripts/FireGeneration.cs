@@ -55,10 +55,10 @@ public class FireGeneration : MonoBehaviour
                 started = true; StartFire2();
 
             }
-            //else if (GlobalVar.ocuppiedAreas != null)
-            //{
-            //    started = true; StartFire();
-            //}
+            else if (GlobalVar.ocuppiedAreas != null)
+            {
+                started = true; StartFire();
+            }
         }
     }
     public void StartFire()

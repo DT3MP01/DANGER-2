@@ -21,14 +21,13 @@ public class Map : MonoBehaviour
         if (!started) 
         {
             //Debug.Log(GlobalVar.middleX);
-            float height = Mathf.Max(GlobalVar.sizeX, GlobalVar.sizeZ);
-            if (GlobalVar.middleX > -9000 && GlobalVar.middleZ > -9000) { started = true; mapCamera.transform.position = new Vector3(GlobalVar.middleX, height, GlobalVar.middleZ);  }
+            if (GlobalVar.middleX > -9000 && GlobalVar.middleZ > -9000) { started = true;}
         }
         else 
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                GlobalVar.mapMovement = !GlobalVar.mapMovement;
+                //GlobalVar.mapMovement = !GlobalVar.mapMovement;
                 mainCamera.enabled = !mainCamera.enabled;
                 mapCamera.enabled = !mapCamera.enabled;
                 canvas.SetActive(!canvas.activeSelf);

@@ -5,7 +5,9 @@ using Cinemachine;
 
 public class CameraZoom : MonoBehaviour
 {
-    private float scrollSpeed =15f;
+    public float scrollSpeed =15f;
+    public float maxZoom = 60;
+    public float minZoom = 40;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +18,16 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
 
-        GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView += Input.GetAxis("Mouse ScrollWheel")* scrollSpeed;
-        
-    
-    
-    }
+        GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView -= Input.GetAxis("Mouse ScrollWheel")* scrollSpeed;
+        if(GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView >= maxZoom)
+        {
+
+            GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView = maxZoom;
+        }
+        else if(GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView <= minZoom)
+        {
+            GetComponent<CinemachineFreeLook>().m_Lens.FieldOfView = minZoom;
+        }
+
+}
 }

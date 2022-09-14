@@ -6328,16 +6328,17 @@ MonoBehaviour:
     m_Bits: 264
   OcclusionLayer:
     serializedVersion: 2
-    m_Bits: 1
-  Objects: []
+    m_Bits: 65
+  objectsInRange: []
   nearbySmoke: 0
   fireAlarm: 0
-  fireNearby: 0
+  nearbyFire: 0
   fireInSight: 0
   touchingFire: 0
   isTerrified: 0
   followPlayer: 0
   isCrawling: 0
+  isDead: 0
   extinguisher: {fileID: 4743898290310442400}
   fog: {fileID: 3025238167892741703}
   animator: {fileID: 6077419868901140805}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4660274713651344}
   - component: {fileID: 33132532905060526}
   - component: {fileID: 23312312341956300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow2 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4986588079863604}
   - component: {fileID: 33402676353895368}
   - component: {fileID: 23884587467902806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Armchair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   - component: {fileID: 4665813631865822}
   - component: {fileID: 33048002650947342}
   - component: {fileID: 23161188126788978}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow2 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 4567524176462776}
   - component: {fileID: 33755264056808538}
   - component: {fileID: 23506514748374066}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4954684548412172}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArmChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,7 +372,7 @@ GameObject:
   - component: {fileID: 4818362201747160}
   - component: {fileID: 33381136252907252}
   - component: {fileID: 23243061537341370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +453,7 @@ GameObject:
   - component: {fileID: 4642961529941548}
   - component: {fileID: 33548322202147752}
   - component: {fileID: 23747884149007218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 4092407844221146}
   - component: {fileID: 33308778081886692}
   - component: {fileID: 23099881412796546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillow2 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

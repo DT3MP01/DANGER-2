@@ -24,6 +24,7 @@ public class FireExtinguiserh : MonoBehaviour
     {
         if(other.tag == "Fire")
         {
+            Debug.Log("hola");
             other.GetComponent<FireScript>().stopFire();
         }
     }

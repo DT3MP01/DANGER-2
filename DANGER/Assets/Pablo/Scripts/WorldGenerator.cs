@@ -375,9 +375,9 @@ public class WorldGenerator : RoomPopulator
             if (GlobalVar.middleX > -9000 && GlobalVar.middleZ > -9000)
             {
                 started = true;
-                Debug.Log("1:     " + aux1.coords);
-                Debug.Log("2:     " + aux2.coords);
-                Debug.Log("middle: " + GlobalVar.middleX + " " + GlobalVar.middleZ);
+                //Debug.Log("1:     " + aux1.coords);
+                //Debug.Log("2:     " + aux2.coords);
+                //Debug.Log("middle: " + GlobalVar.middleX + " " + GlobalVar.middleZ);
                 //aux1.coords += new Vector3(0, 0.55f, 0); // para que no este en contacto con el suelo sino levitando sobre el y n haya colisi�n
                 //aux2.coords += new Vector3(0, 0.55f, 0);
                 //Cogemos los 2 ultimos generadores, calculamos la distrancia con el centro del mapa y escogemos aquel que est?mas alejado

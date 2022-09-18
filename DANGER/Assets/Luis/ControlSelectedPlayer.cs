@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ControlSelectedPlayer : MonoBehaviour
 {
@@ -29,10 +30,14 @@ public class ControlSelectedPlayer : MonoBehaviour
     }
     public void Update()
     {
-        if(player != null)
+        if (player != null)
         {
             playerHealthSlider.value = (float)player.GetComponent<Sensor>().playerHealth / 100.0f;
             palyerStressSlider.value = (float)player.GetComponent<Sensor>().playerStress / 100.0f;
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Menu Principal");
         }
     }
 

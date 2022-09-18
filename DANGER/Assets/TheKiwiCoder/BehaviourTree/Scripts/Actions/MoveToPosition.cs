@@ -8,7 +8,6 @@ public class MoveToPosition : ActionNode
 {
     public float stoppingDistance = 0.1f;
     public bool updateRotation = true;
-    public float acceleration = 40.0f;
     public float tolerance = 1.0f;
     public string parameterHorizontal = "AxisX";
     public string parameterVertical = "AxisY";
@@ -16,7 +15,6 @@ public class MoveToPosition : ActionNode
         context.agent.stoppingDistance = stoppingDistance;
         context.agent.destination = blackboard.moveToPosition;
         context.agent.updateRotation = updateRotation;
-        context.agent.acceleration = acceleration;
     }
 
     protected override void OnStop() {

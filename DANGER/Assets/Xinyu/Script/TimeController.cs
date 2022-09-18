@@ -34,10 +34,6 @@ public class TimeController : MonoBehaviour
         }
     }
 
-    void update()
-    {
-
-    }
 
     public void setCurrentTime(int time)
     {

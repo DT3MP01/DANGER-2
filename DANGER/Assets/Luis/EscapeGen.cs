@@ -64,7 +64,6 @@ public class EscapeGen : MonoBehaviour
         ocuppiedAreas.Add(startModule.getSizeRoom());
         GameObject newRoomPrefab;
 
-
             for (int i = 0; i < roomsToGenerate - 1; i++)
             {
                 List<Doorway> newDoorways = new List<Doorway>();
@@ -93,11 +92,11 @@ public class EscapeGen : MonoBehaviour
                     if (IsFree(newRoom.getSizeRoom()))
                     {
                         pendingDoorways.Remove(doorway);
+                        doorway.gameObject.SetActive(false);
                         usedDoors.Add(doorway);
                         isInPlace = true;
                         roomCount++;
                         pendingDoorways.AddRange(newRoomDoorways.Where(e => e != exitToMatch));
-
                         break;
                     }
                 }
@@ -106,7 +105,7 @@ public class EscapeGen : MonoBehaviour
                     Destroy(newRoom.transform.gameObject);
                 }
             }
-            Debug.Log(roomCount);
+            //Debug.Log(roomCount);
         }while (roomsToGenerate*minRoonPercentage > roomCount);
 
         Doorway minDoorX = pendingDoorways[0];
@@ -180,14 +179,20 @@ public class EscapeGen : MonoBehaviour
 
 
 
-
-
+        GlobalVar.totalNPCs = numNPC;
+        GlobalVar.remainingNPCs = numNPC;
         GlobalVar.ocuppiedAreas = ocuppiedAreas;
         GlobalVar.doors = usedDoors;
 
 
     }
-
+    void OnDestroy()
+    {
+        GlobalVar.start = false;
+        GlobalVar.ocuppiedAreas = null;
+        GlobalVar.doors = null;
+        GlobalVar.rooms = null;
+}
     private bool IsFree(WorldGenerator.ocuppiedArea newArea)
     {
         foreach(WorldGenerator.ocuppiedArea area in ocuppiedAreas)

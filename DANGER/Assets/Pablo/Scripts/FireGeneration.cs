@@ -65,6 +65,7 @@ public class FireGeneration : MonoBehaviour
     {
         ocuppiedAreas=GlobalVar.ocuppiedAreas;
         doorways = GlobalVar.doors;
+        Debug.Log(doorways.Count);
         maxAncho = (int)ocuppiedAreas[0].maxX;
         minAncho = (int)ocuppiedAreas[0].minX;
         maxAlto = (int)ocuppiedAreas[0].maxZ;
@@ -129,7 +130,7 @@ public class FireGeneration : MonoBehaviour
             aux += "\n";
 
         }
-        Debug.Log(aux);
+        //Debug.Log(aux);
         matrix = zMatrix;
 
         indexZ = Random.Range(0, matrix.GetLength(0) - 1);
@@ -155,7 +156,7 @@ public class FireGeneration : MonoBehaviour
         //Debug.Log("F:" + (GlobalVar.matrix[indexZ, indexX] == true).ToString());
 
         StartCoroutine(GenerarFuego(indexX, indexZ, minAncho, maxAlto));
-
+        GlobalVar.start = true;
     }
 
     public void StartFire2()

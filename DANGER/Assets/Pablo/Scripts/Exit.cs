@@ -16,11 +16,11 @@ public class Exit : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "NPC")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "NPC")
         {
-            collision.gameObject.SetActive(false);
+            other.gameObject.SetActive(false);
             GlobalVar.remainingNPCs -= 1;
         }
         

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7277845964168122698}
   - component: {fileID: 2209785376611443578}
   - component: {fileID: 8606442250315557893}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder001
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 411862876790518489}
   - component: {fileID: 2288864074887734687}
   - component: {fileID: 8540434803512790535}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder004
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -203,7 +203,7 @@ GameObject:
   - component: {fileID: 6274314284393192480}
   - component: {fileID: 6043914385519746490}
   - component: {fileID: 5812104244855268205}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box002
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4481094039514040591}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Line002
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 4679747623081083076}
   - component: {fileID: 2703624769534921711}
   - component: {fileID: 306679714936096767}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Line001
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 1434830186193546360}
   - component: {fileID: 5171310893036878446}
   - component: {fileID: 2123317884642444455}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Box001
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -474,7 +474,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7974966475516075315}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: PlayerExtinguisher (1)
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 2541449484625203838}
   - component: {fileID: 7115960220106891717}
   - component: {fileID: 5210815167403073311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cylinder002
   m_TagString: Extinguisher
   m_Icon: {fileID: 0}
@@ -594,6 +594,10 @@ PrefabInstance:
     - target: {fileID: 2394070141518404418, guid: 8a676a29b7807264a8f47745ec66447f, type: 3}
       propertyPath: m_Name
       value: Fog
+      objectReference: {fileID: 0}
+    - target: {fileID: 2394070141518404418, guid: 8a676a29b7807264a8f47745ec66447f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2394070141518404445, guid: 8a676a29b7807264a8f47745ec66447f, type: 3}
       propertyPath: m_RootOrder

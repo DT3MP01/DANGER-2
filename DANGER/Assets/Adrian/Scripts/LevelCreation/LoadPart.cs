@@ -30,7 +30,7 @@ public class LoadPart : MonoBehaviour {
         try{
         roomFile = JsonUtility.FromJson<SaveRoom>(saveFile);
 
-        Line2.text = "Meters: " + roomFile.statsRoom.meters + " m";
+        Line2.text = "Meters: " + ((int)Mathf.Sqrt(roomFile.statsRoom.meters)).ToString() + " m^2";
         
         Texture2D tex = new Texture2D(2, 2);
         tex.LoadImage(Convert.FromBase64String(roomFile.image));

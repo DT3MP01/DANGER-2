@@ -113,10 +113,10 @@ public class DBManager : MonoBehaviour
 
         DocumentReference docRefInfo = database.Collection("GameInfo").Document();
 
-        StorageReference docData = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id+".dataRoom");
+        StorageReference docData = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id).Child(uploadName.text+ ".dataRoom");
         docData.PutBytesAsync(Encoding.Unicode.GetBytes(game.json));
 
-        StorageReference docDataImage = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id+"-Image.png");
+        StorageReference docDataImage = storage.RootReference.Child("GameInfo-Data").Child(docRefInfo.Id).Child("Image.png");
         docDataImage.PutBytesAsync(Convert.FromBase64String(game.SaveRoomData.image));
 
         StatsRoom statsRoom = new StatsRoom(game.meters, game.extinguishers, game.windows, game.doors, game.countScans);
@@ -124,7 +124,7 @@ public class DBManager : MonoBehaviour
             {"Image",docDataImage.Path},
             {"PlayerName", auth.CurrentUser.DisplayName},
             {"RoomName", uploadName.text},
-            {"Meters",game.SaveRoomData.statsRoom.meters},
+            {"Meters",((int)Mathf.Sqrt(game.SaveRoomData.statsRoom.meters)).ToString()},
             {"Extinguishers",game.SaveRoomData.statsRoom.extinguishers},
             {"Windows",game.SaveRoomData.statsRoom.windows},
             {"Doors",game.SaveRoomData.statsRoom.doors},
@@ -299,7 +299,6 @@ public class DBManager : MonoBehaviour
         }
         else
         {
-            game.disableInput();
             login.SetActive(true);
         }
     }

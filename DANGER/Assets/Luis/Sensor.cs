@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using TheKiwiCoder;
 [ExecuteInEditMode]
 
@@ -21,6 +22,7 @@ public class Sensor : MonoBehaviour
     Collider[] colliders = new Collider[100];
     int count;
     public List<GameObject> objectsInRange = new List<GameObject>();
+    public List<GameObject> objectsInFOV = new List<GameObject>();
     float scanInterval;
     private float scanTimer;
     [Header("Detections")]
@@ -60,6 +62,8 @@ public class Sensor : MonoBehaviour
     public float currWeight;
     private float yVelocity = 0.1F;
 
+    private float fireAwarenes = 4f;
+
     Mesh mesh;
     void Start()
     {
@@ -80,7 +84,27 @@ public class Sensor : MonoBehaviour
         {
             scanTimer = scanInterval;
             Scan();
-            CalculateHealth();
+            CalculateStats();
+            if(isPlayer  && playerStress >= 100)
+            {
+                isTerrified = true;
+                GetComponent<Animator>().SetBool("isScared", true) ;
+                gameObject.GetComponent<CharacterMovment>().underControl = false;
+                gameObject.GetComponent<CharacterMovment>().enabled = false;
+
+            }
+            if(isPlayer && isTerrified && playerStress == 0 )
+            {
+                GetComponent<Animator>().SetBool("isScared", false);
+                gameObject.GetComponent<CharacterMovment>().underControl = true;
+                gameObject.GetComponent<CharacterMovment>().enabled = true;
+
+            }
+            if (isPlayer &&playerHealth <= 0)
+            {
+                GetComponent<Animator>().SetTrigger("isDead") ;
+            }
+
             if(usingExtinguisher){
                 extinguisherCapacity= Mathf.Max(0,extinguisherCapacity- extinguisherDepletionRate);
             }
@@ -94,6 +118,11 @@ public class Sensor : MonoBehaviour
                 gameObject.GetComponent<CharacterMovment>().enabled = false;
                 gameObject.GetComponent<BehaviourTreeRunner>().enabled = true;
             }
+            
+            
+        
+
+
         }
         
 
@@ -123,7 +152,14 @@ public class Sensor : MonoBehaviour
         {
             isCrawling = !animator.GetBool("isCrouching");
             animator.SetBool("isCrouching",!animator.GetBool("isCrouching"));
-            
+            if (isCrawling)
+            {
+                GetComponent<NavMeshAgent>().speed = 2;
+            }
+            else
+            {
+                GetComponent<NavMeshAgent>().speed = 3.5f;
+            }
         }
         
     }
@@ -213,10 +249,14 @@ public class Sensor : MonoBehaviour
     }
 
 
-    private void  CalculateHealth(){
+    private void  CalculateStats(){
         if(nearbySmoke && !animator.GetBool("isCrouching")){
             playerHealth -= 10*healthModifier;
             playerStress += 5*stressModifier;
+        }
+        if (fireInSight)
+        {
+            playerStress += 10 * stressModifier;
         }
         if(touchingFire)
         {
@@ -224,7 +264,7 @@ public class Sensor : MonoBehaviour
             playerStress += 10*stressModifier;
         }
         if(isTerrified){
-            playerStress -= 30*stressModifier;
+            playerStress -= 45*stressModifier;
         }
 
         if(playerHealth<=0){
@@ -243,24 +283,27 @@ public class Sensor : MonoBehaviour
     private void Scan(){
         count = Physics.OverlapSphereNonAlloc(transform.position, distance, colliders, layer,QueryTriggerInteraction.Collide);
         objectsInRange.Clear();
+        objectsInFOV.Clear();
         fireInSight = false;
-        nearbyFire = false;
         nearbySmoke = false;
         int smokeCount = 0;
 
         for (int i = 0; i < count; i++)
         {
             GameObject obj = colliders[i].gameObject;
-            if(obj.tag == "Smoke"){
+            objectsInRange.Add(obj);
+            if (obj.tag == "Smoke"){
                 smokeCount++;
             }
-            if (obj.tag == "Fire")
+            if (obj.tag == "Fire" && nearbyFire==false)
             {
+                Debug.Log("FUEGO");
                 nearbyFire = true;
+                Invoke("lostFire", 4);
             }
             if (IsInSight(obj))
             {
-                objectsInRange.Add(obj);
+                objectsInFOV.Add(obj);
                 if (obj.tag == "Fire")
                 {
                     fireInSight = true;
@@ -274,11 +317,16 @@ public class Sensor : MonoBehaviour
 
         
     }
+
+     void lostFire()
+    {
+      Debug.Log("NO MAS FUEGO");
+      nearbyFire = false;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Fire")
         {
-            Debug.Log("AY ME QUEMO");
             touchingFire=true;
         }
     }
@@ -287,7 +335,6 @@ public class Sensor : MonoBehaviour
     {
         if (other.tag == "Fire")
         {
-            Debug.Log("YANO");
             touchingFire = false;
         }
     }
@@ -322,6 +369,14 @@ public class Sensor : MonoBehaviour
 
     public bool getDetections(string detection){
         switch(detection){
+            case "isCrawling":
+                return isCrawling;
+            case "isDead":
+                return isDead;
+            case "fireAlarm":
+                return fireAlarm;
+            case "nearbyFire":
+                return nearbyFire;
             case "nearbySmoke":
                 return nearbySmoke;
             case "fireInSight":
@@ -432,18 +487,18 @@ public class Sensor : MonoBehaviour
             Gizmos.DrawMesh(mesh, transform.position, transform.rotation, transform.lossyScale);
         }
         Gizmos.DrawWireSphere(transform.position, distance);
-        for (int i = 0; i < count; i++)
-        {
-            Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
-            Gizmos.DrawLine(gameObject.transform.position, colliders[i].transform.position);
-        }
+        //for (int i = 0; i < count; i++)
+        //{
+        //    Gizmos.DrawSphere(colliders[i].transform.position, 0.2f);
+        //    Gizmos.DrawLine(gameObject.transform.position, colliders[i].transform.position);
+        //}
 
-        Gizmos.color = Color.green;
-        foreach (var obj in objectsInRange)
-        {
-            Gizmos.DrawLine (gameObject.transform.position, obj.transform.position);
-            Gizmos.DrawSphere(obj.transform.position, 0.2f);
+        //Gizmos.color = Color.green;
+        //foreach (var obj in objectsInFOV)
+        //{
+        //    Gizmos.DrawLine (gameObject.transform.position, obj.transform.position);
+        //    Gizmos.DrawSphere(obj.transform.position, 0.2f);
             
-        }
+        //}
     }
 }

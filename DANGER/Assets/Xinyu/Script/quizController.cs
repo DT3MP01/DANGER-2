@@ -104,30 +104,29 @@ public class quizController : MonoBehaviour
 
         extraResquestItem = new Items.ItemType[8];
 
-        database= FirebaseFirestore.DefaultInstance;
+        //database= FirebaseFirestore.DefaultInstance;
 
-        Query docRefInfo = database.Collection("Quizzes").Limit(10).WhereEqualTo("topic",1);
-        Debug.Log("Quiz to DATABAE: ");
-        docRefInfo.GetSnapshotAsync().ContinueWithOnMainThread(task =>
-        {
-            if (task.IsFaulted)
-            {
-                Debug.Log("Error getting documents: " + task.Exception);
-                errorDatabase = true;
-            }
-            else
-            {
-                errorDatabase = false;
+        //Query docRefInfo = database.Collection("Quizzes").Limit(10).WhereEqualTo("topic",1);
+        //Debug.Log("Quiz to DATABAE: ");
+        //docRefInfo.GetSnapshotAsync().ContinueWithOnMainThread(task =>
+        //{
+        //    if (task.IsFaulted)
+        //    {
+        //        Debug.Log("Error getting documents: " + task.Exception);
+        //        errorDatabase = true;
+        //    }
+        //    else
+        //    {
+        //        errorDatabase = false;
                 
-                foreach (DocumentSnapshot document in task.Result.Documents)
-                {
-                   Dictionary<string, object> data = document.ToDictionary();
-                    Quiz newQuiz = new Quiz(data["question"].ToString(), data["optionA"].ToString(), data["optionB"].ToString(), data["optionC"].ToString(), int.Parse(data["correct"].ToString()));
-                    QuizzesList.Add(newQuiz);
-                
-                }
-            }
-        });
+        //        foreach (DocumentSnapshot document in task.Result.Documents)
+        //        {
+        //           Dictionary<string, object> data = document.ToDictionary();
+        //            Quiz newQuiz = new Quiz(data["question"].ToString(), data["optionA"].ToString(), data["optionB"].ToString(), data["optionC"].ToString(), int.Parse(data["correct"].ToString()));
+        //            QuizzesList.Add(newQuiz);
+        //        }
+        //    }
+        //});
 
     }
     

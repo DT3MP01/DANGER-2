@@ -2417,7 +2417,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 12.6, z: -10}
+  m_LocalPosition: {x: 0, y: 14, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1463734299}
@@ -5547,7 +5547,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1023
+    m_Bits: 1015
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
@@ -5566,7 +5566,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2028895726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5716,12 +5716,13 @@ MonoBehaviour:
   - {fileID: 6621492850010673480, guid: b63a6ac70f02c5a40b968781f6d5b57b, type: 3}
   - {fileID: 1942656994187768148, guid: a68ab25f011a3e84d9e3e7a8832599d8, type: 3}
   - {fileID: 203960331900563673, guid: 917d9c94d29da4f438a1ab683559f7dc, type: 3}
+  - {fileID: 929603655830363020, guid: 0a5421576082c8e468d1594fcda78e8d, type: 3}
   StartRoom: {fileID: 929603655830363020, guid: f3ab56c7a57d66f46ba9ae7efafe0e69, type: 3}
   navMesh: {fileID: 2028895727}
   npc: {fileID: 4023779642572394304, guid: 18f6c90f4a950b04d9e6a56f53794173, type: 3}
   exit: {fileID: 7224566585186012604, guid: 44431d1ded887dd4588c631a56078de1, type: 3}
   roomsToGenerate: 0
-  variance: 0.8
+  variance: 0.7
   seedName: ayuda
   minRoonPercentage: 0.6
 --- !u!1 &2061720755

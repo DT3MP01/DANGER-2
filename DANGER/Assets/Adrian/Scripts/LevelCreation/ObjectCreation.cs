@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class ObjectCreation : MonoBehaviour
 {
@@ -476,9 +477,13 @@ public class ObjectCreation : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                if (rayCastHit.transform == null) return;
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    Debug.Log("Clicked on the UI");
+                }
+                else if (rayCastHit.transform == null) return;
 
-                if (!Input.GetKey(KeyCode.LeftControl) && rayCastHit.transform.tag != "Untagged")
+                else if (!Input.GetKey(KeyCode.LeftControl) && rayCastHit.transform.tag != "Untagged")
                 {
                     lastPos = Vector3.zero;
 
@@ -1180,18 +1185,13 @@ public class ObjectCreation : MonoBehaviour
 
           
 
-            MetersText.GetComponent<TMPro.TextMeshProUGUI>().text = meters.ToString();
+            MetersText.GetComponent<TMPro.TextMeshProUGUI>().text = ((int)Mathf.Sqrt(meters)).ToString();
             DoorsText.GetComponent<TMPro.TextMeshProUGUI>().text = doors.ToString();
             ExtinguishersText.GetComponent<TMPro.TextMeshProUGUI>().text = extinguishers.ToString();
             WindowsText.GetComponent<TMPro.TextMeshProUGUI>().text = windows.ToString();
         }
         
-        if(Input.GetKeyDown(KeyCode.LeftControl)){
-            editorEnabled = false;
-        }
-        else if (Input.GetKeyUp(KeyCode.LeftControl)){
-            editorEnabled = true;
-        }
+      
         if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftControl))
         {
                 mouseD.Set(-Input.GetAxisRaw("Mouse X"), -Input.GetAxisRaw("Mouse Y"), -Input.GetAxisRaw("Mouse ScrollWheel"));
@@ -1219,11 +1219,12 @@ public class ObjectCreation : MonoBehaviour
 
     public void scan()
     {
+        int sqrMeters = (int)Mathf.Sqrt(meters);
         countScans++;
 
-        if (meters > 0)
+        if (sqrMeters > 0)
         {
-            if (meters / 15 < extinguishers)
+            if (sqrMeters / 15 < extinguishers)
             {
                 extinguishersAdvise.SetActive(false);
                 extinguishersSecure = true;
@@ -1234,7 +1235,7 @@ public class ObjectCreation : MonoBehaviour
                 extinguishersSecure = false;
             }
 
-            if (meters / 15 < doors)
+            if (sqrMeters / 15 < doors)
             {
                 doorsAdvise.SetActive(false);
                 doorsSecure = true;  
@@ -1245,7 +1246,7 @@ public class ObjectCreation : MonoBehaviour
                 doorsSecure = false;
             }
 
-            if (meters / 15 < windows)
+            if (sqrMeters / 15 < windows)
             {
                 windowsAdvise.SetActive(false);
                 windowsSecure = true;
@@ -1281,9 +1282,11 @@ public class ObjectCreation : MonoBehaviour
 
     public void enableInput(){
         editorEnabled = true;
+        Debug.Log("ENABLED");
     }
     public void disableInput(){
         editorEnabled = false;
+        Debug.Log("DISABLED");
     }
 
     public void reduceWalls()

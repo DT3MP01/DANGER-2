@@ -5557,7 +5557,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 6cdccdaae14beb74b9e9221020cc70c4, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!4 &2028895728
 Transform:
   m_ObjectHideFlags: 0
@@ -5659,7 +5659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fire: {fileID: 3438479129706787431, guid: f3fa8f3a5d04e5244919ade8f40e5c75, type: 3}
-  fireSpreadSpeed: 1
+  fireSpreadSpeed: 2
   maxAncho: 0
   minAncho: 0
   maxAlto: 0

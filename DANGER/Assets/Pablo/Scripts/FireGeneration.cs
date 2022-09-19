@@ -8,6 +8,7 @@ public class FireGeneration : MonoBehaviour
     public GameObject fire;
     //public GameObject smoke;
     public float fireSpreadSpeed;
+    public bool alarmMitigation;
     //public float smokeSpreadSpeed;
 
     List<WorldGenerator.generatorPoint> rooms;
@@ -31,15 +32,17 @@ public class FireGeneration : MonoBehaviour
     public int indexZ;
     public bool start = false;
     public bool[,] matrix;
-
+    private float alarmSpread;
 
 
     void Start()
     {
+        alarmSpread = 2 * fireSpreadSpeed;
         rooms = GlobalVar.rooms;
         firesPos = new List<Vector3>();
         fireQ = new Queue<Vector3>();
         first = true;
+        alarmMitigation = false;
         //startFire();
         //rooms = GlobalVar.rooms;
         //Instantiate(fire, new Vector3(-3, 0.5f, -3), Quaternion.Euler(0f, 0f, 0f));
@@ -59,6 +62,10 @@ public class FireGeneration : MonoBehaviour
             {
                 started = true; StartFire();
             }
+        }
+        if (alarmMitigation)
+        {
+            fireSpreadSpeed = alarmSpread;
         }
     }
     public void StartFire()

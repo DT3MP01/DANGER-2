@@ -1,26 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8790285133890838544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5134d9de14153468b48928d3e7359a, type: 3}
-  m_Name: Wait
-  m_EditorClassIdentifier: 
-  state: 0
-  started: 0
-  guid: e947788db824d414fa246a711ca20240
-  position: {x: -35.19997, y: 606.39996}
-  blackboard:
-    moveToPosition: {x: 0, y: 0, z: 0}
-  description: 
-  drawGizmos: 0
-  duration: 0.1
 --- !u!114 &-6968173796618001695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +121,6 @@ MonoBehaviour:
   - {fileID: -6968173796618001695}
   - {fileID: 4120257462241444155}
   - {fileID: 7183616557272904949}
-  - {fileID: -8790285133890838544}
   blackboard:
     moveToPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &427412917064391008
@@ -228,9 +206,9 @@ MonoBehaviour:
     moveToPosition: {x: 0, y: 0, z: 0}
   description: 
   drawGizmos: 0
-  stoppingDistance: 2
+  stoppingDistance: 1
   updateRotation: 1
-  tolerance: 2
+  tolerance: 1
   parameterHorizontal: AxisX
   parameterVertical: AxisY
 --- !u!114 &6873975883671634008
@@ -301,4 +279,3 @@ MonoBehaviour:
   - {fileID: 4120257462241444155}
   - {fileID: 7183616557272904949}
   - {fileID: 6394760385867950365}
-  - {fileID: -8790285133890838544}

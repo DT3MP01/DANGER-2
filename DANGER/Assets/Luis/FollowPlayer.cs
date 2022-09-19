@@ -14,9 +14,11 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (question.answered)
+        if (question.answered && !GetComponent<Sensor>().followPlayer)
         {
+            GetComponent<Sensor>().enabled=true;
             GetComponent<Sensor>().followPlayer = true;
         }
+        //else if (question.answered && !GetComponent<Sensor>().followPlayer )
     }
 }

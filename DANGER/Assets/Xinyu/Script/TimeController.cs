@@ -14,9 +14,11 @@ public class TimeController : MonoBehaviour
 
     private string CountDownString = "";
 
+    private Sensor player;
     void Start()
     {
         StartCoroutine(Time());
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Sensor>();
     }
 
     IEnumerator Time()
@@ -29,7 +31,7 @@ public class TimeController : MonoBehaviour
             yield return new WaitForSeconds(1);
             CurrentTime--;
 
-            if (CurrentTime == 0)
+            if (CurrentTime == 0 || player.isDead)
                 SceneManager.LoadScene("GameOver");
         }
     }

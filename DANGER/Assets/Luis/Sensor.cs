@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using TheKiwiCoder;
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 
 public class Sensor : MonoBehaviour
 {
@@ -60,9 +60,6 @@ public class Sensor : MonoBehaviour
 
 
     public float currWeight;
-    private float yVelocity = 0.1F;
-
-    private float fireAwarenes = 4f;
 
     Mesh mesh;
     void Start()
@@ -96,13 +93,17 @@ public class Sensor : MonoBehaviour
             if(isPlayer && isTerrified && playerStress == 0 )
             {
                 GetComponent<Animator>().SetBool("isScared", false);
+                isTerrified = false;
                 gameObject.GetComponent<CharacterMovment>().underControl = true;
                 gameObject.GetComponent<CharacterMovment>().enabled = true;
 
             }
-            if (isPlayer &&playerHealth <= 0)
+            if (isPlayer && playerHealth <= 0 && isDead==false)
             {
+                isDead=true;
                 GetComponent<Animator>().SetTrigger("isDead") ;
+                gameObject.GetComponent<CharacterMovment>().underControl = false;
+                gameObject.GetComponent<CharacterMovment>().enabled = false;
             }
 
             if(usingExtinguisher){
@@ -139,7 +140,6 @@ public class Sensor : MonoBehaviour
             fog.Play();
             usingExtinguisher=true;
             StartCoroutine(LerpFunction(animator.GetLayerWeight(1),1,0.3f,currWeight));
-            
         }
         if(Input.GetKeyUp(KeyCode.Space)||extinguisherCapacity <=0)
         {
@@ -256,7 +256,7 @@ public class Sensor : MonoBehaviour
         }
         if (fireInSight)
         {
-            playerStress += 10 * stressModifier;
+            playerStress += 15 * stressModifier;
         }
         if(touchingFire)
         {
@@ -292,9 +292,7 @@ public class Sensor : MonoBehaviour
         {
             GameObject obj = colliders[i].gameObject;
             objectsInRange.Add(obj);
-            if (obj.tag == "Smoke"){
-                smokeCount++;
-            }
+            
             if (obj.tag == "Fire" && nearbyFire==false)
             {
                 Debug.Log("FUEGO");
@@ -308,9 +306,13 @@ public class Sensor : MonoBehaviour
                 {
                     fireInSight = true;
                 }
+                if (obj.tag == "Smoke")
+                {
+                    smokeCount++;
+                }
             }
         }
-        if (smokeCount>=15)
+        if (smokeCount>=3)
         {
             nearbySmoke=true;
         }

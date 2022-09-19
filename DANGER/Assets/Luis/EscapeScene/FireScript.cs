@@ -11,12 +11,10 @@ public class FireScript : MonoBehaviour
     private int x;
     private int z;
     private FireGeneration fireData;
-    private float firePropagationTime;
     void Start()
     {
         if (propagateFire)
         {
-            firePropagationTime = 5f;
             fireData = GameObject.FindGameObjectWithTag("GameController").GetComponent<FireGeneration>();
             StartCoroutine(startFire());
         }

@@ -13,6 +13,7 @@ public class KeysTutorial : MonoBehaviour
     void Start()
     {
         hasSeenSmoke = false;
+        playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<Sensor>();
     }
 
     // Update is called once per frame
